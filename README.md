@@ -1,7 +1,7 @@
  > As you complete each section you **must** remove the prompt text. Every *turnin* of this project includes points for formatting of this README so keep it clean and keep it up to date. 
  > Prompt text is any lines beginning with "\>"
  > Replace anything between \<...\> with your project specifics and remove angle brackets. For example, you need to name your project and replace the header right below this line with that title (no angle brackets). 
-# \UCRPG\
+# UCRPG
  > Your author list below should include links to all members GitHub (remove existing author).
  
  > Authors: \<[Dylan Fragante](https://github.com/sandy2304)\>
@@ -41,10 +41,12 @@
  >   * Input: Different keys to interact with the game. Keyboard strings.
  >   * Output: Text from player's input. ASCII pictures based on different events.
  > * Design Patterns
- >   * Abstract Factory
+ >   * Abstract Factory 
+ 
+ >    We picked this pattern because it deals with creation of multiple entities that share the same traits but are specifically different. This can be used to create different multiple types of enemies/areas/classes. The different departments could have their own parent classes and we can make sub classes of that parent class to create multiple types of the same enemy, but with different numbers. This design pattern will solve the problem of creation of many classes with the same traits.
  >   * Builder 
  
- >   The builder pattern allows to organize object construction into a set of steps. We picked this pattern because with the creation of many different characters some will have different aspects but generally the same base with additions based on what they are. The additions could be like whether they have a weapon or not, whether they can wield magic, etc but they will all have stats and such. In order to prevent making many of the same instances of it causing slower time, we can just make the builder so that the creation is quick and easy to implement into the game without excess work. 
+ >    The builder pattern allows to organize object construction into a set of steps. We picked this pattern because with the creation of many different characters some will have different aspects but generally the same base with additions based on what they are. The additions could be like whether they have a weapon or not, whether they can wield magic, etc but they will all have stats and such. In order to prevent making many of the same instances of it causing slower time, we can just make the builder so that the creation is quick and easy to implement into the game without excess work. 
 
  > ## Phase II
  > In addition to completing the "Class Diagram" section below, you will need to 

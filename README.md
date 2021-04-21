@@ -40,7 +40,6 @@
  > * Input/Output
  >   * Input: Different keys to interact with the game. Keyboard strings.
  >   * Output: Text from player's input. ASCII pictures based on different events.
-
  > * Design Patterns 
  >   * Abstract Factory 
  >     * The abstract factory pattern will help with the creation of multiple entities that share the same traits but are specifically different to one another. This can be used to create different multiple types of enemies, areas, or classes. The different departments could have their own parent classes and we can make sub classes of that parent class to create multiple types of the same enemy, but with different statistics. This design pattern will solve the problem of creation of many classes with the same traits.

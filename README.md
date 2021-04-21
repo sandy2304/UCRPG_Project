@@ -2,8 +2,7 @@
  > Prompt text is any lines beginning with "\>"
  > Replace anything between \<...\> with your project specifics and remove angle brackets. For example, you need to name your project and replace the header right below this line with that title (no angle brackets). 
 # UCRPG
- > Your author list below should include links to all members GitHub (remove existing author).
- 
+
  > Authors: \<[Dylan Fragante](https://github.com/sandy2304)\>
             \<[David Tellez](https://github.com/Davtellez01)\>
             \<[Alexander Trejo](https://github.com/trejotrejotrejo)\>
@@ -12,7 +11,7 @@
  > * This is an RPG based on UCR campus and its different departments.
  > * We think that this project would be fun and engaging to do. 
  > * Languages/tools/technologies
- >   * [c++] - to code the game.
+ >   * [C++] - to code the game.
  >   * [Image to ASCII converter](https://manytools.org/hacker-tools/convert-images-to-ascii-art/) - converts images into ASCII characters to implement into the code.
  > * Input/Output
  >   * Input: Different keys to interact with the game. Keyboard strings.

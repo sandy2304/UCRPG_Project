@@ -42,11 +42,11 @@
  >   * Output: Text from player's input. ASCII pictures based on different events.
  > * Design Patterns
  
- > * Abstract Factory 
- >    The abstract factory pattern will help with the creation of multiple entities that share the same traits but are specifically different to one another. This can be used to create different multiple types of enemies, areas, or classes. The different departments could have their own parent classes and we can make sub classes of that parent class to create multiple types of the same enemy, but with different statistics. This design pattern will solve the problem of creation of many classes with the same traits.
+ >   * Abstract Factory 
+ >     * The abstract factory pattern will help with the creation of multiple entities that share the same traits but are specifically different to one another. This can be used to create different multiple types of enemies, areas, or classes. The different departments could have their own parent classes and we can make sub classes of that parent class to create multiple types of the same enemy, but with different statistics. This design pattern will solve the problem of creation of many classes with the same traits.
 
  >   * Builder 
- >    The builder pattern allows us to organize object construction into a set of steps. We picked this pattern because with the creation of many different characters, some will have different aspects but will derive from the same base, along with additions based on what they are. The additions could range from whether the player / enemy has a weapon or not, whether they can wield magic, etc., but each character will have statistics from the same class. In order to prevent making many of the same instances of it which will lead to slower development time, we can just use the builder pattern so that the creation is quick and easy to implement into the game without excess work. 
+ >     * The builder pattern allows us to organize object construction into a set of steps. We picked this pattern because with the creation of many different characters, some will have different aspects but will derive from the same base, along with additions based on what they are. The additions could range from whether the player / enemy has a weapon or not, whether they can wield magic, etc., but each character will have statistics from the same class. In order to prevent making many of the same instances of it which will lead to slower development time, we can just use the builder pattern so that the creation is quick and easy to implement into the game without excess work. 
 
  > ## Phase II
  > In addition to completing the "Class Diagram" section below, you will need to 

@@ -43,6 +43,7 @@
  > * Design Patterns
  >   * Abstract Factory
  >   * Builder 
+ >   The builder pattern allows to organize object construction into a set of steps. We picked this pattern because with the creation of many different characters some will have different aspects but generally the same base with additions based on what they are. The additions could be like whether they have a weapon or not, whether they can wield magic, etc but they will all have stats and such. In order to prevent making many of the same instances of it causing slower time, we can just make the builder so that the creation is quick and easy to implement into the game without excess work. 
 
  > ## Phase II
  > In addition to completing the "Class Diagram" section below, you will need to 

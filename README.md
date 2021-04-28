@@ -1,26 +1,23 @@
- > As you complete each section you **must** remove the prompt text. Every *turnin* of this project includes points for formatting of this README so keep it clean and keep it up to date. 
- > Prompt text is any lines beginning with "\>"
- > Replace anything between \<...\> with your project specifics and remove angle brackets. For example, you need to name your project and replace the header right below this line with that title (no angle brackets). 
 # UCRPG
 
- > Authors: \[Dylan Fragante](https://github.com/sandy2304)\
-            \[David Tellez](https://github.com/Davtellez01)\
-            \[Alexander Trejo](https://github.com/trejotrejotrejo)\
+ > Authors: [Dylan Fragante](https://github.com/sandy2304),
+            [David Tellez](https://github.com/Davtellez01),
+            [Alexander Trejo](https://github.com/trejotrejotrejo)
  
  ## Project Description
-  * This is an RPG based on UCR campus and its different departments.
-  * We think that this project would be fun and engaging to do. 
-  ### Languages/tools/technologies
-    * [C++] - to code the game.
-    * [Image to ASCII converter](https://manytools.org/hacker-tools/convert-images-to-ascii-art/) - converts images into ASCII characters to implement into the code.
-  ### Input/Output
-    * Input: Different keys to interact with the game. Keyboard strings.
-    * Output: Text from player's input. ASCII pictures based on different events.
-  ### Design Patterns 
-    #### Abstract Factory 
-      * The abstract factory pattern will help with the creation of multiple entities that share the same traits but are specifically different to one another. This can be used to create different multiple types of enemies, areas, or classes. The different departments could have their own parent classes and we can make sub classes of that parent class to create multiple types of the same enemy, but with different statistics. This design pattern will solve the problem of creation of many classes with the same traits.
-    #### Builder 
-      * The builder pattern allows us to organize object construction into a set of steps. We picked this pattern because with the creation of many different characters, some will have different aspects but will derive from the same base, along with additions based on what they are. The additions could range from whether the player / enemy has a weapon or not, whether they can wield magic, etc., but each character will have statistics from the same class. In order to prevent making many of the same instances of it which will lead to slower development time, we can just use the builder pattern so that the creation is quick and easy to implement into the game without excess work. 
+ * This is an RPG based on UCR campus and its different departments.
+ * We think that this project would be fun and engaging to do. 
+ ### Languages/tools/technologies
+ * [C++] - to code the game.
+ * [Image to ASCII converter](https://manytools.org/hacker-tools/convert-images-to-ascii-art/) - converts images into ASCII characters to implement into the code.
+ ### Input/Output
+ * Input: Different keys to interact with the game. Keyboard strings.
+ * Output: Text from player's input. ASCII pictures based on different events.
+ ### Design Patterns 
+ #### Abstract Factory 
+ * The abstract factory pattern will help with the creation of multiple entities that share the same traits but are specifically different to one another. This can be used to create different multiple types of enemies, areas, or classes. The different departments could have their own parent classes and we can make sub classes of that parent class to create multiple types of the same enemy, but with different statistics. This design pattern will solve the problem of creation of many classes with the same traits.
+#### Builder 
+* The builder pattern allows us to organize object construction into a set of steps. We picked this pattern because with the creation of many different characters, some will have different aspects but will derive from the same base, along with additions based on what they are. The additions could range from whether the player / enemy has a weapon or not, whether they can wield magic, etc., but each character will have statistics from the same class. In order to prevent making many of the same instances of it which will lead to slower development time, we can just use the builder pattern so that the creation is quick and easy to implement into the game without excess work. 
 
  > ## Phase II
  > In addition to completing the "Class Diagram" section below, you will need to 

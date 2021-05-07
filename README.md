@@ -16,9 +16,7 @@
  ### Design Patterns 
  #### Abstract Factory 
  * The abstract factory pattern will help with the creation of multiple entities that share the same traits but are specifically different to one another. This can be used to create different multiple types of enemies, areas, or classes. The different departments could have their own parent classes and we can make sub classes of that parent class to create multiple types of the same enemy, but with different statistics. This design pattern will solve the problem of creation of many classes with the same traits.
-#### Builder 
-* The builder pattern allows us to organize object construction into a set of steps. We picked this pattern because with the creation of many different characters, some will have different aspects but will derive from the same base, along with additions based on what they are. The additions could range from whether the player / enemy has a weapon or not, whether they can wield magic, etc., but each character will have statistics from the same class. In order to prevent making many of the same instances of it which will lead to slower development time, we can just use the builder pattern so that the creation is quick and easy to implement into the game without excess work. 
-### Strategy
+#### Strategy
 * The strategy pattern will be useful with the creation of different attacks for the player and enemies. For example, we can create a context of attacks, and have different strategies of attacks like, slash, poison, fireball. Another context would be skills, and the different strategies with could be how player's or enemy's stats like attack power, defense, or skill points are affected. This strategy pattern will help reduce the burden of modifying a main class whenever we want to add another type of attack or skill. Instead of modifying a main class, we can just add more classes that have a common interface whenever we would want to add skills/attacks.
 
  > ## Phase II

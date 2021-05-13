@@ -20,7 +20,6 @@ class Entity{
 	}
 	virtual ~Entity(){};	
 
-
  	string getName(){return Name;}
 	string getSchool(){return School;}
 	double getHP(){return HP;}
@@ -31,6 +30,12 @@ class Entity{
 	int getLevel(){return Level;}
 	int getGold(){return Gold;}
 	
+	void getDamage(double damage){
+		HP = HP  - damage;
+		if(HP <= 0.0){
+			HP = 0.0;
+		}
+	}
 	void showStats(){
 		cout << "============================" << endl;
 		cout << "Name: " << Name << endl << 
@@ -41,7 +46,7 @@ class Entity{
 		cout << "============================" << endl;
 	}
 
-	//virtual void attack() const = 0;
+	virtual void attack(Entity*) const = 0;
 };
 
 #endif //Entity

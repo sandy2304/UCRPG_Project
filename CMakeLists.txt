@@ -4,6 +4,10 @@ SET(CMAKE_CXX_STANDARD 11)
 
 ADD_SUBDIRECTORY(googletest)
 
+ADD_EXECUTABLE(folder_test
+   file_practice.cpp 
+)
+
 
 ADD_EXECUTABLE(main_test
     main_test.cpp

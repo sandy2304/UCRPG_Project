@@ -5,6 +5,7 @@
 #include "character/GSE.hpp"
 #include "character/SB.hpp"
 #include "character/SM.hpp"
+#include "weapons/weapon.hpp"
 
 #include <iostream>
 

@@ -7,18 +7,18 @@ class BCOE_Entity : public Entity{
 	public:
 		BCOE_Entity(string name, int lvl, int type):Entity(name, "BCOE", lvl, type){
 			if(type == 1){
-				HP = 100 * lvl - .5;
-				ATK = 20 * lvl - .5;
-				DEF = 10 * lvl - .5;
-				INT = 5 * lvl - .5;
+				HP = 80 * lvl - .5;
+				ATK = 25 * lvl - .5;
+				DEF = 20 * lvl - .5;
+				INT = 25 * lvl - .5;
 				MP = 20 * lvl - .5;
 				Gold = 100 * lvl;
 			}
 			else{
-				HP = 100 * lvl;
-				ATK = 20 * lvl;
-				DEF = 10 * lvl;
-				INT = 5 * lvl;
+				HP = 80 * lvl;
+				ATK = 25 * lvl;
+				DEF = 20 * lvl;
+				INT = 25 * lvl;
 				MP = 20 * lvl;
 				Gold = 100 * lvl;
 	

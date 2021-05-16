@@ -6,6 +6,12 @@
 #include "character/SB.hpp"
 #include "character/SM.hpp"
 #include "weapons/weapon.hpp"
+#include "weapons/BCOE_Weapon.hpp"
+#include "weapons/CHASS_Weapon.hpp"
+#include "weapons/CNAS_Weapon.hpp"
+#include "weapons/GSE_Weapon.hpp"
+#include "weapons/SB_Weapon.hpp"
+#include "weapons/SM_Weapon.hpp"
 
 #include <iostream>
 
@@ -18,13 +24,16 @@ int main(){
 	Entity* player4 = new GSE_Entity("Bruh",2, 2);
 	Entity* player5 = new SB_Entity("Sheesh",7,2);
 	Entity* player6 = new SM_Entity("pp", 8, 1);
+	Weapon* weapon = new BCOE_Weapon();
+	weapon->weaponDetails();
+
 	
-	player1->showStats();
-  	player2->showStats();
-	player3->showStats();
-	player4->showStats();
-	player5->showStats();
-	player6->showStats();
+	//player1->showStats();
+  	//player2->showStats();
+	//player3->showStats();
+	//player4->showStats();
+	//player5->showStats();
+	//player6->showStats();
 
 	return 0;
 }

@@ -13,7 +13,7 @@ class CNAS_Weapon: public Weapon{
 		
 		virtual void weaponDetails() const{
 			cout << "Weapon Name: " << name << endl;
-			cout << "With the Radioactive Pencil, your enemy takes damage each time you attack or use an ability" <<  endl;
+			cout << "With the Radioactive Pencil, your enemy takes extra damage each time you attack or use an ability" <<  endl;
 		}
 };
 

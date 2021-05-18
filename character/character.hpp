@@ -40,15 +40,15 @@ class Entity{
 		}
 	}
 	void showStats(){
-		cout << "============================" << endl;
-		cout << "Name: " << Name << endl << 
-		"School: " << School << endl << "HP: " << HP 
-		<< endl << "MP: " << MP << endl << "ATK: " << ATK << endl 
+		cout << "===================================CHARACTER-DETAILS=====================================" << endl;
+		cout << "Name  : " << Name << endl << "Level : " << Level << endl << 
+		"School: " << School << endl << "HP : " << HP 
+		<< endl << "MP : " << MP << endl << "ATK: " << ATK << endl 
 		<<  "DEF: " << DEF << 
 		endl << "INT: " << INT << endl;
-		cout << "===========WEAPON===========" << endl;
+		cout << "----------------------------------------WEAPON-------------------------------------------" << endl;
 		charWeapon->weaponDetails();
-		cout << "============================" << endl;
+		cout << "=========================================================================================" << endl;
 	}
 
 	virtual void attack(Entity*) const = 0;

@@ -7,7 +7,7 @@ using namespace std;
 
 class CNAS_Weapon: public Weapon{
 	public:
-		CNAS_Weapon():Weapon(){
+		CNAS_Weapon(int num):Weapon(num){
 			name = adj + " Radioactive Pencil";
 		}
 		

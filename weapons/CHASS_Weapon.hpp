@@ -7,7 +7,7 @@ using namespace std;
 
 class CHASS_Weapon: public Weapon{
 	public:
-		CHASS_Weapon():Weapon(){
+		CHASS_Weapon(int num):Weapon(num){
 			name = adj + " Pen";
 		}
 		

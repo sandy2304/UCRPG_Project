@@ -7,7 +7,7 @@ using namespace std;
 
 class SB_Weapon: public Weapon{
 	public:
-		SB_Weapon():Weapon(){
+		SB_Weapon(int num):Weapon(num){
 			name = adj + " E-Wallet";
 		}
 		

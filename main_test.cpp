@@ -26,8 +26,8 @@ int main(){
 	//Entity* player6 = new SM_Entity("pp", 8, 1);
 	//Weapon* weapon = new BCOE_Weapon(1);
 	//weapon->weaponDetails();
-	Character_Factory* Factory = new BCOE_Factory();
-	Entity* player1 = Factory->createCharacter("Dylan", 1, 1);
+	Entity_Factory* Factory = new CHASS_Factory();
+	Entity* player1 = Factory->createEntity("Dylan", 6, 2);
 	player1->showStats();
 	
 	//player1->showStats();

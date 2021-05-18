@@ -6,6 +6,7 @@
 #include "character/SB.hpp"
 #include "character/SM.hpp"
 #include "weapons/weapon.hpp"
+#include "save/save.hpp"
 #include "weapons/BCOE_Weapon.hpp"
 #include "weapons/CHASS_Weapon.hpp"
 #include "weapons/CNAS_Weapon.hpp"
@@ -18,6 +19,7 @@
 using namespace std;
 
 int main(){
+	ResetGame();	
 	//Entity* player1 = new BCOE_Entity("Dylan", 3,1);
    	//Entity* player2 = new CHASS_Entity("David", 3,2);
 	//Entity* player3 = new CNAS_Entity("Deez", 3,1);

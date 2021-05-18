@@ -2,7 +2,6 @@
 
 #include <iostream>
 
-
 TEST(testForTest, test){
 	int num = 1;
 	EXPECT_EQ(num, 1);	

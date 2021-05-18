@@ -7,7 +7,7 @@ using namespace std;
 
 class SM_Weapon: public Weapon{
 	public:
-		SM_Weapon():Weapon(){
+		SM_Weapon(int num):Weapon(num){
 			name = adj + " Syringe";
 		}
 		

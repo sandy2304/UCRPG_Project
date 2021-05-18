@@ -18,12 +18,17 @@ class Weapon{
 		
 	public:
 		~Weapon(){};
-		Weapon(){
+		Weapon(int n){
 			vector<string> adjectives = {"Doo-doo", "Trash", "Broke","99-Cent Store", 
 						    "Walmart", "Office Depot", "Rich", "The Dean's"};
 			
 			srand(time(NULL));
-			int num = rand() % 3;
+			int num;
+			if(n <= 3){
+				num = rand() % 3;
+			}else{
+			  	num = n;
+			}
 			adj = adjectives.at(num);
 			statBoost = 2 * num;
 			name = adj + " Monkey Brain";

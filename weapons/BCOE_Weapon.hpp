@@ -7,7 +7,7 @@ using namespace std;
 
 class BCOE_Weapon: public Weapon{
 	public:
-		BCOE_Weapon():Weapon(){
+		BCOE_Weapon(int num):Weapon(num){
 			name = adj + " Laptop";
 		}
 		

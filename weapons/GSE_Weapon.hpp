@@ -1,13 +1,13 @@
-#ifndef __BCOE_Weapon__
-#define __BCOE_Weapon__
+#ifndef __GSE_Weapon__
+#define __GSE_Weapon__
 
 #include "weapon.hpp"
 
 using namespace std;
 
-class BCOE_Weapon: public Weapon{
+class GSE_Weapon: public Weapon{
 	public:
-		BCOE_Weapon():Weapon(){
+		GSE_Weapon(int num):Weapon(num){
 			name = adj + " Clipboard";
 		}
 		

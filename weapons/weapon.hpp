@@ -14,20 +14,30 @@ class Weapon{
 		int statBoost = 0;
 		vector<string> adjectives = {"Doo-doo", "Trash", "Broke","99-Cent Store", 
 					     "Walmart", "Office Depot", "Rich", "The Dean's"};
-
+		string adj;
+		
 	public:
 		~Weapon(){};
-		Weapon(){
+		Weapon(int n){
 			vector<string> adjectives = {"Doo-doo", "Trash", "Broke","99-Cent Store", 
 						    "Walmart", "Office Depot", "Rich", "The Dean's"};
 			
 			srand(time(NULL));
-			int num = rand() % 3;
-			name = adjectives.at(num) + "Monkey Brain";
+			int num;
+			if(n <= 3){
+				num = rand() % 3;
+			}else{
+			  	num = n;
+			}
+			adj = adjectives.at(num);
 			statBoost = 2 * num;
+			name = adj + " Monkey Brain";
 		}
+
+		string getName(){return name;}
+		int getStat(){return statBoost;}
  
-		//virtual void weaponDetails(){} = 0;
+		virtual void weaponDetails()const = 0;
 		//virtual void uniquePassive(){} = 0;
 		//virtual void upgradeWeapon(){} = 0;
 };

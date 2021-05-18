@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include "../weapons/weapon.hpp"
 
 using namespace std;
 
@@ -12,6 +13,7 @@ class Entity{
 	string Name = "", School = "";
 	double HP = 0.0, ATK = 0.0, DEF = 0.0, INT = 0.0, MP = 0.0;
 	int Level = 0, Gold = 0;
+	Weapon* charWeapon = nullptr;
     public:
 	Entity(string name, string school, int lvl, int type){
 		Name = name;
@@ -30,6 +32,7 @@ class Entity{
 	int getLevel(){return Level;}
 	int getGold(){return Gold;}
 	
+	void setWeapon(Weapon* wpn){charWeapon = wpn;}
 	void getDamage(double damage){
 		HP = HP  - damage;
 		if(HP <= 0.0){
@@ -43,6 +46,8 @@ class Entity{
 		<< endl << "MP: " << MP << endl << "ATK: " << ATK << endl 
 		<<  "DEF: " << DEF << 
 		endl << "INT: " << INT << endl;
+		cout << "===========WEAPON===========" << endl;
+		charWeapon->weaponDetails();
 		cout << "============================" << endl;
 	}
 

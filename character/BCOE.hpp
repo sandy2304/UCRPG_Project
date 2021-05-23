@@ -26,7 +26,6 @@ class BCOE_Entity : public Entity{
 		}
 
 		virtual void attack(Entity* enemy) const{
-			enemy->getDamage(ATK);
 			cout << Name << " hacked " << enemy->getName() << endl;
 		}
 

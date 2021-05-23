@@ -12,14 +12,12 @@ class Weapon{
 	protected:
 		string name = "";
 		double statBoost = 0;
-		//vector<string> adjectives = {"Doo-doo", "Trash", "Broke","99-Cent Store", 
-		//			     "Walmart", "Office Depot", "Rich", "The Dean's"};
 		string adj;
 		
 	public:
 		~Weapon(){};
 		Weapon(int n){
-			vector<string> adjectives = {"Doo-doo", "Trash", "Broke","99-Cent Store","Mc-Donalds", 
+			vector<string> adjectives = {"Dog-water", "Trash", "Broke","99-Cent Store","Mc-Donalds", 
 						    "Walmart", "Office Depot", "Rich", "The Dean's"};
 			
 			srand(time(NULL));

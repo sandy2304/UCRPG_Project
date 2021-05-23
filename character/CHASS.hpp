@@ -26,7 +26,6 @@ class CHASS_Entity : public Entity{
 		}
 
 		virtual void attack(Entity* enemy) const{
-			enemy->getDamage(ATK);
 			cout << Name << " argued and won against  " << enemy->getName() << endl;
 		}
 

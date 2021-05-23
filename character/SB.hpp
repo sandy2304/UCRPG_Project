@@ -26,7 +26,6 @@ class SB_Entity : public Entity{
 		}
 
 		virtual void attack(Entity* enemy) const{
-			enemy->getDamage(ATK);
 			cout << Name << " lied and told " << enemy->getName() << " Shiba Coin was going to the moon " << endl;
 		}
 

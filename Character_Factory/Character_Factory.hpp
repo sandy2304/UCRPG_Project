@@ -1,6 +1,7 @@
 #ifndef __CHARACTER_FACTORY__
 #define __CHARACTER_FACTORY__
 
+#include "../character/character.hpp"
 #include "../character/BCOE.hpp"
 #include "../character/BCOE.hpp"
 #include "../character/CHASS.hpp"
@@ -15,6 +16,7 @@
 #include "../weapons/GSE_Weapon.hpp"
 #include "../weapons/SB_Weapon.hpp"
 #include "../weapons/SM_Weapon.hpp"
+#include "../skills/Skill.hpp"
 #include <iostream>
 #include <string>
 

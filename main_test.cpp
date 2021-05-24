@@ -15,6 +15,7 @@
 #include "weapons/SM_Weapon.hpp"
 #include "Character_Factory/Character_Factory.hpp"
 #include "skills/Skill.hpp"
+#include "skills/BCOE_Skill.hpp"
 #include <iostream>
 
 using namespace std;

@@ -23,6 +23,8 @@ class CNAS_Entity : public Entity{
 				Gold = 100 * lvl;
 	
 			}
+			maxHP = HP;
+			maxMP = MP;
 		}
 
 		virtual void attack(Entity* enemy) const{

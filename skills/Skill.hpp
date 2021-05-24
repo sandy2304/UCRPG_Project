@@ -3,19 +3,21 @@
 
 #include "../character/character.hpp"
 #include <iostream>
+#include <string>
+#include <stdlib.h>
+#include <time.h>
 using namespace std;
 
 class Entity;
 	
 class Skill{
 	protected:
-		Entity* attacker = nullptr;
-		Entity* reciever = nullptr;
+		Entity* atk = nullptr;
+		Entity* rec = nullptr;
 	public:
-		Skill(){}
-		Skill(Entity* att, Entity* rec){
-			attacker = att;
-			reciever = rec;
+		Skill(Entity* att, Entity* recv){
+			atk = att;
+			rec = recv;
 		}
 	
 		~Skill(){}

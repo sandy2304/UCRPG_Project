@@ -13,6 +13,7 @@ class Entity{
     protected:
 	string Name = "", School = "";
 	double HP = 0.0, ATK = 0.0, DEF = 0.0, INT = 0.0, MP = 0.0;
+	double maxHP = 0.0, maxMP = 0.0;
 	int Level = 0, Gold = 0;
 	Weapon* charWeapon = nullptr;
 	Skill* skill = nullptr;
@@ -29,6 +30,8 @@ class Entity{
  	string getName(){return Name;}
 	string getSchool(){return School;}
 	double getHP(){return HP;}
+	double getmaxHP(){return maxHP;}
+	double getmaxMP(){return maxMP;}
 	double getATK(){return ATK;}
 	double getDEF(){return DEF;}
 	double getINT(){return INT;}
@@ -40,10 +43,26 @@ class Entity{
 	void setHP(double hp, int mode){
 		if(mode == 1){
 			HP = HP + hp;
+			if(HP >= maxHP){
+				HP = maxHP;
+			}
 		}else{
 			HP = HP  - hp;
 			if(HP <= 0.0){
 				HP = 0.0;
+			}
+		}
+	}
+	void setMP(double mp, int mode){
+		if(mode == 1){
+			MP = MP + mp;
+			if(MP >= maxMP){
+				mp = maxMP;
+			}
+		}else{
+			MP = MP - mp;
+			if(MP <= 0.0){
+				MP = 0.0;
 			}
 		}
 	}

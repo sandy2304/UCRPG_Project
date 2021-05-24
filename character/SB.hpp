@@ -23,6 +23,9 @@ class SB_Entity : public Entity{
 				Gold = 150 * lvl;
 	
 			}
+			maxHP = HP;
+			maxMP = MP;
+			
 		}
 
 		virtual void attack(Entity* enemy) const{

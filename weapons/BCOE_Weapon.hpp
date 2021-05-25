@@ -15,6 +15,10 @@ class BCOE_Weapon: public Weapon{
 			cout << "Weapon Name: " << name << endl;
 			cout << "With a Laptop, the lower your health is, the more damage you will do." << endl;
 		}
+		
+		virtual void weaponPassive(Entity* atk, Entity* def){
+			cout << atk->getName() << "'s " << name << " dealt extra damage to " << def->getName() << endl;
+		}
 };
 
 #endif

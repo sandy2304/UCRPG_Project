@@ -15,6 +15,10 @@ class CHASS_Weapon: public Weapon{
 			cout << "Weapon Name: " << name << endl;
 			cout << "With a Pen, you have a chance to rewrite your stats to be better or worse." << endl;
 		}
+		
+		virtual void weaponPassive(Entity* atk, Entity* def){
+			cout << atk->getName() << "re-wrote thier <stat> from to <newStat>" << endl;
+		}
 };
 
 #endif

@@ -15,6 +15,10 @@ class SB_Weapon: public Weapon{
 			cout << "Weapon Name: " << name << endl;
 			cout << "With the E-Wallet, you have a chance of stealing Bear-Bucks with each attack." << endl;
 		}
+		
+		virtual void weaponPassive(Entity* atk, Entity* rec){
+			cout << atk->getName() << " stole <money> from " << rec->getName() << endl;
+		}
 };
 
 #endif

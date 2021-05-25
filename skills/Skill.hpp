@@ -11,18 +11,9 @@ using namespace std;
 class Entity;
 	
 class Skill{
-	protected:
-		Entity* atk = nullptr;
-		Entity* rec = nullptr;
 	public:
-		Skill(Entity* att, Entity* recv){
-			atk = att;
-			rec = recv;
-		}
-	
-		~Skill(){}
-			
-		virtual void do_Skill() = 0;
+		Skill(){}
+		virtual void do_Skill(Entity*, Entity*) = 0;
 
 		
 };

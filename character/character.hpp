@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cmath>
 #include "../weapons/weapon.hpp"
 #include "../skills/Skill.hpp"
 
@@ -132,7 +133,28 @@ class Entity{
 		charWeapon->weaponDetails();
 		cout << "=========================================================================================" << endl;
 	}
-	
+	void showMPHP(){
+		int hp = round((HP/maxHP) * 10 * 2);
+		int mp = round((MP/maxMP) * 10 * 2);
+		int counter;
+		
+		for(int i = 0; i < 2; i++){
+			if(i == 0){
+				cout << "HP: ||";
+				counter = hp;
+			}else{
+				cout << "MP: ||";
+				counter = mp;
+			}
+			for(int j = 0; j < counter; j++){
+				cout << "O";
+			}
+			for(int k = 0; k < (20 - counter);k++){
+				cout << "-";
+			}
+			cout << "||" << endl;		
+		}	
+	}
 	virtual void attack(Entity* enemy) const = 0;
 };
 

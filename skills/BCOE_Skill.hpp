@@ -8,9 +8,9 @@ using namespace std;
 //This skill heals the character based on the amount of helath lost
 class Debug: public Skill{
 	public:
-		Debug(Entity* atkr, Entity* recv):Skill(atkr,recv){}
+		Debug():Skill(){}
 	
-		virtual void do_Skill(){
+		virtual void do_Skill(Entity* atk, Entity* rec){
 			//What is the skill going to do
 			double hpGain = (atk->getmaxHP() - (atk->getHP() * .50));
 			double mpLoss = (atk->getmaxMP() * .50);
@@ -28,9 +28,9 @@ class Debug: public Skill{
 //This skill deals a flat amount of damage based on the character's level
 class Sabotage: public Skill{
 	public:
-		Sabotage(Entity* atkr, Entity* recv):Skill(atkr,recv){}
+		Sabotage():Skill(){}
 		
-		virtual void do_Skill(){
+		virtual void do_Skill(Entity* atk, Entity* rec){
 			//What is the skill going to do
 			double damageDone = (atk->getLevel() * 20.0);
 			double mpLoss= (8.0 * atk->getLevel()) - rec->getDEF() * .25;
@@ -45,9 +45,9 @@ class Sabotage: public Skill{
 
 class Faulty_Circuit: public Skill{
 	public:
-		Faulty_Circuit(Entity* atkr, Entity* recv):Skill(atkr,recv){}
+		Faulty_Circuit():Skill(){}
 		
-		virtual void do_Skill(){
+		virtual void do_Skill(Entity* atk, Entity* rec){
 			//What is the skill going to do
 			double mpLoss= (6.0 * atk->getLevel());
 			srand(time(NULL));

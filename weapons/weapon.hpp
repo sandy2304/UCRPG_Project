@@ -1,6 +1,7 @@
 #ifndef __WEAPON__
 #define __WEAPON__
 
+#include "../character/character.hpp"
 #include <string>
 #include <vector>
 #include <iostream>
@@ -8,6 +9,7 @@
 
 using namespace std;
 
+class Entity;
 class Weapon{
 	protected:
 		string name = "";
@@ -38,7 +40,7 @@ class Weapon{
 		int getStat(){return statBoost;}
  
 		virtual void weaponDetails()const = 0;
-		//virtual void uniquePassive(){} = 0;
+		virtual void weaponPassive(Entity* atk, Entity* def) = 0;
 		//virtual void upgradeWeapon(){} = 0;
 };
 

@@ -15,6 +15,10 @@ class CNAS_Weapon: public Weapon{
 			cout << "Weapon Name: " << name << endl;
 			cout << "With the Radioactive Pencil, your enemy takes extra damage each time you attack or use an ability" <<  endl;
 		}
+		
+		virtual void weaponPassive(Entity* atk, Entity* rec){
+			cout << atk->getName() << "'s " << name << "did <damage> to " << rec->getName() << endl;	
+		}
 };
 
 #endif

@@ -15,6 +15,10 @@ class SM_Weapon: public Weapon{
 			cout << "Weapon Name: " << name << endl;
 			cout << "With a Syringe, you heal as you attack, aka life steal." << endl;
 		}
+		
+		virtual void weaponPassive(Entity* atk, Entity* rec){
+			cout << atk->getName() << "healed <number> hp" << endl;	
+		} 
 };
 
 #endif

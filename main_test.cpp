@@ -30,9 +30,13 @@ int main(){
 	//Entity* player6 = new SM_Entity("pp", 8, 1);
 	//Weapon* weapon = new BCOE_Weapon(1);
 	//weapon->weaponDetails();
-	Entity_Factory* Factory = new CHASS_Factory();
-	Entity* player1 = Factory->createEntity("Dylan", 6, 2);
-	player1->showStats();
+	Entity_Factory* Factory = new BCOE_Factory();
+	Entity* player1 = Factory->createEntity("Dylan", 1, 2);
+	Entity* player2 = Factory->createEntity("Angel", 1,2);
+	player1->showMPHP();
+
+	player2->attack(player1);
+	player1->showMPHP();
 	
 	//player1->showStats();
   	//player2->showStats();

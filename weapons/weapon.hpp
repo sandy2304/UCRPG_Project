@@ -6,7 +6,8 @@
 #include <vector>
 #include <iostream>
 #include <stdlib.h>
-
+#include <time.h>
+#include <cmath>
 using namespace std;
 
 class Entity;
@@ -18,17 +19,17 @@ class Weapon{
 		
 	public:
 		~Weapon(){};
-		Weapon(int n){
+		Weapon(int lvl){
 			vector<string> adjectives = {"Dog-water", "Trash", "Broke","99-Cent Store","Mc-Donalds", 
 						    "Walmart", "Office Depot", "Rich", "The Dean's"};
 			
 			srand(time(NULL));
 			int num;
-			if(n <= 2){
+			if(lvl <= 2){
 				num = (rand() % 3);
-			}else if((n >= 3) && (n <= 4)){
+			}else if((lvl >= 3) && (lvl <= 4)){
 			  	num = (rand() % 3) + 3;
-			}else if((n >= 5) && (n <= 6)){
+			}else if((lvl >= 5) && (lvl <= 6)){
 				num = (rand() % 3) + 6;
 			}
 			adj = adjectives.at(num);

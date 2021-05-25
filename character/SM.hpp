@@ -27,9 +27,6 @@ class SM_Entity : public Entity{
 			maxMP = MP;
 		}
 
-		virtual void attack(Entity* enemy) const{
-			cout << Name << " gave " << enemy->getName() << " the Johnson and Johsnson vaccine " <<  endl;
-		}
 
 };
 

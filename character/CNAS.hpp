@@ -27,9 +27,6 @@ class CNAS_Entity : public Entity{
 			maxMP = MP;
 		}
 
-		virtual void attack(Entity* enemy) const{
-			cout << Name << " threw seeds at " << enemy->getName() << " dealing " << ATK << endl;
-		}
 
 };
 

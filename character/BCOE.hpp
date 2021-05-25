@@ -27,11 +27,6 @@ class BCOE_Entity : public Entity{
 			maxMP = MP;
 		}
 
-		virtual void attack(Entity* enemy) const{
-			enemy->setHP(20.0, 2);
-			cout << Name << " hacked " << enemy->getName() << endl;
-		}
-
 };
 
 #endif 

@@ -27,10 +27,6 @@ class GSE_Entity : public Entity{
 			maxMP = MP;
 		}
 
-		virtual void attack(Entity* enemy) const{
-			cout << Name << " bamboozeld and did a 500 iq attack on " << enemy->getName() << endl;
-		}
-
 };
 
 #endif 

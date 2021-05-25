@@ -16,7 +16,7 @@ class Entity{
 	double HP = 0.0, ATK = 0.0, DEF = 0.0, INT = 0.0, MP = 0.0;
 	double maxHP = 0.0, maxMP = 0.0;
 	int Level = 0, Gold = 0;
-	Weapon* charWeapon = nullptr;
+	Weapon* weapon = nullptr;
 	Skill* skill = nullptr;
 	vector<string> skillList;
     public:
@@ -109,10 +109,10 @@ class Entity{
 	}
 	//WEAPON FUNCTIONS--------------------
 	void setWeapon(Weapon* wpn){
-		delete charWeapon;
-		charWeapon = wpn;
+		delete weapon;
+		weapon = wpn;
 	}
-	Weapon* getWeapon(){return charWeapon;}
+	Weapon* getWeapon(){return weapon;}
 	//------------------------------------
 	//SKILL FUNCTIONS--------------------
 	void setSkill(Skill* newSkill){
@@ -130,14 +130,14 @@ class Entity{
 		<<  "DEF: " << DEF << 
 		endl << "INT: " << INT << endl;
 		cout << "----------------------------------------WEAPON-------------------------------------------" << endl;
-		charWeapon->weaponDetails();
+		weapon->weaponDetails();
 		cout << "=========================================================================================" << endl;
 	}
 	void showMPHP(){
 		int hp = round((HP/maxHP) * 10 * 2);
 		int mp = round((MP/maxMP) * 10 * 2);
 		int counter;
-		
+		cout << "===================" << Name << "==================" << endl;	
 		for(int i = 0; i < 2; i++){
 			if(i == 0){
 				cout << "HP: ||";
@@ -152,10 +152,27 @@ class Entity{
 			for(int k = 0; k < (20 - counter);k++){
 				cout << "-";
 			}
-			cout << "||" << endl;		
-		}	
+			if(i == 0){
+				cout << "|| " << round(HP) << "/" << maxHP  << endl;
+			}else{
+				cout << "|| " << round(MP) << "/" << maxMP  << endl;
+			}		
+		}
+		cout << "==========================================" << endl << endl;
 	}
-	virtual void attack(Entity* enemy) const = 0;
+	void attack(Entity* enemy){
+		cout << "----------------------------------------" << endl;
+		if(skill == nullptr){
+			enemy->setHP(ATK * .75, 2);
+			cout << Name << " attacked and dealt " << (ATK * .75) << " damage" << endl;
+			weapon->weaponPassive(this, enemy);
+			
+		}else{
+			skill->do_Skill(this, enemy);
+			weapon->weaponPassive(this, enemy);
+		}
+		cout << "----------------------------------------" << endl << endl;
+	}
 };
 
 #endif //Entity

@@ -32,14 +32,15 @@ int main(){
 	//weapon->weaponDetails();
 	Skill* skill  = new Debug();
 	Entity_Factory* Factory = new BCOE_Factory();
-	Entity_Factory* Factory2 = new CHASS_Factory();
+	Entity_Factory* Factory2 = new SM_Factory();
 	Entity* player1 = Factory->createEntity("Dylan", 2,1);
 	Entity* player2 = Factory2->createEntity("Angel", 2,2);
 	player1->showMPHP();
-	
+	player2->showMPHP();
 	player1->attack(player2);
 	player2->attack(player1);
 	
+	player2->showMPHP();
 	player1->showMPHP();
 	player1->setSkill(skill);
 	player1->attack(player2);

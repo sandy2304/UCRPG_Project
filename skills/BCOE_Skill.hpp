@@ -12,7 +12,7 @@ class Debug: public Skill{
 	
 		virtual void do_Skill(Entity* atk, Entity* rec){
 			//What is the skill going to do
-			double hpGain = (atk->getmaxHP() - (atk->getHP() * .25));
+			double hpGain = ((atk->getmaxHP() - atk->getHP()) * .50);
 			double mpLoss = (atk->getmaxMP() * .50);
 			atk->setHP(hpGain,1);
 			

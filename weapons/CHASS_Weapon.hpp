@@ -20,6 +20,7 @@ class CHASS_Weapon: public Weapon{
 			srand(time(NULL));
 			int chance = rand() % 3 + 1;
 			if(chance < 3){
+				cout << "statBoost: " << statBoost << endl;
 				int chance2 = rand() & 3 + 1;
 				int chance3 = rand() & 2 + 1;
 				string stat, what;
@@ -40,7 +41,7 @@ class CHASS_Weapon: public Weapon{
 					what = " subtracted ";
 				}
 				
-			cout << atk->getName() << " re-wrote thier " << stat  << " and " << what << 5*statBoost << endl;
+			cout << atk->getName() << " re-wrote thier " << stat  << " using the " << name << "  and " << what << 5*statBoost << endl;
 			}
 		}
 };

@@ -23,7 +23,7 @@ class Weapon{
 			vector<string> adjectives = {"Dog-water", "Trash", "Broke","99-Cent Store","Mc-Donalds", 
 						    "Walmart", "Office Depot", "Rich", "The Dean's"};
 			
-			srand(time(NULL));
+			srand(time(NULL) + rand());
 			int num;
 			if(lvl <= 2){
 				num = (rand() % 3);
@@ -33,6 +33,7 @@ class Weapon{
 				num = (rand() % 3) + 6;
 			}
 			adj = adjectives.at(num);
+			num = num + 1;
 			statBoost = 1.5 * num;
 			name = adj + " Monkey Brain";
 		}

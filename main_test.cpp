@@ -33,8 +33,8 @@ int main(){
 	Skill* skill  = new Debug();
 	Entity_Factory* Factory = new BCOE_Factory();
 	Entity_Factory* Factory2 = new CHASS_Factory();
-	Entity* player1 = Factory->createEntity("Dylan", 1,1);
-	Entity* player2 = Factory2->createEntity("Angel", 1,2);
+	Entity* player1 = Factory->createEntity("Dylan", 2,1);
+	Entity* player2 = Factory2->createEntity("Angel", 2,2);
 	player1->showMPHP();
 	
 	player1->attack(player2);

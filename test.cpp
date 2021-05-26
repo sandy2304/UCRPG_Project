@@ -1,12 +1,9 @@
 #include "gtest/gtest.h"
 
 #include <iostream>
-
-TEST(testForTest, test){
-	int num = 1;
-	EXPECT_EQ(num, 1);	
-}
-
+#include <string>
+#include "Character_Factory/Character_Factory.hpp"
+#include "weapons/weapon_tests.hpp"
 
 int main(int argc, char **argv) {
   ::testing::InitGoogleTest(&argc, argv);

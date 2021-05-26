@@ -17,7 +17,9 @@ class CNAS_Weapon: public Weapon{
 		}
 		
 		virtual void weaponPassive(Entity* atk, Entity* rec){
-			cout << atk->getName() << "'s " << name << "did <damage> to " << rec->getName() << endl;	
+			double damageDone = statBoost * 1.1;
+			rec->setHP(damageDone, 2);
+			cout << atk->getName() << "'s " << name << " did " << damageDone <<  " to " << rec->getName() << endl;	
 		}
 };
 

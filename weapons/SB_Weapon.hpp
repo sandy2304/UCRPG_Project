@@ -13,11 +13,12 @@ class SB_Weapon: public Weapon{
 		
 		virtual void weaponDetails() const{
 			cout << "Weapon Name: " << name << endl;
-			cout << "With the E-Wallet, you have a chance of stealing Bear-Bucks with each attack." << endl;
+			cout << "With the E-Wallet, you deal an extra amount of damage that scales with the amount of Bear-Bucks that you have" << endl;
 		}
 		
 		virtual void weaponPassive(Entity* atk, Entity* rec){
-			cout << atk->getName() << " stole <money> from " << rec->getName() << endl;
+			double dmg = atk->getGold() * .005 * statBoost;
+			cout << atk->getName() << " did " << dmg << " extra damage using his " << name  << endl;
 		}
 };
 

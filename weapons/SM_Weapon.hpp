@@ -17,7 +17,13 @@ class SM_Weapon: public Weapon{
 		}
 		
 		virtual void weaponPassive(Entity* atk, Entity* rec){
-			cout << atk->getName() << "healed <number> hp" << endl;	
+			double hpGain = 3 * statBoost;
+			atk->setHP(hpGain,1);
+			if(atk->getHP() == atk->getmaxHP()){
+				cout << atk->getName() << " replenished thier hp using their " << name  << endl;	
+			}else{
+				cout << atk->getName() << " replenished their hp by " << hpGain << " using their " << name << endl;
+			}
 		} 
 };
 

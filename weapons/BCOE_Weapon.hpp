@@ -20,8 +20,7 @@ class BCOE_Weapon: public Weapon{
 			srand(time(NULL));
 			int rad = rand() % 10 + 1;
 			if(rad < 4){	
-				double dmg = (atk->getmaxHP() - atk->getHP()) * .50;
-				cout << atk->getmaxHP() << " " << atk->getHP();
+				double dmg = (atk->getmaxHP() - atk->getHP()) * .25 * statBoost;
 				def->setHP(dmg, 2);
 				cout << atk->getName() << "'s " << name << " dealt extra " << dmg  <<  " damage to " << def->getName() << endl;
 			}

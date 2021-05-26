@@ -72,7 +72,7 @@ class Entity{
 			ATK = ATK + atk;
 		}else{
 			double tempATK = ATK - atk;
-			if(!(tempATK <= 50)){
+			if(!(tempATK <= 10)){
 				ATK = ATK - atk;
 			}
 		}
@@ -82,7 +82,7 @@ class Entity{
 			DEF = DEF + def;
 		}else{
 			double tempDEF = DEF - def;
-			if(!(tempDEF <= 50)){
+			if(!(tempDEF <= 10)){
 				DEF = DEF - def;
 			}
 		}
@@ -92,7 +92,7 @@ class Entity{
 			INT = INT + inte;
 		}else{
 			double tempINT = INT - inte;
-			if(!(tempINT <= 50)){
+			if(!(tempINT <= 10)){
 				INT = INT - inte;
 			}
 		}		
@@ -102,7 +102,7 @@ class Entity{
 			Gold =  Gold + gold;
 		}else{
 			double tempGOLD = Gold - gold;
-			if(!(tempGOLD <= 50)){
+			if(!(tempGOLD <= 10)){
 				Gold = Gold - gold;
 			}
 		}	

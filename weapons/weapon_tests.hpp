@@ -140,6 +140,7 @@ TEST(Weapons, randomWeapon_6){
 	string name = "";
 	bool one = false, two = false, three = false, four = false;
 	for(int i = 0; i < 20; ++i){
+		cout << "StatBoost: " << weapon->getStat() << endl; 
 		if(weapon->getName() == "Office Depot Laptop"){
 			one = true;
 		}

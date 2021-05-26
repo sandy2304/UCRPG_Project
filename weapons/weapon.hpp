@@ -24,7 +24,7 @@ class Weapon{
 						    "Walmart", "Office Depot", "Rich", "The Dean's"};
 			
 			srand(time(NULL) + rand());
-			int num;
+			double num;
 			if(lvl <= 2){
 				num = (rand() % 3);
 			}else if((lvl >= 3) && (lvl <= 4)){
@@ -39,7 +39,7 @@ class Weapon{
 		}
 		
 		string getName(){return name;}
-		int getStat(){return statBoost;}
+		double getStat(){return statBoost;}
  
 		virtual void weaponDetails()const = 0;
 		virtual void weaponPassive(Entity* atk, Entity* def) = 0;

@@ -22,6 +22,14 @@ class Debug: public Skill{
 			//Output to console the who and what, when the skill happened
 			cout << atk->getName() << " used debug and healed " << hpGain << endl;
 		}
+		
+		virtual bool manaCheck(Entity* atk){
+			if(atk->getMP() > (atk->getmaxMP() / 2)){
+				return true;
+			}else{
+				return false;
+			}
+		}
 
 };
 
@@ -32,8 +40,8 @@ class Sabotage: public Skill{
 		
 		virtual void do_Skill(Entity* atk, Entity* rec){
 			//What is the skill going to do
-			double damageDone = (atk->getLevel() * 20.0);
-			double mpLoss= (8.0 * atk->getLevel()) - rec->getDEF() * .25;
+			double damageDone = (atk->getLevel() * 20.0) - (rec->getDEF()*.25);
+			double mpLoss= (8.0 * atk->getLevel());
 			rec->setHP(damageDone, 2);
 		
 			//Set amount of mp lost
@@ -41,6 +49,14 @@ class Sabotage: public Skill{
 			//Output to connsole the whos and what
 			cout << atk->getName() << " used Sabotage, deleting their hmoework file, and dealing " << damageDone << " damage" << endl;
 		}	
+		
+		virtual bool manaCheck(Entity* atk){
+			if((8.0 * atk->getLevel()) <= atk->getMP()){
+				return true;
+			}else{
+				return false;
+			}
+		}
 };
 
 class Faulty_Circuit: public Skill{
@@ -61,6 +77,14 @@ class Faulty_Circuit: public Skill{
 			//Output to connsole the whos and what
 			cout << atk->getName() << " threw a faulty circuit, sparking " << sparks 
 				<< " times, dealing " << damageDone << " damage" << endl;
+		}
+		
+		virtual bool manaCheck(Entity* atk){
+			if((6.0*atk->getLevel() <= atk->getMP())){
+				return true;
+			}else{
+				return false;
+			}
 		}	
 
 };

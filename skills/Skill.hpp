@@ -14,7 +14,7 @@ class Skill{
 	public:
 		Skill(){}
 		virtual void do_Skill(Entity*, Entity*) = 0;
-
+		virtual bool manaCheck(Entity*) = 0;
 		
 };
 

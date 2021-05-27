@@ -163,7 +163,7 @@ class Entity{
 	void attack(Entity* enemy){
 		cout << "----------------------------------------" << endl;
 		if(skill == nullptr){
-			enemy->setHP(ATK * .75, 2);
+			enemy->setHP((ATK * .75)-(enemy->getDEF() * .25) , 2);
 			cout << Name << " attacked and dealt " << (ATK * .75) << " damage" << endl;
 			weapon->weaponPassive(this, enemy);
 			

@@ -43,5 +43,16 @@ class Think: Skill{
 		}
 };
 
-
+class Breakdance: Skill{
+	public: 
+		():Skill(){}
+	
+		virtual void do_Skill(Entity* atk, Entity* rec){
+			//What is the skill going to do
+			double damageDone = (atk->getATK() * (4)) - rec->getDEF();
+			double defGain = (3 * atk->getLevel());
+			rec->setHP(damageDone, 2);
+			atk->setDEF(defGain,1);
+		}		
+};
 #endif 

@@ -58,7 +58,7 @@ class Entity{
 		if(mode == 1){
 			MP = MP + mp;
 			if(MP >= maxMP){
-				mp = maxMP;
+				MP = maxMP;
 			}
 		}else{
 			MP = MP - mp;
@@ -165,10 +165,12 @@ class Entity{
 		if(skill == nullptr){
 			enemy->setHP((ATK * .75)-(enemy->getDEF() * .25) , 2);
 			cout << Name << " attacked and dealt " << (ATK * .75) << " damage" << endl;
+			this->setMP(.25 * this->getINT(),1);
 			weapon->weaponPassive(this, enemy);
 			
 		}else{
 			skill->do_Skill(this, enemy);
+			this->setMP(.25 * this->getINT(),1);
 			weapon->weaponPassive(this, enemy);
 		}
 		cout << "----------------------------------------" << endl << endl;

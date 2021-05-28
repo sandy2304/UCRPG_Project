@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 #include <string>
 #include <stdio.h>
 #include "Character_Factory/Character_Factory.hpp"
@@ -6,6 +7,15 @@
 using namespace std;
 
 void worldHubMenu(int&);
+void school_Challenge(Entity*);
+void BCOE_Challenge(Entity*);
+void CHASS_Challenge(Entity*);
+void CNAS_Challenge(Entity*);
+void GSE_Challenge(Entity*);
+void SB_Challenge(Entity*);
+void SM_Challenge(Entity*); 
+void Battle(Entity*,Entity*);
+int BattleMenu(Entity*); 
 
 int main() {
 	int welcomeInput;
@@ -86,7 +96,7 @@ int main() {
 		}else if(userInput == 3){
 			player->showStats();
 		}else if(userInput == 4){
-			cout << "Implement Select School to Challenge" << endl;
+			school_Challenge(player); 
 		}else if(userInput == 5){
 			break;
 		}
@@ -116,3 +126,43 @@ void worldHubMenu(int& input){
 	}
 }
 
+void school_Challenge(Entity* player){
+	cout << "Level " <<  player->getLevel() << " " << endl;	
+	if(player->getLevel() == 1){
+	BCOE_Challenge(player);
+	} 			
+}
+
+void BCOE_Challenge(Entity* player){
+     cout << "Welcome to the BCOE Challenge!" << endl;
+     cin.ignore();  
+     cin.get();
+     cout << "First Opponent: The Debugger" << endl; 
+     Entity_Factory* Factory = new BCOE_Factory();
+     Entity* debugger = Factory->createEntity("the debugger",player->getLevel(),2);
+     cin.ignore();
+     cin.get();
+     Battle(player,debugger);
+}	
+
+void Battle(Entity* player, Entity* enemy){
+  while(player->getHP() < 0 || enemy->getHP() < 0){
+  if(player->getINT() > enemy->getINT()){
+  
+  }
+  else{	
+
+  } 
+}
+}
+
+int BattleMenu(Entity* player){
+	int choice; 
+	cin >> choice;
+	while(choice != 1 || choice != 2 || choice !=3){
+       player->showMPHP();
+       cout << "    (1)Fight     (2)Skills    (3)Items    " << endl;
+       cout << "==========================================" << endl;
+	cin >> choice;
+ 	}       
+}

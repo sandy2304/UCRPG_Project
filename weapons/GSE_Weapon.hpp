@@ -21,7 +21,8 @@ class GSE_Weapon: public Weapon{
 			int chance = (rand() % 100) + 1;
 			if(chance < 11){
 				double defUP = (5 * statBoost);
-				atk->setMP(5000,1);
+				atk->setMP(atk->getMP(),2);
+				atk->setMP(atk->getmaxMP(),1);
 				atk->setDEF(statBoost,1);
 				cout << atk->getName() << " replenished all of their mp and increased their defense by " << defUP << endl;
 			}

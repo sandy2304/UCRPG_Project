@@ -58,7 +58,7 @@ class Entity{
 		if(mode == 1){
 			MP = MP + mp;
 			if(MP >= maxMP){
-				mp = maxMP;
+				MP = maxMP;
 			}
 		}else{
 			MP = MP - mp;
@@ -158,7 +158,7 @@ class Entity{
 				cout << "|| " << round(MP) << "/" << maxMP  << endl;
 			}		
 		}
-		cout << "==========================================" << endl << endl;
+		cout << "==========================================" << endl;
 	}
 	void attack(Entity* enemy){
 		cout << "----------------------------------------" << endl;

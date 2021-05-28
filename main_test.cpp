@@ -47,28 +47,6 @@ int main(){
 	player2->showStats();
 	
 	player1->attack(player2);
-player1->attack(player2);
-player1->attack(player2);
-player1->attack(player2);
-player1->attack(player2);
-player1->attack(player2);
-player1->attack(player2);
-player1->attack(player2);
-player1->attack(player2);
-player1->attack(player2);
-player1->attack(player2);
-player1->attack(player2);
-player1->attack(player2);
-player1->attack(player2);
-player1->attack(player2);
-player1->attack(player2);
-player1->attack(player2);
-player1->attack(player2);
-player1->attack(player2);
-player1->attack(player2);
-player1->attack(player2);
-player1->attack(player2);
-player1->attack(player2);
 
 
 	player2->showMPHP();
@@ -79,12 +57,36 @@ player1->attack(player2);
 
 	player2->showStats();
 	
+	player1->showMPHP();
 	//player1->showStats();
   	//player2->showStats();
 	//player3->showStats();
 	//player4->showStats();
 	//player5->showStats();
-	//player6->showStats();
+	//player6->showStats(); 
+
+
+cout << "MMMMMMMMMMMMMMWXNMMMMMMMMNXWMMMMMMMMMMMMMM" << endl;
+cout << "MMMMMMMMMMMMMWk,,xXWWWWXx,,kWMMMMMMMMMMMMM" << endl;
+cout << "MMMMMMMMMMMMMMXc  .,,,,. .cXMMMMMMMMMMMMMM" << endl;
+cout << "MMMMMMMMMMMMMXd.          .dXMMMMMMMMMMMMM" << endl;
+cout << "MMMMMMMMMMMMXc              cXMMMMMMMMMMMM" << endl;
+cout << "MMMKddKWMMMMO'..............'OMMMMWKddKMMM" << endl;
+cout << "MMM0:..lO000kdoddddk00kddooodk000Ol..:KMMM" << endl;
+cout << "MMMMNk:''..       .lKKl.       .''':kNMMMM" << endl;
+cout << "MMMMMMWXk,         :KK:         c0NWMMMMMM" << endl;
+cout << "MMMMMMMK;          :KK:          lNMMMMMMM" << endl;
+cout << "MMMMMMNc           :KK:          .oWMMMMMM" << endl;
+cout << "MKdlll:.           :KK:           .:llldKM" << endl;
+cout << "M0c,,,.            :KK:            .,,,c0M" << endl;
+cout << "MMWWWWx.           :KK:           .kWWWWMM" << endl;
+cout << "MMMMMMX;           :KK:           :XMMMMMM" << endl;
+cout << "MMMMMW0:           :00:          .c0WMMMMM" << endl;
+cout << "MMMW0c....         :KK:         ....c0WMMM" << endl;
+cout << "MMNd..:kK0d'       :0K:      .;xKKk:..dWMM" << endl;
+cout << "MMW0xOWMMMMXkc'.   :0K:   .;o0NMMMMWOd0WMM" << endl;
+cout << "MMMMMMMMMMMMMMNKkdoONNOoxOXWMMMMMMMMMMMMMM" << endl;
+cout << "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM" << endl;
 
 	return 0;
 }

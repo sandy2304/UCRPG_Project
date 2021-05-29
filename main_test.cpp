@@ -26,7 +26,7 @@ using namespace std;
 int main(){
 	ResetGame();	
 	//Entity* player1 = new BCOE_Entity("Dylan", 3,1);
-   	//Entity* player2 = new CHASS_Entity("David", 3,2);
+  //Entity* player2 = new CHASS_Entity("David", 3,2);
 	//Entity* player3 = new CNAS_Entity("Deez", 3,1);
 	//Entity* player4 = new GSE_Entity("Bruh",2, 2);
 	//Entity* player5 = new SB_Entity("Sheesh",7,2);
@@ -48,28 +48,15 @@ int main(){
 	//weapon->levelUp();
 	//cout << weapon->getName() << ": " << weapon->getStat() << endl;
 	
-/*
-cout << "MMMMMMMMMMMMMMWXNMMMMMMMMNXWMMMMMMMMMMMMMM" << endl;
-cout << "MMMMMMMMMMMMMWk,,xXWWWWXx,,kWMMMMMMMMMMMMM" << endl;
-cout << "MMMMMMMMMMMMMMXc  .,,,,. .cXMMMMMMMMMMMMMM" << endl;
-cout << "MMMMMMMMMMMMMXd.          .dXMMMMMMMMMMMMM" << endl;
-cout << "MMMMMMMMMMMMXc              cXMMMMMMMMMMMM" << endl;
-cout << "MMMKddKWMMMMO'..............'OMMMMWKddKMMM" << endl;
-cout << "MMM0:..lO000kdoddddk00kddooodk000Ol..:KMMM" << endl;
-cout << "MMMMNk:''..       .lKKl.       .''':kNMMMM" << endl;
-cout << "MMMMMMWXk,         :KK:         c0NWMMMMMM" << endl;
-cout << "MMMMMMMK;          :KK:          lNMMMMMMM" << endl;
-cout << "MMMMMMNc           :KK:          .oWMMMMMM" << endl;
-cout << "MKdlll:.           :KK:           .:llldKM" << endl;
-cout << "M0c,,,.            :KK:            .,,,c0M" << endl;
-cout << "MMWWWWx.           :KK:           .kWWWWMM" << endl;
-cout << "MMMMMMX;           :KK:           :XMMMMMM" << endl;
-cout << "MMMMMW0:           :00:          .c0WMMMMM" << endl;
-cout << "MMMW0c....         :KK:         ....c0WMMM" << endl;
-cout << "MMNd..:kK0d'       :0K:      .;xKKk:..dWMM" << endl;
-cout << "MMW0xOWMMMMXkc'.   :0K:   .;o0NMMMMWOd0WMM" << endl;
-cout << "MMMMMMMMMMMMMMNKkdoONNOoxOXWMMMMMMMMMMMMMM" << endl;
-cout << "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM" << endl;
-*/
-	return 0;
+	player1->showMPHP();
+	
+	player1->printBackpack();
+	
+	player1->setHP_Potion(2,1);
+  player1->printBackpack();
+	
+	player1->usePotion(1);
+	player1->printBackpack();
+
+return 0;
 }

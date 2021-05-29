@@ -41,6 +41,8 @@ class Entity{
 	double getMP(){return MP;}
 	int getLevel(){return Level;}
 	int getGold(){return Gold;}
+	int getHP_potion(){return HP_potion;}
+	int getMP_potion(){return MP_potion;}
 	//SETTERS
 	//    *The mode is for aadding(1) to stats or subtracting(mode >1) to stats
 	void setHP(double hp, int mode){

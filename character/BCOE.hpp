@@ -26,6 +26,9 @@ class BCOE_Entity : public Entity{
 			skillList = {"Debug", "Sabotage", "Faulty_Circuit"};
 			maxHP = HP;
 			maxMP = MP;
+			maxATK = ATK;
+			maxDEF = DEF;
+			maxINT = INT;
 		}
 
 };

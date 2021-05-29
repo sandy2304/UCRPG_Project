@@ -25,6 +25,10 @@ class GSE_Entity : public Entity{
 			}
 			maxHP = HP;
 			maxMP = MP;
+			maxATK = ATK;
+			maxDEF = DEF;
+			maxINT = INT;
+
 		}
 
 };

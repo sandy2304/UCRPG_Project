@@ -14,7 +14,7 @@ class Entity{
     protected:
 	string Name = "", School = "";
 	double HP = 0.0, ATK = 0.0, DEF = 0.0, INT = 0.0, MP = 0.0;
-	double maxHP = 0.0, maxMP = 0.0;
+	double maxHP = 0.0, maxMP = 0.0, maxATK = 0.0, maxDEF = 0.0, maxINT = 0.0;
 	int Level = 0, Gold = 0;
 	Weapon* weapon = nullptr;
 	Skill* skill = nullptr;
@@ -32,9 +32,12 @@ class Entity{
 	//GETTERS
  	string getName(){return Name;}
 	string getSchool(){return School;}
-	double getHP(){return HP;}
 	double getmaxHP(){return maxHP;}
 	double getmaxMP(){return maxMP;}
+	double getmaxATK(){return maxATK;}
+	double getmaxDEF(){return maxDEF;}
+	double getmaxINT(){return maxINT;} 
+	double getHP(){return HP;}
 	double getATK(){return ATK;}
 	double getDEF(){return DEF;}
 	double getINT(){return INT;}
@@ -43,6 +46,13 @@ class Entity{
 	int getGold(){return Gold;}
 	//SETTERS
 	//    *The mode is for aadding(1) to stats or subtracting(mode >1) to stats
+	void reset(){
+		HP = maxHP;
+		MP = maxMP;
+		ATK = maxATK;
+		DEF = maxDEF;
+		INT = maxINT;	
+	}
 	void setHP(double hp, int mode){
 		if(mode == 1){
 			HP = HP + hp;

@@ -23,6 +23,7 @@ class CNAS_Entity : public Entity{
 				Gold = 100 * lvl;
 	
 			}
+			skillList = {"Chemical_Splash","Explosion","Gravity"};
 			maxHP = HP;
 			maxMP = MP;
 			maxATK = ATK;

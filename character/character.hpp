@@ -104,7 +104,7 @@ class Entity{
 			Gold =  Gold + gold;
 		}else{
 			double tempGOLD = Gold - gold;
-			if(!(tempGOLD <= 10)){
+			if(!(tempGOLD < 0)){
 				Gold = Gold - gold;
 			}
 		}	

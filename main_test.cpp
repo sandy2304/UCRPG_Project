@@ -58,6 +58,17 @@ int main(){
 	player2->showStats();
 	
 	player1->showMPHP();
+	
+	player1->printBackpack();
+	
+	player1->setHP_Potion(2,1);
+        player1->printBackpack();
+	
+	player1->usePotion(1);
+	player1->printBackpack();
+
+
+
 	//player1->showStats();
   	//player2->showStats();
 	//player3->showStats();

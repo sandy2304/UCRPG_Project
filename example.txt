@@ -2,13 +2,9 @@ Character
 Default_name
 School
 Default_school
-HP
+Level
 0
-MP
+HP_Potion
 0
-ATK
-0
-DEF
-0
-INT
+MP_Potion
 0

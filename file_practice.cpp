@@ -12,10 +12,8 @@ int main () {
 {
 while(getline(myfile,line))
 {
-if(line == "Character"){
 getline(myfile,line);
 cout << line << endl;
-}
 }
 myfile.close();
 }

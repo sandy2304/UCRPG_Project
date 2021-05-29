@@ -14,7 +14,7 @@ class Entity{
     protected:
 	string Name = "", School = "";
 	double HP = 0.0, ATK = 0.0, DEF = 0.0, INT = 0.0, MP = 0.0;
-	double maxHP = 0.0, maxMP = 0.0;
+	double maxHP = 0.0, maxMP = 0.0, maxATK = 0.0, maxDEF = 0.0, maxINT = 0.0;
 	int Level = 0, Gold = 0;
 	Weapon* weapon = nullptr;
 	Skill* skill = nullptr;
@@ -32,9 +32,12 @@ class Entity{
 	//GETTERS
  	string getName(){return Name;}
 	string getSchool(){return School;}
-	double getHP(){return HP;}
 	double getmaxHP(){return maxHP;}
 	double getmaxMP(){return maxMP;}
+	double getmaxATK(){return maxATK;}
+	double getmaxDEF(){return maxDEF;}
+	double getmaxINT(){return maxINT;} 
+	double getHP(){return HP;}
 	double getATK(){return ATK;}
 	double getDEF(){return DEF;}
 	double getINT(){return INT;}
@@ -45,6 +48,13 @@ class Entity{
 	int getMP_potion(){return MP_potion;}
 	//SETTERS
 	//    *The mode is for aadding(1) to stats or subtracting(mode >1) to stats
+	void reset(){
+		HP = maxHP;
+		MP = maxMP;
+		ATK = maxATK;
+		DEF = maxDEF;
+		INT = maxINT;	
+	}
 	void setHP(double hp, int mode){
 		if(mode == 1){
 			HP = HP + hp;
@@ -123,9 +133,23 @@ class Entity{
 	}
 	//------------------------------------
 	//SKILL FUNCTIONS--------------------
+	bool checkManaCost(){
+		if(skill == nullptr){
+			return true;
+		}else if(skill->manaCheck(this) == true){
+			return true;
+		}else{
+			return false;	
+		}	
+	}
 	void setSkill(Skill* newSkill){
 		delete skill;
 		skill = newSkill; 
+	}
+	
+	void setSkillNull(){
+		delete skill;
+		skill = nullptr;
 	}
 	Skill* getSkill(){return skill;}
 
@@ -212,36 +236,35 @@ class Entity{
 		cout << "----------------------------------------" << endl << endl;
 	}
 	void printBackpack(){
-	cout << "----------------Backpack------------------" << endl;
-	for(int i = 0; i < HP_potion; ++i){
-	cout << "HP Potion" << endl; 
-	}
-	for(int i = 0; i < MP_potion; ++i){
-	cout << "MP Potion" << endl;
-	}
-	cout << "------------------------------------------" << endl;
+		cout << "----------------Backpack------------------" << endl;
+		for(int i = 0; i < HP_potion; ++i){
+			cout << "HP Potion" << endl; 
+		}
+		for(int i = 0; i < MP_potion; ++i){
+			cout << "MP Potion" << endl;
+		}
+		cout << "------------------------------------------" << endl;
 	}
 
 	bool usePotion(int potion){
-	if(potion == 1){
-	 if(HP_potion > 0){ 
-	setHP_Potion(1,2);
-	setHP(100,1);
-	cout << "Used HP Potion and Gained 100 HP!" << endl;
-	return true;
-	} 
-	}
-	else if(potion == 2){
-	if(MP_potion > 0){
-	setMP_Potion(1,2);
-	setMP(20,1);
-	cout << "Used MP potion and gained 20 MP!" << endl;
-	return true;
-	}
-	}
-	else{
-	return false;
-	}
+		if(potion == 1){
+	 		if(HP_potion > 0){ 
+				setHP_Potion(1,2);
+				setHP(100,1);
+				cout << "Used HP Potion and Gained 100 HP!" << endl;
+				return true;
+			} 
+		}
+		else if(potion == 2){
+			if(MP_potion > 0){
+				setMP_Potion(1,2);
+				setMP(20,1);
+				cout << "Used MP potion and gained 20 MP!" << endl;
+				return true;
+			}
+		}
+		return false;
+		
 	}
 
  void setHP_Potion(int number, int mode){

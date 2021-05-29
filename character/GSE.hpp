@@ -23,8 +23,13 @@ class GSE_Entity : public Entity{
 				Gold = 125 * lvl;
 	
 			}
+			skillList = {"Ruler","Pop_Quiz","F-Hammer"};
 			maxHP = HP;
 			maxMP = MP;
+			maxATK = ATK;
+			maxDEF = DEF;
+			maxINT = INT;
+
 		}
 
 };

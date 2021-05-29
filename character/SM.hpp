@@ -24,7 +24,11 @@ class SM_Entity : public Entity{
 	
 			}
 			maxHP = HP;
-			maxMP = MP;
+			maxMP = MP;	
+			maxATK = ATK;
+			maxDEF = DEF;
+			maxINT = INT;
+
 		}
 
 

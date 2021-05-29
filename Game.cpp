@@ -16,8 +16,10 @@ void SB_Challenge(Entity*);
 void SM_Challenge(Entity*); 
 void Battle(Entity*,Entity*);
 int BattleMenu(Entity*); 
+int inputCheck(int,int);
 
 int main() {
+	cout << inputCheck(1,3) << endl;
 	int welcomeInput;
 	string userName;
 	int schoolInput;
@@ -104,7 +106,7 @@ int main() {
 	
 	return 0;	
 }
-
+//================================MENUS========================================
 void worldHubMenu(int& input){
 	bool cond = false;
 	while(cond == false){
@@ -126,6 +128,9 @@ void worldHubMenu(int& input){
 	}
 }
 
+
+
+//=======================================BATTLE STUFF=======================================
 void school_Challenge(Entity* player){
 	cout << "Level " <<  player->getLevel() << " " << endl;	
 	if(player->getLevel() == 1){
@@ -146,14 +151,16 @@ void BCOE_Challenge(Entity* player){
 }	
 
 void Battle(Entity* player, Entity* enemy){
+  int userInput;
   while(player->getHP() < 0 || enemy->getHP() < 0){
-  if(player->getINT() > enemy->getINT()){
+	userInput = inputCheck(1,3);
+  	if(player->getINT() > enemy->getINT()){
   
-  }
-  else{	
+  	}
+  	else{	
 
-  } 
-}
+  	} 
+  }
 }
 
 int BattleMenu(Entity* player){
@@ -165,4 +172,15 @@ int BattleMenu(Entity* player){
        cout << "==========================================" << endl;
 	cin >> choice;
  	}       
+}
+
+//==============================================OTHER===================================
+int inputCheck(int rangeA, int rangeB){
+	int num;
+	cin >> num;
+	while(!((num >= rangeA) && (num <= rangeB))){
+		cout << "Please enter a number from " << rangeA << " to " << rangeB << endl;
+		cin >> num;	
+	}
+	return num;
 }

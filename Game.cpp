@@ -17,6 +17,9 @@ void SM_Challenge(Entity*);
 void Battle(Entity*,Entity*);
 int BattleMenu(Entity*); 
 void printEnemy(int);
+void shop(Entity* );
+bool buy(Entity* );
+bool CheckPrice(int, Entity*);
 
 int main() {
 	int welcomeInput;
@@ -91,9 +94,9 @@ int main() {
 	while(true){
 		worldHubMenu(userInput);
 		if(userInput == 1){
-			cout << "Implement Store" << endl;
+			shop(player);
 		}else if(userInput == 2){
-			cout << "Implement Access Inventory" << endl;
+			player->printBackpack();
 		}else if(userInput == 3){
 			player->showStats();
 		}else if(userInput == 4){
@@ -397,5 +400,93 @@ cout << "            %%@  @%%%%%%%%%%%%@      " << endl;
 cout << "         @%%@@@@@@@@   (@@@@@%%%%@   " << endl;     
 cout << "       @%%%%@@%%%%%%%%%%%@           " << endl;     
 cout << "                       (@@@/         " << endl;     
+}
+}
+
+void shop(Entity* player){
+int input;
+cout << "Welcome to Scotty's!" << endl; 
+cout << "1. Buy" << endl;
+cout << "2. Quit" << endl; 
+cin.ignore();
+cin >> input;
+while (input != 1 && input != 2){
+cout << "Invalid input!" << endl;
+cin >> input; 
+}
+
+
+if (input == 1){
+bool cont = true;
+while (cont == true){
+cont = buy(player);
+}
+}
+else if(input == 2){
+return;
+}
+}
+
+bool buy(Entity* player){
+int select;
+cout << "1. 1 Healing Potion - 50 BBs" << endl;
+cout << "2. 1 Mana Potion    - 50 BBs" << endl;
+cout << "3. Upgrade Weapon   - " << (player->getWeapon()->getLevel()+1)*100 << " BBs" << endl;
+cout << endl;
+cout << "4. Quit" << endl;
+
+cin >> select;
+while (select != 1 && select != 2 && select != 3 && select != 4){
+cout << "Invalid input!" << endl;
+cin >> select;
+}
+
+if(select == 1){
+if(CheckPrice(50,player) == true){
+cout << "Thank you for your purchase!" << endl;
+player->setGOLD(50,2);
+player->setHP_Potion(1,1);
+return true;
+}
+else{
+cout << "Not enough funds!" << endl;
+return true; 
+}
+}
+else if (select == 2){
+if(CheckPrice(50,player) == true){
+cout << "Thank you for your purchase!" << endl;
+player->setGOLD(50,2);
+player->setMP_Potion(1,1);
+return true;
+}
+else{
+cout << "Not enough funds!" << endl;
+return true;
+}
+}
+else if (select == 3) {
+if(CheckPrice((player->getWeapon()->getLevel()+1)*100,player) == true){
+cout << "Thank you for your purchase!" << endl;
+player->setGOLD((player->getWeapon()->getLevel()+1)*100,2);
+player->getWeapon()->levelUp();
+return true;
+}
+else{
+cout << "Not enough funds!" << endl;
+return true;
+}
+}
+else{
+return false;
+}
+}
+
+bool CheckPrice(int price, Entity* player){
+if(price <= player->getGold()){
+return true;
+}
+else{
+return false;
 }
 }

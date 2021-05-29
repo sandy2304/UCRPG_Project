@@ -48,7 +48,7 @@ class Weapon{
 				level = static_cast<double>(lvl);
 			}
 		}
-		
+		double getLevel() {return level;}		
 		string getAdj() {return adj;}
 		string getName(){return adj + name;}
 		double getStat(){return statBoost;}

@@ -160,7 +160,7 @@ class Entity{
 		"School: " << School << endl << "HP : " << HP 
 		<< endl << "MP : " << MP << endl << "ATK: " << ATK << endl 
 		<<  "DEF: " << DEF << 
-		endl << "INT: " << INT << endl;
+		endl << "INT: " << INT << endl << "Bear Bucks: " << Gold << endl;
 		cout << "----------------------------------------WEAPON-------------------------------------------" << endl;
 		weapon->weaponDetails();
 		cout << "=========================================================================================" << endl;

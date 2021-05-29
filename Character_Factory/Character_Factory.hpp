@@ -31,7 +31,7 @@ class BCOE_Factory: public Entity_Factory{
 	public:
 		virtual Entity* createEntity(string n, int l, int t){
 			Entity* player = new BCOE_Entity(n,l,t);
-			Weapon* weapon = new BCOE_Weapon(l);
+			Weapon* weapon = new BCOE_Weapon(l,1);
 			
 			player->setWeapon(weapon);
 			return player; 
@@ -42,7 +42,7 @@ class CHASS_Factory: public Entity_Factory{
 	public:
 		virtual Entity* createEntity(string n, int l, int t){
 			Entity* player = new CHASS_Entity(n,l,t);
-			Weapon* weapon = new CHASS_Weapon(l);
+			Weapon* weapon = new CHASS_Weapon(l,1);
 			
 			player->setWeapon(weapon);
 			return player; 
@@ -53,7 +53,7 @@ class CNAS_Factory: public Entity_Factory{
 	public:
 		virtual Entity* createEntity(string n, int l, int t){
 			Entity* player = new CNAS_Entity(n,l,t);
-			Weapon* weapon = new CNAS_Weapon(l);
+			Weapon* weapon = new CNAS_Weapon(l,1);
 			
 			player->setWeapon(weapon);
 			return player; 
@@ -64,7 +64,7 @@ class GSE_Factory: public Entity_Factory{
 	public:
 		virtual Entity* createEntity(string n, int l, int t){
 			Entity* player = new GSE_Entity(n,l,t);
-			Weapon* weapon = new GSE_Weapon(l);
+			Weapon* weapon = new GSE_Weapon(l,1);
 			
 			player->setWeapon(weapon);
 			return player; 
@@ -75,7 +75,7 @@ class SB_Factory: public Entity_Factory{
 	public:
 		virtual Entity* createEntity(string n, int l, int t){
 			Entity* player = new SB_Entity(n,l,t);
-			Weapon* weapon = new SB_Weapon(l);
+			Weapon* weapon = new SB_Weapon(l,1);
 			
 			player->setWeapon(weapon);
 			return player; 
@@ -86,7 +86,7 @@ class SM_Factory: public Entity_Factory{
 	public:
 		virtual Entity* createEntity(string n, int l, int t){
 			Entity* player = new SM_Entity(n,l,t);
-			Weapon* weapon = new SM_Weapon(l);
+			Weapon* weapon = new SM_Weapon(l,1);
 			
 			player->setWeapon(weapon);
 			return player; 

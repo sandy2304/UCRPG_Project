@@ -7,18 +7,18 @@ using namespace std;
 
 class SB_Weapon: public Weapon{
 	public:
-		SB_Weapon(int num):Weapon(num){
-			name = adj + " E-Wallet";
+		SB_Weapon(int num, int mod):Weapon(num, mod){
+			name = "E-Wallet";
 		}
 		
-		virtual void weaponDetails() const{
-			cout << "Weapon Name: " << name << endl;
+		virtual void weaponDetails() {
+			cout << "Weapon Name: " << this->getName() << endl;
 			cout << "With the E-Wallet, you deal an extra amount of damage that scales with the amount of Bear-Bucks that you have" << endl;
 		}
 		
 		virtual void weaponPassive(Entity* atk, Entity* rec){
 			double dmg = atk->getGold() * .005 * statBoost;
-			cout << atk->getName() << " did " << dmg << " extra damage using his " << name  << endl;
+			cout << atk->getName() << " did " << dmg << " extra damage using his " << this->getName() << endl;
 		}
 };
 

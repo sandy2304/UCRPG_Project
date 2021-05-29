@@ -26,7 +26,7 @@ using namespace std;
 int main(){
 	ResetGame();	
 	//Entity* player1 = new BCOE_Entity("Dylan", 3,1);
-   	//Entity* player2 = new CHASS_Entity("David", 3,2);
+  //Entity* player2 = new CHASS_Entity("David", 3,2);
 	//Entity* player3 = new CNAS_Entity("Deez", 3,1);
 	//Entity* player4 = new GSE_Entity("Bruh",2, 2);
 	//Entity* player5 = new SB_Entity("Sheesh",7,2);
@@ -34,48 +34,29 @@ int main(){
 	//Weapon* weapon = new BCOE_Weapon(1);
 	//weapon->weaponDetails();
 	Skill* skill  = new F_Hammer();
-	Entity_Factory* Factory = new GSE_Factory();
+	Entity_Factory* Factory = new BCOE_Factory();
 	Entity_Factory* Factory2 = new SM_Factory();
 	Entity* player1 = Factory->createEntity("Dylan", 2,1);
 	Entity* player2 = Factory2->createEntity("Angel", 2,2);
-	player1->showMPHP();
-	player2->showMPHP();
-	player1->attack(player2);
-	player2->attack(player1);
-
+	Weapon* weapon = new BCOE_Weapon(1,1);
 	player1->showStats();
-	player2->showStats();
-	
-	player1->attack(player2);
-
-
-	player2->showMPHP();
-	player1->setSkill(skill);
-	player1->attack(player2);
-	player1->showMPHP();
-	player2->showMPHP();	
-
-	player2->showStats();
+	player1->weaponUpgrade();
+	player1->showStats();
+	//player1->showMPHP();
+	//player2->showMPHP();
+	//cout << weapon->getName() << ": " << weapon->getStat() <<  endl;
+	//weapon->levelUp();
+	//cout << weapon->getName() << ": " << weapon->getStat() << endl;
 	
 	player1->showMPHP();
 	
 	player1->printBackpack();
 	
 	player1->setHP_Potion(2,1);
-        player1->printBackpack();
+  player1->printBackpack();
 	
 	player1->usePotion(1);
 	player1->printBackpack();
-
-
-
-	//player1->showStats();
-  	//player2->showStats();
-	//player3->showStats();
-	//player4->showStats();
-	//player5->showStats();
-	//player6->showStats(); 
-
 
 return 0;
 }

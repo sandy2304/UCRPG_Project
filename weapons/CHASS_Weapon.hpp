@@ -7,12 +7,12 @@ using namespace std;
 
 class CHASS_Weapon: public Weapon{
 	public:
-		CHASS_Weapon(int num):Weapon(num){
-			name = adj + " Pen";
+		CHASS_Weapon(int num, int mod):Weapon(num, mod){
+			name = "Pen";
 		}
 		
-		virtual void weaponDetails() const{
-			cout << "Weapon Name: " << name << endl;
+		virtual void weaponDetails() {
+			cout << "Weapon Name: " << this->getName() << endl;
 			cout << "With a Pen, you have a chance to rewrite your stats to be better or worse." << endl;
 		}
 		
@@ -48,7 +48,7 @@ class CHASS_Weapon: public Weapon{
 					what = " subtracted ";
 				}
 				
-			cout << atk->getName() << " re-wrote thier " << stat  << " using ther " << name << " and" << what << statChange << endl;
+			cout << atk->getName() << " re-wrote thier " << stat  << " using their " << this->getName() << " and" << what << statChange << endl;
 			}
 		}
 };

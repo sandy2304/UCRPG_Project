@@ -11,7 +11,7 @@
 #include "SM_Weapon.hpp"
 
 TEST(Weapons, randomWeapon_1){
-	Weapon* weapon = new BCOE_Weapon(1);
+	Weapon* weapon = new BCOE_Weapon(1,1);
 	string name = "";
 	bool one = false, two = false, three = false, four = false;
 	for(int i = 0; i < 20; ++i){
@@ -30,13 +30,13 @@ TEST(Weapons, randomWeapon_1){
 			break;
 		}
 		delete weapon;
-		weapon = new BCOE_Weapon(1);
+		weapon = new BCOE_Weapon(1,1);
 	}
 	EXPECT_EQ(four, true);
 } 
 
 TEST(Weapons, randomWeapon_2){
-	Weapon* weapon = new BCOE_Weapon(2);
+	Weapon* weapon = new BCOE_Weapon(2,1);
 	string name = "";
 	bool one = false, two = false, three = false, four = false;
 	for(int i = 0; i < 20; ++i){
@@ -55,13 +55,13 @@ TEST(Weapons, randomWeapon_2){
 			break;	
 		}
 		delete weapon;
-		weapon = new BCOE_Weapon(2);
+		weapon = new BCOE_Weapon(2,1);
 	}
 	EXPECT_EQ(four, true);
 } 
 
 TEST(Weapons, randomWeapon_3){
-	Weapon* weapon = new BCOE_Weapon(3);
+	Weapon* weapon = new BCOE_Weapon(3,1);
 	string name = "";
 	bool one = false, two = false, three = false, four = false;
 	for(int i = 0; i < 20; ++i){
@@ -80,13 +80,13 @@ TEST(Weapons, randomWeapon_3){
 			break;
 		}
 		delete weapon;
-		weapon = new BCOE_Weapon(3);
+		weapon = new BCOE_Weapon(3,1);
 	}
 	EXPECT_EQ(four, true);
 } 
 
 TEST(Weapons, randomWeapon_4){
-	Weapon* weapon = new BCOE_Weapon(4);
+	Weapon* weapon = new BCOE_Weapon(4,1);
 	string name = "";
 	bool one = false, two = false, three = false, four = false;
 	for(int i = 0; i < 20; ++i){
@@ -105,13 +105,13 @@ TEST(Weapons, randomWeapon_4){
 			break;
 		}
 		delete weapon;
-		weapon = new BCOE_Weapon(4);
+		weapon = new BCOE_Weapon(4,1);
 	}
 	EXPECT_EQ(four, true);
 } 
 
 TEST(Weapons, randomWeapon_5){
-	Weapon* weapon = new BCOE_Weapon(5);
+	Weapon* weapon = new BCOE_Weapon(5,1);
 	string name = "";
 	bool one = false, two = false, three = false, four = false;
 	for(int i = 0; i < 20; ++i){
@@ -130,13 +130,13 @@ TEST(Weapons, randomWeapon_5){
 			break;
 		}
 		delete weapon;
-		weapon = new BCOE_Weapon(5);
+		weapon = new BCOE_Weapon(5,1);
 	}
 	EXPECT_EQ(four, true);
 } 
 
 TEST(Weapons, randomWeapon_6){
-	Weapon* weapon = new BCOE_Weapon(6);
+	Weapon* weapon = new BCOE_Weapon(6,1);
 	string name = "";
 	bool one = false, two = false, three = false, four = false;
 	for(int i = 0; i < 20; ++i){
@@ -156,7 +156,7 @@ TEST(Weapons, randomWeapon_6){
 			break;
 		}
 		delete weapon;
-		weapon = new BCOE_Weapon(6);
+		weapon = new BCOE_Weapon(6,1);
 	}
 	EXPECT_EQ(four, true);
 } 

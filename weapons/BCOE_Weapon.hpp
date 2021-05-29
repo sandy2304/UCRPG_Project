@@ -7,12 +7,12 @@ using namespace std;
 
 class BCOE_Weapon: public Weapon{
 	public:
-		BCOE_Weapon(int num):Weapon(num){
-			name = adj + " Laptop";
+		BCOE_Weapon(int num, int mod):Weapon(num, mod){
+			name = "Laptop";
 		}
 		
-		virtual void weaponDetails() const{
-			cout << "Weapon Name: " << name << endl;
+		virtual void weaponDetails() {
+			cout << "Weapon Name: " << this->getName() << endl;
 			cout << "With a Laptop, the lower your health is, the more damage you will do." << endl;
 		}
 		
@@ -22,7 +22,7 @@ class BCOE_Weapon: public Weapon{
 			if(rad < 4){	
 				double dmg = (atk->getmaxHP() - atk->getHP()) * .25 * statBoost;
 				def->setHP(dmg, 2);
-				cout << atk->getName() << "'s " << name << " dealt extra " << dmg  <<  " damage to " << def->getName() << endl;
+				cout << atk->getName() << "'s " << this->getName() << " dealt extra " << dmg  <<  " damage to " << def->getName() << endl;
 			}
 		}
 };

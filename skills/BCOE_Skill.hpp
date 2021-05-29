@@ -40,14 +40,16 @@ class Sabotage: public Skill{
 		
 		virtual void do_Skill(Entity* atk, Entity* rec){
 			//What is the skill going to do
-			double damageDone = (atk->getLevel() * 20.0) - (rec->getDEF()*.25);
+			double damageDone = (atk->getATK() * 6) - (rec->getDEF());
 			double mpLoss= (8.0 * atk->getLevel());
 			rec->setHP(damageDone, 2);
+			rec->setDEF(3 * atk->getLevel(), 2);
 		
 			//Set amount of mp lost
 			atk->setMP(mpLoss,2);
 			//Output to connsole the whos and what
-			cout << atk->getName() << " used Sabotage, deleting their hmoework file, and dealing " << damageDone << " damage" << endl;
+			cout << atk->getName() << " used Sabotage, deleting their hmoework file, and dealing " << damageDone 
+			<< " damage and lowered their defense" << endl;
 		}	
 		
 		virtual bool manaCheck(Entity* atk){
@@ -68,7 +70,7 @@ class Faulty_Circuit: public Skill{
 			double mpLoss= (6.0 * atk->getLevel());
 			srand(time(NULL));
 			double sparks = rand()%8 + 1;
-			double damageDone = ((sparks * 4) * atk->getLevel()) - (rec->getDEF() * .25);			
+			double damageDone = ((sparks * .7) * atk->getATK()) - (rec->getDEF());			
 
 			rec->setHP(damageDone, 2);
 		

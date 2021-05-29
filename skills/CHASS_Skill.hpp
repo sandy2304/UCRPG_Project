@@ -29,13 +29,14 @@ class Think: Skill{
 			
 			//MP COST
 			double mpCost = atk->getmaxMP() * .20;
+			atk->setMP(mpCost, 2);
 		
 			//Text Output
 			cout << atk->getName() << " started to think......increasing their " << statName << " and healed thier HP" << endl;
 		}		
 		
 		virtual bool manaCheck(Entity* atk){
-			if((atk->getmaxMP() * .20) <= atk->getmaxMP()){
+			if((atk->getmaxMP() * .20) <= atk->getMP()){
 				return true;
 			}else{
 				return false;
@@ -45,7 +46,7 @@ class Think: Skill{
 
 class Breakdance: Skill{
 	public: 
-		():Skill(){}
+		Breakdance():Skill(){}
 	
 		virtual void do_Skill(Entity* atk, Entity* rec){
 			//What is the skill going to do
@@ -53,6 +54,45 @@ class Breakdance: Skill{
 			double defGain = (3 * atk->getLevel());
 			rec->setHP(damageDone, 2);
 			atk->setDEF(defGain,1);
+		
+			//MP COST
+			double mpCost = 7 * atk->getLevel();
+			atk->setMP(mpCost, 2);
+
+			//Test Output
+			cout << atk->getName() << " challenged " << rec->getName() << " to a breakdance battle and won, dealing " << damageDone 
+				<< " damage and increased their defense by " << defGain << endl;
+		}			
+		
+		virtual bool manaCheck(Entity* atk){
+			if(7*atk->getLevel() <= atk->getMP()){
+				return true;
+			}else{
+				return false;
+			}	
+		}
+};
+
+class Reverse_Psychology: Skill{
+	public:
+		Reverse_Psychology():Skill(){}
+		virtual void do_Skill(Entity* atk, Entity* rec){
+			double damageDone = (rec->getATK() * (8.0)) - rec->getDEF();
+			double attackGain = 5 * atk->getLevel();
+			rec->setHP(damageDone, 2);
+
+			double mpCost = 10 * atk->getLevel();
+			atk->setMP(mpCost, 2);
+			
+			cout << atk->getName() << " used reverse psychology and " << rec->getName() << " attacked themselve" << endl;
+		}
+		
+		virtual bool manaCheck(Entity* atk){
+			if(10*atk->getLevel() <= atk->getMP()){
+				return true;
+			}else{
+				return false;
+			}
 		}		
 };
 #endif 

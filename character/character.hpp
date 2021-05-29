@@ -113,6 +113,10 @@ class Entity{
 		weapon = wpn;
 	}
 	Weapon* getWeapon(){return weapon;}
+	
+	void weaponUpgrade(){
+		weapon->levelUp();	
+	}
 	//------------------------------------
 	//SKILL FUNCTIONS--------------------
 	void setSkill(Skill* newSkill){
@@ -120,6 +124,32 @@ class Entity{
 		skill = newSkill; 
 	}
 	Skill* getSkill(){return skill;}
+
+	void  printSkill(){
+		cout << "==========================================" << endl;
+		cout << "(1)Normal Attack" << endl;
+		cout << "(2)" << skillList.at(0) << endl;
+		cout << "(3)" << skillList.at(1) << endl;
+		cout << "(4)" << skillList.at(2) << endl;
+		cout << "==========================================" << endl;
+	}
+	
+	string pickSkill(int input){
+		if(input >= 1 && input <=4){
+			if(input == 1){
+				return "Normal";
+			}else if(input == 2){
+				return skillList.at(0);
+			}else if(input == 3){
+				return skillList.at(1);
+			}else if(input == 4){
+				return skillList.at(2);	
+			}else{
+				cout << "Sumthin went wrong" << endl;
+			}
+		}	
+	}
+
 	//-----------------------------------
 	//OTHER FUNCTIONS
 	void showStats(){
@@ -160,6 +190,8 @@ class Entity{
 		}
 		cout << "==========================================" << endl;
 	}
+	
+
 	void attack(Entity* enemy){
 		cout << "----------------------------------------" << endl;
 		if(skill == nullptr){

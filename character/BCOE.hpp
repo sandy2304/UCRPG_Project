@@ -23,6 +23,7 @@ class BCOE_Entity : public Entity{
 				Gold = 100 * lvl;
 	
 			}
+			skillList = {"Debug", "Sabotage", "Faulty_Circuit"};
 			maxHP = HP;
 			maxMP = MP;
 		}

@@ -34,38 +34,21 @@ int main(){
 	//Weapon* weapon = new BCOE_Weapon(1);
 	//weapon->weaponDetails();
 	Skill* skill  = new F_Hammer();
-	Entity_Factory* Factory = new GSE_Factory();
+	Entity_Factory* Factory = new BCOE_Factory();
 	Entity_Factory* Factory2 = new SM_Factory();
 	Entity* player1 = Factory->createEntity("Dylan", 2,1);
 	Entity* player2 = Factory2->createEntity("Angel", 2,2);
-	player1->showMPHP();
-	player2->showMPHP();
-	player1->attack(player2);
-	player2->attack(player1);
-
+	Weapon* weapon = new BCOE_Weapon(1,1);
 	player1->showStats();
-	player2->showStats();
+	player1->weaponUpgrade();
+	player1->showStats();
+	//player1->showMPHP();
+	//player2->showMPHP();
+	//cout << weapon->getName() << ": " << weapon->getStat() <<  endl;
+	//weapon->levelUp();
+	//cout << weapon->getName() << ": " << weapon->getStat() << endl;
 	
-	player1->attack(player2);
-
-
-	player2->showMPHP();
-	player1->setSkill(skill);
-	player1->attack(player2);
-	player1->showMPHP();
-	player2->showMPHP();	
-
-	player2->showStats();
-	
-	player1->showMPHP();
-	//player1->showStats();
-  	//player2->showStats();
-	//player3->showStats();
-	//player4->showStats();
-	//player5->showStats();
-	//player6->showStats(); 
-
-
+/*
 cout << "MMMMMMMMMMMMMMWXNMMMMMMMMNXWMMMMMMMMMMMMMM" << endl;
 cout << "MMMMMMMMMMMMMWk,,xXWWWWXx,,kWMMMMMMMMMMMMM" << endl;
 cout << "MMMMMMMMMMMMMMXc  .,,,,. .cXMMMMMMMMMMMMMM" << endl;
@@ -87,6 +70,6 @@ cout << "MMNd..:kK0d'       :0K:      .;xKKk:..dWMM" << endl;
 cout << "MMW0xOWMMMMXkc'.   :0K:   .;o0NMMMMWOd0WMM" << endl;
 cout << "MMMMMMMMMMMMMMNKkdoONNOoxOXWMMMMMMMMMMMMMM" << endl;
 cout << "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM" << endl;
-
+*/
 	return 0;
 }

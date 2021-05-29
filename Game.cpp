@@ -3,6 +3,14 @@
 #include <string>
 #include <stdio.h>
 #include "Character_Factory/Character_Factory.hpp"
+#include "skills/Skill.hpp"
+#include "skills/BCOE_Skill.hpp"
+#include "skills/CHASS_Skill.hpp"
+#include "skills/CNAS_Skill.hpp"
+#include "skills/GSE_Skill.hpp"
+#include "skills/SB_Skill.hpp"
+#include "skills/SM_Skill.hpp"
+
 
 using namespace std;
 
@@ -17,6 +25,7 @@ void SM_Challenge(Entity*);
 void Battle(Entity*,Entity*);
 int BattleMenu(Entity*); 
 int inputCheck(int,int);
+void skillSet(Entity*, string);
 void printEnemy(int);
 
 
@@ -108,6 +117,7 @@ int main() {
 	
 	return 0;	
 }
+//******************************************************************************************************************************************************
 //================================MENUS========================================
 void worldHubMenu(int& input){
 	bool cond = false;
@@ -130,13 +140,11 @@ void worldHubMenu(int& input){
 	}
 }
 
-
-
 //=======================================BATTLE STUFF=======================================
 void school_Challenge(Entity* player){
 	cout << "Level " <<  player->getLevel() << " " << endl;	
 	if(player->getLevel() == 1){
-	BCOE_Challenge(player);
+		BCOE_Challenge(player);
 	} 			
 }
 
@@ -157,7 +165,7 @@ void Battle(Entity* player, Entity* enemy){
   while(player->getHP() < 0 || enemy->getHP() < 0){
 	userInput = inputCheck(1,3);
   	if(player->getINT() > enemy->getINT()){
-  
+  		
   	}
   	else{	
 
@@ -165,18 +173,43 @@ void Battle(Entity* player, Entity* enemy){
   }
 }
 
-int BattleMenu(Entity* player){
-	int choice; 
+int BattleMenu(Entity* player,int& option,int& potion){
+	int choice;
+	int choice2; 
+	int choice3;
+	bool skillCheck = false, main = false; 
 	cin >> choice;
-	while(choice != 1 || choice != 2 || choice !=3){
-       player->showMPHP();
-       cout << "    (1)Fight     (2)Skills    (3)Items    " << endl;
-       cout << "==========================================" << endl;
-	cin >> choice;
- 	}       
+	while(1){
+       		player->showMPHP();
+       		cout << "         (1)Fight         (2)Items        " << endl;
+       		cout << "==========================================" << endl;
+		choice = inputCheck(1,2);
+		if(choice == 1){
+			player->printSkill();
+			cout << "Enter 5 to go back" << endl;
+			choice2 = inputCheck(1,5);
+			if(choice2 < 5){
+				skillSet(player, player->pickSkill(choice2));
+				skillCheck = player->checkManaCost();
+				if(skillCheck == true){
+					break;
+				}
+			}
+		}else if(choice == 2){
+			player->printBackpack();
+			cout << "     (1)HP Potion         (2)MP Potion    " << endl;
+			cout << "==========================================" << endl;
+			cout << "Enter 3 to go back" << endl;
+			choice3 = inputCheck(1,3);
+			if(choice < 4){
+				potion = choice3;
+				break; 
+			}
+		}	      
+	}
 }
 
-//==============================================OTHER===================================
+//=============================OTHER===================================
 int inputCheck(int rangeA, int rangeB){
 	int num;
 	cin >> num;
@@ -185,6 +218,53 @@ int inputCheck(int rangeA, int rangeB){
 		cin >> num;	
 	}
 	return num;
+}
+
+void skillSet(Entity* ent, string skillName){
+	if(skillName == "Normal"){
+		ent->setSkillNull();
+	}else if(skillName == "Debug"){
+		Skill* newSkill = new Debug();
+		ent->setSkill(newSkill);
+	}else if(skillName == "Sabotage"){
+		Skill* newSkill = new Sabotage();
+		ent->setSkill(newSkill);
+	}else if(skillName == "Faulty_Circuit"){
+		Skill* newSkill = new Faulty_Circuit();
+		ent->setSkill(newSkill);
+	}else if(skillName == "Think"){
+		Skill* newSkill = new Think();
+		ent->setSkill(newSkill);
+	}else if(skillName == "Breakdance"){
+		Skill* newSkill = new Breakdance();
+		ent->setSkill(newSkill);	
+	}else if(skillName == "Reverse_Psychology"){
+		Skill* newSkill = new Reverse_Psychology();
+		ent->setSkill(newSkill);
+	}else if(skillName == "Ruler"){
+		Skill* newSkill = new Ruler();
+		ent->setSkill(newSkill);
+	}else if(skillName == "Pop_Quiz"){
+		Skill* newSkill = new Pop_Quiz();
+		ent->setSkill(newSkill);
+	}else if(skillName == "F_Hammer"){
+		Skill* newSkill = new F_Hammer();
+		ent->setSkill(newSkill);
+	}else if(skillName == "Chemical_Splash"){
+		Skill* newSkill = new Chemical_Splash();
+		ent->setSkill(newSkill);
+	}else if(skillName == "Explosion"){
+		Skill* newSkill = new Explosion();
+		ent->setSkill(newSkill);
+	}else if(skillName == "Gravity"){
+		Skill* newSkill = new Gravity();
+		ent->setSkill(newSkill);
+	}
+	
+	else{
+		cout << skillName << " does not exist" << endl;
+	}
+}
 //==============================IMAGES=============================
 void PrintEnemy(int i){
  if(i == 1){

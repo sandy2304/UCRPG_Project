@@ -131,9 +131,23 @@ class Entity{
 	}
 	//------------------------------------
 	//SKILL FUNCTIONS--------------------
+	bool checkManaCost(){
+		if(skill == nullptr){
+			return true;
+		}else if(skill->manaCheck(this) == true){
+			return true;
+		}else{
+			return false;	
+		}	
+	}
 	void setSkill(Skill* newSkill){
 		delete skill;
 		skill = newSkill; 
+	}
+	
+	void setSkillNull(){
+		delete skill;
+		skill = nullptr;
 	}
 	Skill* getSkill(){return skill;}
 
@@ -220,36 +234,35 @@ class Entity{
 		cout << "----------------------------------------" << endl << endl;
 	}
 	void printBackpack(){
-	cout << "----------------Backpack------------------" << endl;
-	for(int i = 0; i < HP_potion; ++i){
-	cout << "HP Potion" << endl; 
-	}
-	for(int i = 0; i < MP_potion; ++i){
-	cout << "MP Potion" << endl;
-	}
-	cout << "------------------------------------------" << endl;
+		cout << "----------------Backpack------------------" << endl;
+		for(int i = 0; i < HP_potion; ++i){
+			cout << "HP Potion" << endl; 
+		}
+		for(int i = 0; i < MP_potion; ++i){
+			cout << "MP Potion" << endl;
+		}
+		cout << "------------------------------------------" << endl;
 	}
 
 	bool usePotion(int potion){
-	if(potion == 1){
-	 if(HP_potion > 0){ 
-	setHP_Potion(1,2);
-	setHP(100,1);
-	cout << "Used HP Potion and Gained 100 HP!" << endl;
-	return true;
-	} 
-	}
-	else if(potion == 2){
-	if(MP_potion > 0){
-	setMP_Potion(1,2);
-	setMP(20,1);
-	cout << "Used MP potion and gained 20 MP!" << endl;
-	return true;
-	}
-	}
-	else{
-	return false;
-	}
+		if(potion == 1){
+	 		if(HP_potion > 0){ 
+				setHP_Potion(1,2);
+				setHP(100,1);
+				cout << "Used HP Potion and Gained 100 HP!" << endl;
+				return true;
+			} 
+		}
+		else if(potion == 2){
+			if(MP_potion > 0){
+				setMP_Potion(1,2);
+				setMP(20,1);
+				cout << "Used MP potion and gained 20 MP!" << endl;
+				return true;
+			}
+		}
+		return false;
+		
 	}
 
  void setHP_Potion(int number, int mode){

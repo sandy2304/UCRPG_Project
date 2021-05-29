@@ -23,6 +23,7 @@ class CHASS_Entity : public Entity{
 				Gold = 100 * lvl;
 	
 			}
+			skillList = {"Think", "Breakdance", "Reverse_Psychology"};
 			maxHP = HP;
 			maxMP = MP;
 			maxATK = ATK;

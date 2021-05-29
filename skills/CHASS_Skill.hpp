@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class Think: Skill{
+class Think: public Skill{
 	public:
 		Think():Skill(){}
 		virtual void do_Skill(Entity* atk, Entity* rec){
@@ -44,7 +44,7 @@ class Think: Skill{
 		}
 };
 
-class Breakdance: Skill{
+class Breakdance: public Skill{
 	public: 
 		Breakdance():Skill(){}
 	
@@ -73,7 +73,7 @@ class Breakdance: Skill{
 		}
 };
 
-class Reverse_Psychology: Skill{
+class Reverse_Psychology: public Skill{
 	public:
 		Reverse_Psychology():Skill(){}
 		virtual void do_Skill(Entity* atk, Entity* rec){

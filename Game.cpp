@@ -2,6 +2,9 @@
 #include <vector>
 #include <string>
 #include <stdio.h>
+#include <cmath>
+#include <time.h>
+#include <stdlib.h>
 #include "Character_Factory/Character_Factory.hpp"
 #include "skills/Skill.hpp"
 #include "skills/BCOE_Skill.hpp"
@@ -22,18 +25,18 @@ void CNAS_Challenge(Entity*);
 void GSE_Challenge(Entity*);
 void SB_Challenge(Entity*);
 void SM_Challenge(Entity*); 
-void Battle(Entity*,Entity*);
-int BattleMenu(Entity*); 
+void Battle(Entity*,Entity*, int, int);
+void BattleMenu(Entity*,Entity*, int&,int&, int); 
 int inputCheck(int,int);
 void skillSet(Entity*, string);
-void printEnemy(int);
+void PrintEnemy(int);
 void shop(Entity* );
 bool buy(Entity* );
 bool CheckPrice(int, Entity*);
+void EnemySkill(Entity*,int);
 
 
 int main() {
-	cout << inputCheck(1,3) << endl;
 	int welcomeInput;
 	string userName;
 	int schoolInput;
@@ -62,7 +65,8 @@ int main() {
 		cout << "=========================================================================================" << endl;
 		cout << "Hello! What is your name? (10 characters max)" << endl;
 		cout << "=========================================================================================" << endl;
-		cin >> userName;
+		cin.ignore();
+		getline(cin, userName);
 		cout << "=========================================================================================" << endl;	
 		cout << "Greetings " << userName << "! What school would you like to pursue?" << endl;
 		cout << "1 - Marlan and Rosemary Bourns College of Engineering (BCOE)" << endl;
@@ -72,7 +76,7 @@ int main() {
 		cout << "5 - School of Business (SB)" << endl;
 		cout << "6 - School of Medicine (SM)" << endl;
 		cout << "=========================================================================================" << endl;
-		cin >> schoolInput;
+		schoolInput = inputCheck(1,6);
 		//====================
 		if(schoolInput == 1){
 			CharFactory = new BCOE_Factory();
@@ -160,42 +164,100 @@ void BCOE_Challenge(Entity* player){
      Entity* debugger = Factory->createEntity("the debugger",player->getLevel(),2);
      cin.ignore();
      cin.get();
-     Battle(player,debugger);
+     Battle(player,debugger,2, 1);
+     player->reset();
 }	
 
-void Battle(Entity* player, Entity* enemy){
+void Battle(Entity* player, Entity* enemy, int skillRange, int pic){
   int userInput;
-  while(player->getHP() < 0 || enemy->getHP() < 0){
-	userInput = inputCheck(1,3);
+  int Potion;
+  bool use_potion = false;
+  while(player->getHP() > 0 && enemy->getHP() > 0){
+	BattleMenu(player, enemy, userInput, Potion, pic);
+       	EnemySkill(enemy, skillRange);	
   	if(player->getINT() > enemy->getINT()){
-  		
-  	}
+  		if(userInput == 1){
+			player->attack(enemy);
+			if(enemy->getHP() <= 0){
+				cout << "You beat " << enemy->getName() <<  endl;
+				break;
+			}
+			enemy->attack(player);
+			if(player->getHP() <= 0){
+				cout << "You lost to " << enemy->getName() << endl;
+				break;
+			}
+		}else{
+			use_potion = player->usePotion(Potion);
+			enemy->attack(player);
+			if(player->getHP() <= 0){
+				cout << "You lost to " << enemy->getName() << endl;
+                        	break;
+			}
+  		}
+	}	
   	else{	
-
+		enemy->attack(player);
+		if(player->getHP() <= 0){
+			cout << "You lost to " << enemy->getName() << endl;
+			break;
+		}
+		if(userInput == 1){
+			player->attack(enemy);
+			if(enemy->getHP() <= 0){
+				cout << "You beat the " << enemy->getName() << endl;
+				break;
+			}
+		}else{
+			use_potion = player->usePotion(Potion);
+		}
+		
   	} 
+  	
   }
 }
 
-int BattleMenu(Entity* player,int& option,int& potion){
+void EnemySkill(Entity* enemy, int range){
+	bool skillCheck = false;
+	int random;
+	srand(time(NULL)+rand());
+	while(skillCheck == false){
+		random = (rand() % range) + 1;
+		skillSet(enemy,enemy->pickSkill(random));
+		skillCheck = enemy->checkManaCost();
+	}		
+}
+
+void BattleMenu(Entity* player,Entity* enemy ,int& option,int& potion, int picture){
 	int choice;
 	int choice2; 
 	int choice3;
-	bool skillCheck = false, main = false; 
-	cin >> choice;
-	while(1){
+	bool skillCheck = false, loop1 = false, loop2 = false; 
+	while(loop1 == false){
+		PrintEnemy(picture);
+		enemy->showMPHP();
        		player->showMPHP();
        		cout << "         (1)Fight         (2)Items        " << endl;
        		cout << "==========================================" << endl;
 		choice = inputCheck(1,2);
+		option = choice;
 		if(choice == 1){
 			player->printSkill();
 			cout << "Enter 5 to go back" << endl;
-			choice2 = inputCheck(1,5);
-			if(choice2 < 5){
-				skillSet(player, player->pickSkill(choice2));
-				skillCheck = player->checkManaCost();
-				if(skillCheck == true){
-					break;
+			loop2 = false;
+			while(loop2 == false){
+				choice2 = inputCheck(1,5);
+				if(choice2 < 5){
+					skillSet(player, player->pickSkill(choice2));
+					skillCheck = player->checkManaCost();
+					if(skillCheck == true){
+						loop1 = true;
+						loop2 = true;
+					}else{
+						cout << "Not enough mana! " << endl;
+					}
+				}else{
+					loop2 = true;
 				}
 			}
 		}else if(choice == 2){
@@ -203,10 +265,29 @@ int BattleMenu(Entity* player,int& option,int& potion){
 			cout << "     (1)HP Potion         (2)MP Potion    " << endl;
 			cout << "==========================================" << endl;
 			cout << "Enter 3 to go back" << endl;
-			choice3 = inputCheck(1,3);
-			if(choice < 4){
-				potion = choice3;
-				break; 
+			loop2 = false;
+			while(loop2 == false){
+				choice3 = inputCheck(1,3);
+				if(choice3 < 3){
+					potion = choice3;
+					if(choice3 == 1){
+						if(player->getHP_Potion() != 0){
+							loop1 = true;
+							loop2 = true;
+						}else{
+							cout << "You have no HP potions!" << endl;
+						}
+					}else if(choice3 == 2){
+						if(player->getMP_Potion()!= 0){
+							loop1 = true;
+							loop2 = true;
+						}else{
+							cout << "You have no MP potions!" << endl;
+						}	
+					}
+				}else{
+					loop2 = true;
+				}
 			}
 		}	      
 	}
@@ -215,6 +296,7 @@ int BattleMenu(Entity* player,int& option,int& potion){
 //=============================OTHER===================================
 int inputCheck(int rangeA, int rangeB){
 	int num;
+	cout << "Enter a number between " << rangeA << " and " << rangeB << endl;
 	cin >> num;
 	while(!((num >= rangeA) && (num <= rangeB))){
 		cout << "Please enter a number from " << rangeA << " to " << rangeB << endl;

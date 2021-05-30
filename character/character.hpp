@@ -42,6 +42,8 @@ class Entity{
 	double getDEF(){return DEF;}
 	double getINT(){return INT;}
 	double getMP(){return MP;}
+	int getHP_Potion(){return HP_potion;}
+	int getMP_Potion(){return MP_potion;}
 	int getLevel(){return Level;}
 	int getGold(){return Gold;}
 	//SETTERS
@@ -223,12 +225,12 @@ class Entity{
 		if(skill == nullptr){
 			enemy->setHP((ATK * .75)-(enemy->getDEF() * .25) , 2);
 			cout << Name << " attacked and dealt " << (ATK * .75) << " damage" << endl;
-			this->setMP(.25 * this->getINT(),1);
+			this->setMP(.05 * this->getINT(),1);
 			weapon->weaponPassive(this, enemy);
 			
 		}else{
 			skill->do_Skill(this, enemy);
-			this->setMP(.25 * this->getINT(),1);
+			this->setMP(.05 * this->getINT(),1);
 			weapon->weaponPassive(this, enemy);
 		}
 		cout << "----------------------------------------" << endl << endl;

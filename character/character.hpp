@@ -149,29 +149,6 @@ class Entity{
 		}	
 	}
 	
-	void manualSetHP(double amt){
-		maxHP = amt;
-		HP = maxHP; 
-	}
-        void manualSetMP(double amt){
-		maxHP = amt;
-		HP = maxHP; 
-	}
-	void manualSetATK(double amt){
-		maxHP = amt;
-		HP = maxHP; 
-	}
-	void manualSetDEF(double amt){
-		maxHP = amt;
-		HP = maxHP; 
-	}
-	void manualSetINT(double amt){
-		maxHP = amt;
-		HP = maxHP; 
-	}
-        void manualSetLevel(int amt){
-		Level = amt;
-	}
 	//WEAPON FUNCTIONS--------------------
 	void setWeapon(Weapon* wpn){
 		delete weapon;
@@ -233,13 +210,33 @@ class Entity{
 	//OTHER FUNCTIONS
 	virtual void LevelUp() = 0;
 	
+	void printName(){
+		int nameSize = Name.size();
+		int left = 0, right = 0;
+		if((nameSize % 2) == 0){
+			left = (42 - nameSize)/2;
+			right = (42 - nameSize)/2;
+		}else{
+			left = (42 - nameSize)/2;
+			right = (42 - nameSize)/2 + 1;
+		}
+		
+		for(int i = 0; i < left; i++){
+			cout << "=";
+		}	
+		cout << Name;
+		for(int i = 0; i < right; i++){
+			cout << "=";
+		}
+		cout << endl;
+	}
 	void showStats(){
 		cout << "===================================CHARACTER-DETAILS=====================================" << endl;
 		cout << "Name  : " << Name << endl << "Level : " << Level << endl << 
-		"School: " << School << endl << "HP : " << HP 
-		<< endl << "MP : " << MP << endl << "ATK: " << ATK << endl 
-		<<  "DEF: " << DEF << 
-		endl << "INT: " << INT << endl << "Bear Bucks: " << Gold << endl;
+		"School: " << School << endl << "HP : " << maxHP
+		<< endl << "MP : " << maxMP << endl << "ATK: " << maxATK << endl 
+		<<  "DEF: " << maxDEF << 
+		endl << "INT: " << maxINT << endl << "Bear Bucks: " << Gold << endl;
 		cout << "----------------------------------------WEAPON-------------------------------------------" << endl;
 		weapon->weaponDetails();
 		cout << "=========================================================================================" << endl;
@@ -248,7 +245,7 @@ class Entity{
 		int hp = round((HP/maxHP) * 10 * 2);
 		int mp = round((MP/maxMP) * 10 * 2);
 		int counter;
-		cout << "===================" << Name << "==================" << endl;	
+		this->printName();	
 		for(int i = 0; i < 2; i++){
 			if(i == 0){
 				cout << "HP: ||";
@@ -274,7 +271,7 @@ class Entity{
 	
 
 	void attack(Entity* enemy){
-		cout << "----------------------------------------" << endl;
+		cout << "------------------------------------------" << endl;
 		if(skill == nullptr){
 			enemy->setHP((ATK * .75)-(enemy->getDEF() * .25) , 2);
 			cout << Name << " attacked and dealt " << (ATK * .75) << " damage" << endl;
@@ -286,7 +283,7 @@ class Entity{
 			this->setMP(.05 * this->getINT(),1);
 			weapon->weaponPassive(this, enemy);
 		}
-		cout << "----------------------------------------" << endl << endl;
+		cout << "------------------------------------------" << endl << endl;
 	}
 	void printBackpack(){
 		cout << "----------------Backpack------------------" << endl;

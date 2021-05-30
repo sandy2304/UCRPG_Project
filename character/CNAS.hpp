@@ -9,15 +9,15 @@ class CNAS_Entity : public Entity{
 			if(type == 1){
 				HP = 100 * lvl;
 				ATK = 15 * lvl;
-				DEF = 35 * lvl;
-				INT = 10 * lvl;
+				DEF = 25 * lvl;
+				INT = 20 * lvl;
 				MP = 20 * lvl;
 				Gold = 100 * lvl;
 			}
 			else{
 				HP = 100 * (lvl + .5);
 				ATK = 15 * (lvl + .5);
-				DEF = 25 * (lvl + .5);
+				DEF = 15 * (lvl + .5);
 				INT = 10 * (lvl + .5);
 				MP = 20 * lvl;
 				Gold = 100 * lvl;
@@ -33,16 +33,16 @@ class CNAS_Entity : public Entity{
 		}
 		
 		virtual void LevelUp(){
-			
-			if(this->getLevel() != 6){
-				this->manualSetHP(100 * (this->getLevel() + 1));
-				this->manualSetATK(15 * (this->getLevel() + 1));
-				this->manualSetDEF(25 * (this->getLevel() + 1));
-				this->manualSetINT(10 * (this->getLevel() + 1));
-				this->manualSetMP(20 * (this->getLevel() + 1));
-				this->manualSetLevel(this->getLevel() + 1);
-			}else{
-				cout << "Character has reached max level of 6" << endl;
+			if(Level != 6){
+				maxHP = HP = 100 * (Level + 1);
+				maxMP = MP = 20 * (Level + 1);
+				maxATK = ATK = 15 * (Level + 1);
+				maxDEF = DEF = 25 * (Level + 1);
+				maxINT = INT = 20 * (Level + 1);
+				Level++;
+			}
+			else{
+				cout << "Level Up" << endl;
 			}
 				
 		}

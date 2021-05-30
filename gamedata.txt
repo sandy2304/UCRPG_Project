@@ -1,5 +1,5 @@
 Name
-deez
+213
 School
 BCOE
 GOLD
@@ -11,4 +11,4 @@ HP_Potion
 MP_Potion
 0
 Weapon
-3
+1

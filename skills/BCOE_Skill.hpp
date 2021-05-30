@@ -40,7 +40,7 @@ class Sabotage: public Skill{
 		
 		virtual void do_Skill(Entity* atk, Entity* rec){
 			//What is the skill going to do
-			double damageDone = (atk->getATK() * 6) - (rec->getDEF());
+			double damageDone = (atk->getATK() * 4) - (rec->getDEF());
 			double mpLoss= (8.0 * atk->getLevel());
 			rec->setHP(damageDone, 2);
 			rec->setDEF(3 * atk->getLevel(), 2);

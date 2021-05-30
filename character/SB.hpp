@@ -30,6 +30,20 @@ class SB_Entity : public Entity{
 			maxINT = INT;
 
 		}
+		
+		virtual void LevelUp(){
+			if(Level != 6){
+				maxHP = HP = 100 * (Level + 1);
+				maxATK = ATK = 20 * (Level + 1);
+				maxDEF = DEF = 15 * (Level + 1);
+				maxINT = INT = 15 * (Level + 1);
+				maxMP = MP = 20 * (Level + 1);
+				Gold = Gold + (Level * 50);
+				Level = Level + 1;
+			}else{
+				cout << "Character has reached max level of 6" << endl;
+			}	
+		}
 
 };
 

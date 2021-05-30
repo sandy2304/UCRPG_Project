@@ -971,6 +971,150 @@ cout << "         @%%@@@@@@@@   (@@@@@%%%%@   " << endl;
 cout << "       @%%%%@@%%%%%%%%%%%@           " << endl;     
 cout << "                       (@@@/         " << endl;     
 }
+else if(i==12){
+cout << "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@" << endl; 
+cout << "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@" << endl;
+cout << "@@@@@@@@@@@@@*(((((((/*@@@@@@@*@@@@@@@@@@@" << endl;
+cout << "@@@@@@@@@@@@*((%%%%%%%%@@@@@*@#*@@@@@@@@@@" << endl;
+cout << "@@@@@@@@@@@@//#&&&&&&&&*@@@@@%#*@@@@@@@@@@" << endl;
+cout << "@@@@@@@@@@@@###&&&&&&&&*@@@@@%@*@@@@@@@@@@" << endl;
+cout << "@@@@@@@@@@@@@((%%%%%%%*@@@@@@*@*@@@@@@@@@@" << endl;
+cout << "@@@@@@@@@@@@@@&**///&@@@@@@@/&&*@@@@@@@@@@" << endl;
+cout << "@@@@@@@@@@@@*(%%%//%%%%(####*@%*@@@@@@@@@@" << endl;
+cout << "@@@@@@@@@@@*#%*&%%%%%/@@@@@@*@%*@@@@@@@@@@" << endl;
+cout << "@@@@@@@@@@@*#*(%%%%%%/@@@@@@*@%*@@@@@@@@@@" << endl;
+cout << "@@@@@@@@@@@/%@/%%%%%%/@@@@@@*@%*@@@@@@@@@@" << endl;
+cout << "@@@@@@@@@@@@@*(%%&&&&(@@@@@@*@%*@@@@@@@@@@" << endl;
+cout << "@@@@@@@@@@@@@*(%#@*(%/@@@@@@*@%*@@@@@@@@@@" << endl;
+cout << "@@@@@@@@@@@@@*(%#@*(%/@@@@@@*@%*@@@@@@@@@@" << endl;
+cout << "@@@@@@@@@@@@@(%#%(/%%&/@@@@@(&@(@@@@@@@@@@" << endl;
+cout << "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@" << endl;
+}
+else if(i == 13){
+cout << "MMMMMMMMMMMMMMMMMMMMMMMMMMMMK;.cXMMMMMMMMM" << endl;
+cout << "MMMMMMMMMMMMMMMMMMMMMMMMMMMMNk,.,xNMMMMMMM" << endl;
+cout << "MMMMMMMMMMMMMMMMMMMMWWWMMMMMMMXl. ,xNMMMMM" << endl;
+cout << "MMMMMMMMMMMMMMMMMMWk:,cOWMMMWKo;co,.,xNMMM" << endl;
+cout << "MMMMMMMMMMMMMMMMMMMKc,..:ONKo;l0WMNd. ,xXM" << endl;
+cout << "MMMMMMMMMMMMMMMMMMMMWN0; .',c0WMMWOc;c,.,x" << endl;
+cout << "MMMMMMMMMMMMMMMMMMMWKko;::. ;ONWOc:dXWNk;," << endl;
+cout << "MMMMMMMMMMMMMMMMMWKl;;,;xX0c..;;;dXMMMMMWN" << endl;
+cout << "MMMMMMMMMMMMMMMWKo;';lxkxKMW0c. ,kNMMMMMMM" << endl;
+cout << "MMMMMMMMMMMMMW0l;':kxoxXMMMW0c,,..;kNMMMMM" << endl;
+cout << "MMMMMMMMMMMW0l,'ckxxXMMMMW0l;oKW0c..xWMMMM" << endl;
+cout << "MMMMMMMMMW0l,.ckdxNMMMMWOl;oKWMMMWKOXMMMMM" << endl;
+cout << "MMMMMMMW0l'.lkokNWMMWNOc;oKWMMMMMMMMMMMMMM" << endl;
+cout << "MMMMMW0l;oOkoONWMMWOc;;oKWMMMMMMMMMMMMMMMM" << endl;
+cout << "MMMMMk,cKWMMWWMMWOc;dOKMMMMMMMMMMMMMMMMMMM" << endl;
+cout << "MMMMMk'oWMMMMMWOc;dXMMMMMMMMMMMMMMMMMMMMMM" << endl;
+cout << "MMMMMK;;0NWWNOc:dXMMMMMMMMMMMMMMMMMMMMMMMM" << endl;
+cout << "MMMMNx;;llllc:dXWMMMMMMMMMMMMMMMMMMMMMMMMM" << endl;
+cout << "MMNkloONWNXKKNMMMMMMMMMMMMMMMMMMMMMMMMMMMM" << endl;
+cout << "Nklo0WMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM" << endl;
+cout << "o:xNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM" << endl;
+} 
+else if(i == 13){
+cout<< "                 %########&               " << endl;
+cout<< "                %          @              " << endl;
+cout<< "     (%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    " << endl;
+cout<< "     &%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#   " << endl;
+cout<< "     &%%%%%%%%%%%%%%####%%%%%%%%%%%%%%#   " << endl;
+cout<< "     &%%%%%%%%%%%%%%    %%%%%%%%%%%%%%#   " << endl;
+cout<< "     &%%%%%%%%%%           /%%%%%%%%%%#   " << endl;
+cout<< "     &%%%%%%%%%%,,,,    ,,,(%%%%%%%%%%#   " << endl;
+cout<< "     &%%%%%%%%%%%%%%    %%%%%%%%%%%%%%#   " << endl;
+cout<< "     &%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#   " << endl;
+cout<< "     &%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#   " << endl;
+cout<< "      .&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&     " << endl;
+}
+else if(i == 14){
+cout << " @@@                                     " << endl; 
+cout << "    @@@                                  " << endl; 
+cout << "      @@@                                " << endl; 
+cout << "         @@&          @@@@               " << endl; 
+cout << "           @@@     @@@   .@@*            " << endl; 
+cout << "             .@@*@@@        @@@          " << endl; 
+cout << "                @             (@@        " << endl; 
+cout << "                                 @@@  @@@" << endl; 
+cout << "                                   @@@@@@" << endl; 
+cout << "                                 @@@@@@@@" << endl; 
+}
+else if(i == 15){
+cout<< "                          /@&                  " << endl;
+cout<< "                      #@@@@@@@@                " << endl;
+cout<< "                       ,@  @@@@                " << endl;
+cout<< "                  @@@@@ @@ @@                  " << endl;
+cout<< "                @@@@@ @@@@                     " << endl;
+cout<< "                @@@@ @@@@%                     " << endl;
+cout<< "                @@ @@@@@                       " << endl;
+cout<< "               (@ @.                           " << endl;
+cout<< "               @ @                             " << endl;
+cout<< "              (                                " << endl;
+}
+else if( i == 16){
+cout << "     .                             .      " << endl;      
+cout << "   .                                      " << endl;
+cout << "                 @@@@@@@&@                " << endl;
+cout << "                 @@     @@                " << endl;
+cout << "     .       @@@@@@@@@@@#@@@@@            " << endl;
+cout << "           @@                 @@          " << endl;
+cout << "           @@  @@         @@  @@          " << endl;
+cout << "           @@  @@         @@  @@          " << endl;
+cout << "           @@  #@         @@  @@          " << endl;
+cout << "             @@@@@@@@@@@@@@@@@            " << endl;
+cout << "                                          " << endl;
+cout << "                                          " << endl;
+cout << "      .                  .                " << endl;
+cout << "                                          " << endl;
+cout << "                                          " << endl;
+cout << " **                         ,             " << endl;
+}
+else if( i == 17){
+cout << "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWMMWWMMMM" << endl;
+cout << "MMWXkdddddddddoodddddddddddddddddddddkXWMM" << endl;
+cout << "MMKl'''..;lo:''''''''''''.........''.'cKMM" << endl;
+cout << "MWO;.'''cOXXd'''''''''''';clodddol:,'';OMM" << endl;
+cout << "MMO;''.c0Kd;,''''''',:ldxxxdollloxkkd;;OMM" << endl;
+cout << "MWO;.,;o0Xd,.'''',ldxkxl;,'.''.''',lOOdOMM" << endl;
+cout << "WWO;.:KW0c'.''';dkkl,''''''''''''''',kXNWM" << endl;
+cout << "MMO;.'::;'''':dOx:''''''''''''''''''':OWMM" << endl;
+cout << "MMO;.'''''',oOx:''''''''''''''''''''''dWMM" << endl;
+cout << "MMO;.'''''ckOc,'''''''''''''''''''''''oNMM" << endl;
+cout << "MMO;.''.;d0d,''''''.',,;;;;;,..'''''''oNMM" << endl;
+cout << "MMO;''':kOl'.'''''. .;dKXXXXo..'''''.'xWMM" << endl;
+cout << "WMO;''cOO:.'''''''..:oOWWWWNl.'''.''.;OMMM" << endl;
+cout << "MMO;'c0O;''''''..,o0WWWMXOK0;.'''''.'oXWMM" << endl;
+cout << "WWO;:OO;''''''...kWWWNKx,.';'''''''.:O0KMM" << endl;
+cout << "MMkcOO:'''''''. .ONOxxxOo....'''''',xOlOMM" << endl;
+cout << "WW0OKl''''''..'. ,dkKWWMO;.''''''''o0c;OMM" << endl;
+cout << "MWNNx,'''''..'kxlkNWWWNO:.''''''''oOl';OMM" << endl;
+cout << "MMWKc''''''. :NMMWWXxoc'.''''''',oOl'';OMM" << endl;
+cout << "MMWk,.'''''..dWWWWNx'..'''''''',dkc''';OMM" << endl;
+cout << "MMWd''''.''..,c:ccc:'..'''''.':xx;.''.;OMM" << endl;
+cout << "MMNo.''''''...........'''''',lko,''''.;OMM" << endl;
+cout << "MMNo'''''''''.'''''''''''''cxd;''''.'';OMM" << endl;
+cout << "MMWk,.'''.'''''''.''''''':dxc''''''''.;OMM" << endl;
+cout << "WMWXl''''''''''''''''',cddc'''''.;odc';OMM" << endl;
+cout << "MMK00l,''''''''''',:oddo:'''''',cOK0o';OMM" << endl;
+cout << "WWOcoOko:,''',;cloooc:,''''.''.:0Ko,'';OMM" << endl;
+cout << "MWO;';ldxdooooool:''''''''''.,:o0Kd,'';OMM" << endl;
+cout << "MWO;''''''''''''''''''''''''.;0NOc'''';OMM" << endl;
+cout << "WMNxc,,,,,,,,,,,,,,,,,,,,,,,',:c:,,,,:xXMM" << endl;
+cout << "WWMWNK00000000KK000000000000KKKKKK0KKXWWMM" << endl;
+cout << "WMMWWMMMMMMMMMMMMMMMMMMMMMMMMMWMWMWWMMWWMM" << endl;
+}
+else if( i == 18){
+cout << "                  *(...(..,(              " << endl;
+cout << "                ........*...,%            " << endl;
+cout << "                 &..####....#             " << endl;
+cout << "                 &./.,,,#..*,&            " << endl;
+cout << "     /(*#**,.***.(./*,/*(/.(,***..**(*(#  " << endl;
+cout << "                    (.(            ....   " << endl;
+cout << "                    %((@                  " << endl;
+cout << "               ,,,,,%#(((,,,,,,,,         " << endl;
+cout << "             #*.%            ,./ & &      " << endl;
+cout << "           &/*(#..../     ....##**#*.     " << endl;
+}
 }
 
 void shop(Entity* player){

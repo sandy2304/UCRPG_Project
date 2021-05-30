@@ -6,6 +6,8 @@
 #include <time.h>
 #include <stdlib.h>
 #include "Character_Factory/Character_Factory.hpp"
+#include "save/save.hpp"
+#include <string.h>
 #include "skills/Skill.hpp"
 #include "skills/BCOE_Skill.hpp"
 #include "skills/CHASS_Skill.hpp"
@@ -13,7 +15,6 @@
 #include "skills/GSE_Skill.hpp"
 #include "skills/SB_Skill.hpp"
 #include "skills/SM_Skill.hpp"
-
 
 using namespace std;
 
@@ -34,9 +35,11 @@ void shop(Entity* );
 bool buy(Entity* );
 bool CheckPrice(int, Entity*);
 void EnemySkill(Entity*,int);
-
+void loadGame();
 
 int main() {
+	string line;
+	ifstream myfile;
 	int welcomeInput;
 	string userName;
 	int schoolInput;
@@ -54,11 +57,117 @@ int main() {
 		cout << "ERROR : INVALID INPUT! Please try again!";
 		cin >> welcomeInput;
 	}
-	if (welcomeInput == 3) {
-		return 0;
+
+	if(welcomeInput == 1){
+	myfile.open("gamedata.txt");
+	if(myfile.peek() == std::ifstream::traits_type::eof()){
+	ResetGame();
 	}
-	//IMPLEMENT THIS
-	else if( welcomeInput == 2){
+	else{
+	cout << "WARNING!! This would delete your current save!" << endl;
+	cout << "Enter \"accept\" to comfirm. Enter anything else to cancel." << endl;
+	string confirm;
+	cin >> confirm;
+	if(confirm == "accept"){
+	cout << "Resetted the game" << endl;
+	ResetGame();
+	}
+	else{
+	return 0;
+	}
+	}
+	}
+
+	if(welcomeInput == 2){
+	string line;
+	string name;
+	string school;
+	int gold;
+	int level;
+	int HP_Potion;
+	int MP_Potion;
+	int weaponlevel;
+	myfile.open("gamedata.txt");
+	if(myfile.peek() == std::ifstream::traits_type::eof()){
+        ResetGame();
+	}
+	else{
+	if(myfile.is_open()){
+	while(getline(myfile,line)){
+	if(line == "Name"){
+	getline(myfile,line);
+	if(line == "\n"){
+	cout << "An error has occurred, please reset the game" << endl;
+	return 0;
+	}
+	else{
+	name = line;
+	}
+	}
+	else if(line == "School"){
+	getline(myfile,line);
+	school = line;
+	}
+	else if(line == "GOLD"){
+	getline(myfile,line);
+	gold = stod(line);
+	}
+	else if(line == "Level"){
+	getline(myfile,line);
+	level = stod(line);
+	}
+	else if(line == "HP_Potion"){
+	getline(myfile,line);
+	HP_Potion = stod(line);
+	}
+	else if(line == "MP_Potion"){
+	getline(myfile,line);
+	MP_Potion = stod(line);
+	}
+	else if(line == "Weapon"){
+	getline(myfile,line);
+	weaponlevel = stod(line);
+	}
+	}
+	}
+	if(school == "BCOE"){
+	CharFactory = new BCOE_Factory();
+	player = CharFactory->createEntity(name,level,1);	
+	}
+	else if(school == "CHASS"){
+	CharFactory = new BCOE_Factory();
+        player = CharFactory->createEntity(name,level,1);
+	}
+	else if(school == "CNAS"){
+	CharFactory = new BCOE_Factory();
+        player = CharFactory->createEntity(name,level,1);
+	}
+	else if(school == "GSE"){
+	CharFactory = new BCOE_Factory();
+        player = CharFactory->createEntity(name,level,1);
+	}
+	else if(school == "SB"){
+	CharFactory = new BCOE_Factory();
+        player = CharFactory->createEntity(name,level,1);
+	}
+	else if(school == "SM"){
+	CharFactory = new BCOE_Factory();
+        player = CharFactory->createEntity(name,level,1);
+	}
+	else{
+	cout << "An error has occured : No school detected" << endl; 
+	}
+	player->setGOLD(player->getGold(),2);
+	player->setGOLD(gold,1);
+	player->setHP_Potion(HP_Potion,1);
+	player->setMP_Potion(MP_Potion,1);
+	for(int i = 1; i < weaponlevel; ++i){
+	player->weaponUpgrade();
+	}
+	}	
+}
+
+	if (welcomeInput == 3) {
 		return 0;
 	}
 	else if(welcomeInput == 1) {
@@ -102,7 +211,7 @@ int main() {
 			CharFactory = new SM_Factory();
 			player = CharFactory->createEntity(userName, 1, 1);
 		}
-		
+		SaveGame(player);	
 	}
 	
 	//THIS IS WHERE THE GAME HAPPENS
@@ -118,6 +227,9 @@ int main() {
 		}else if(userInput == 4){
 			school_Challenge(player); 
 		}else if(userInput == 5){
+			cout << "Saving game!" << endl;
+			SaveGame(player);
+		}else if(userInput == 6){
 			break;
 		}
 	}
@@ -135,10 +247,11 @@ void worldHubMenu(int& input){
 		cout << "2 - Access Inventory" << endl;
 		cout << "3 - See Character Details" << endl;
 		cout << "4 - Select a school to challenge" << endl;
-		cout << "5 - Quit game" << endl;
+		cout << "5 - Save Game" << endl;
+		cout << "6 - Quit game" << endl;
 		cout << "=========================================================================================" << endl;
 		cin >> input;
-		if((input <= 0) || (input >= 6)){
+		if((input <= 0) || (input >= 7)){
 			cout << "Invalid Input! Choose again" << endl;
 		}else{
 			cond = true;

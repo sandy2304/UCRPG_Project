@@ -46,6 +46,8 @@ class Entity{
 	int getMP_Potion(){return MP_potion;}
 	int getLevel(){return Level;}
 	int getGold(){return Gold;}
+	int getHP_potion(){return HP_potion;}
+	int getMP_potion(){return MP_potion;}
 	//SETTERS
 	//    *The mode is for aadding(1) to stats or subtracting(mode >1) to stats
 	void reset(){
@@ -116,7 +118,7 @@ class Entity{
 			Gold =  Gold + gold;
 		}else{
 			double tempGOLD = Gold - gold;
-			if(!(tempGOLD <= 10)){
+			if(!(tempGOLD < 0)){
 				Gold = Gold - gold;
 			}
 		}	

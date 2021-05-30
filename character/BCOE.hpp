@@ -9,7 +9,7 @@ class BCOE_Entity : public Entity{
 			if(type == 1){
 				HP = 80 * lvl ;
 				ATK = 25 * lvl;
-				DEF = 20 * lvl;
+				DEF = 30 * lvl;
 				INT = 25 * lvl;
 				MP = 20 * lvl;
 				Gold = 100 * lvl;
@@ -32,17 +32,17 @@ class BCOE_Entity : public Entity{
 		}
 		
 		virtual void LevelUp(){
-			
-			if(this->getLevel() != 6){
-				this->manualSetHP(80 * (this->getLevel() + 1));
-				this->manualSetATK(25 * (this->getLevel() + 1));
-				this->manualSetDEF(20 * (this->getLevel() + 1));
-				this->manualSetINT(25 * (this->getLevel() + 1));
-				this->manualSetMP(20 * (this->getLevel() + 1));
-				this->manualSetLevel(this->getLevel() + 1);
-			}else{
-				cout << "Character has reached max level of 6" << endl;
-			}	
+			if(Level != 6){
+				maxHP = HP = 80 * (Level + 1);
+				maxMP = MP = 20 * (Level + 1);
+				maxATK = ATK = 25 * (Level + 1);
+				maxDEF = DEF = 30 * (Level + 1);
+				maxINT = INT = 25 * (Level + 1);
+				Level++;
+			}
+			else{
+				cout << "Level Up" << endl;
+			}
 		}
 		
 

@@ -9,7 +9,7 @@ class CHASS_Entity : public Entity{
 			if(type == 1){
 				HP = 110 * lvl;
 				ATK = 15 * lvl;
-				DEF = 10 * lvl;
+				DEF = 20 * lvl;
 				INT = 15 * lvl;
 				MP = 20 * lvl;
 				Gold = 100 * lvl;
@@ -34,18 +34,17 @@ class CHASS_Entity : public Entity{
 		
 		
 		virtual void LevelUp(){
-			
-			if(this->getLevel() != 6){
-				this->manualSetHP(110 * (this->getLevel() + 1));
-				this->manualSetATK(15 * (this->getLevel() + 1));
-				this->manualSetDEF(10 * (this->getLevel() + 1));
-				this->manualSetINT(15 * (this->getLevel() + 1));
-				this->manualSetMP(20 * (this->getLevel() + 1));
-				this->manualSetLevel(this->getLevel() + 1);
-			}else{
-				cout << "Character has reached max level of 6" << endl;
+			if(Level != 6){
+				maxHP = HP = 110 * (Level + 1);
+				maxMP = MP = 20 * (Level + 1);
+				maxATK = ATK = 15 * (Level + 1);
+				maxDEF = DEF = 20 * (Level + 1);
+				maxINT = INT = 15 * (Level + 1);
+				Level++;
 			}
-				
+			else{
+				cout << "Level Up" << endl;
+			}
 		}
 		
 

@@ -33,30 +33,20 @@ int main(){
 	//Entity* player6 = new SM_Entity("pp", 8, 1);
 	//Weapon* weapon = new BCOE_Weapon(1);
 	//weapon->weaponDetails();
-	Skill* skill  = new F_Hammer();
+	//Skill* skill  = new F_Hammer();
 	Entity_Factory* Factory = new BCOE_Factory();
-	Entity_Factory* Factory2 = new SM_Factory();
-	Entity* player1 = Factory->createEntity("Dylan", 2,1);
-	Entity* player2 = Factory2->createEntity("Angel", 2,2);
-	Weapon* weapon = new BCOE_Weapon(1,1);
+	//Entity_Factory* Factory2 = new SM_Factory();
+	Entity* player1 = Factory->createEntity("Dylan", 1,1);
+	//Entity* player2 = Factory2->createEntity("Angel", 2,2);
+	//Weapon* weapon = new BCOE_Weapon(1,1);
 	player1->showStats();
-	player1->weaponUpgrade();
+	player1->LevelUp();
 	player1->showStats();
 	//player1->showMPHP();
 	//player2->showMPHP();
 	//cout << weapon->getName() << ": " << weapon->getStat() <<  endl;
 	//weapon->levelUp();
-	//cout << weapon->getName() << ": " << weapon->getStat() << endl;
-	
-	player1->showMPHP();
-	
-	player1->printBackpack();
-	
-	player1->setHP_Potion(2,1);
-  player1->printBackpack();
-	
-	player1->usePotion(1);
-	player1->printBackpack();
+	//cout << weapon->getName() << ": " << weapon->getStat() <<
 
 return 0;
 }

@@ -24,6 +24,7 @@ ofstream myfile ("gamedata.txt");
    myfile << "0\n";
    myfile << "Weapon\n";
    myfile << "1\n";
+   myfile << "Schools_Beaten\n";
    myfile.close();
    }
 else cout << "Unable to open file";
@@ -46,6 +47,8 @@ void SaveGame(Entity* player){
    myfile << player->getMP_potion() << "\n";
    myfile << "Weapon\n";
    myfile << player->getWeapon()->getLevel() << "\n";
+   myfile << "Schools_Beaten\n";
+   myfile << player->printSchoolsBeaten();
    myfile.close();
    }
 else cout << "Unable to open file";  

@@ -70,7 +70,7 @@ public:
 	
 	virtual void do_Skill(Entity* atk, Entity* rec) {
 		//What is the skill going to do
-		double damageDone = (atk->getATK() * 5 * (atk->getmaxHP() * .02)) - (rec->getDEF());
+		double damageDone = (atk->getATK() * 2 * (atk->getmaxHP() * .02)) - (rec->getDEF());
 		double mpLoss(atk->getLevel() * 5);
 
 		rec->setHP(damageDone, 2);

@@ -9,7 +9,7 @@ class CNAS_Entity : public Entity{
 			if(type == 1){
 				HP = 100 * lvl;
 				ATK = 15 * lvl;
-				DEF = 25 * lvl;
+				DEF = 35 * lvl;
 				INT = 10 * lvl;
 				MP = 20 * lvl;
 				Gold = 100 * lvl;

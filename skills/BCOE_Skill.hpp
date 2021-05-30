@@ -12,7 +12,7 @@ class Debug: public Skill{
 	
 		virtual void do_Skill(Entity* atk, Entity* rec){
 			//What is the skill going to do
-			double hpGain = ((atk->getmaxHP() - atk->getHP()) * .50);
+			double hpGain = ((atk->getmaxHP() - atk->getHP()) * .75);
 			double mpLoss = (atk->getmaxMP() * .50);
 			atk->setHP(hpGain,1);
 			
@@ -40,7 +40,7 @@ class Sabotage: public Skill{
 		
 		virtual void do_Skill(Entity* atk, Entity* rec){
 			//What is the skill going to do
-			double damageDone = (atk->getATK() * 4) - (rec->getDEF());
+			double damageDone = (atk->getATK() * 2) - (rec->getDEF());
 			double mpLoss= (8.0 * atk->getLevel());
 			rec->setHP(damageDone, 2);
 			rec->setDEF(3 * atk->getLevel(), 2);
@@ -69,7 +69,7 @@ class Faulty_Circuit: public Skill{
 			//What is the skill going to do
 			double mpLoss= (6.0 * atk->getLevel());
 			srand(time(NULL));
-			double sparks = rand()%7 + 3;
+			double sparks = (rand()% 7) + 3;
 			double damageDone = ((sparks * .7) * atk->getATK()) - (rec->getDEF());			
 
 			rec->setHP(damageDone, 2);

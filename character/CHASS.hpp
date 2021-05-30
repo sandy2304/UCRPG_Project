@@ -9,7 +9,7 @@ class CHASS_Entity : public Entity{
 			if(type == 1){
 				HP = 110 * lvl;
 				ATK = 15 * lvl;
-				DEF = 10 * lvl;
+				DEF = 20 * lvl;
 				INT = 15 * lvl;
 				MP = 20 * lvl;
 				Gold = 100 * lvl;

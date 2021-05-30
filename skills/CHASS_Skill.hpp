@@ -77,14 +77,14 @@ class Reverse_Psychology: public Skill{
 	public:
 		Reverse_Psychology():Skill(){}
 		virtual void do_Skill(Entity* atk, Entity* rec){
-			double damageDone = (rec->getATK() * (8.0)) - rec->getDEF();
+			double damageDone = (rec->getATK() * (6.0)) - rec->getDEF();
 			double attackGain = 5 * atk->getLevel();
 			rec->setHP(damageDone, 2);
 
 			double mpCost = 10 * atk->getLevel();
 			atk->setMP(mpCost, 2);
 			
-			cout << atk->getName() << " used reverse psychology and " << rec->getName() << " attacked themselve" << endl;
+			cout << atk->getName() << " used reverse psychology and " << rec->getName() << " did  " << damageDone << " to themselve " << endl;
 		}
 		
 		virtual bool manaCheck(Entity* atk){

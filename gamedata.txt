@@ -1,17 +1,17 @@
 Name
-Deez
+David
 School
 BCOE
 GOLD
-750
+1050
 Level
-2
+1
 HP_Potion
 0
 MP_Potion
-2
-Weapon
 1
+Weapon
+2
 Schools_Beaten
 
-CNAS
+

@@ -190,6 +190,12 @@ int main() {
 		cout << "=========================================================================================" << endl;
 		cin.ignore();
 		getline(cin, userName);
+		//cout << userName.size() << " characters" << endl;
+		while(userName.size() > 10){
+			cout << "Too many characters!" << endl;
+			cin.ignore();
+			getline(cin, userName);
+		}
 		cout << "=========================================================================================" << endl;	
 		cout << "Greetings " << userName << "! What school would you like to pursue?" << endl;
 		cout << "1 - Marlan and Rosemary Bourns College of Engineering (BCOE)" << endl;
@@ -382,6 +388,7 @@ void BCOE_Challenge(Entity* player, Entity_Factory* Factory){
      	player->addSchoolsBeaten("BCOE");
      }
      SaveGame(player);
+     delete opponent;
 }	
 
 void CHASS_Challenge(Entity* player, Entity_Factory* Factory){
@@ -400,7 +407,7 @@ void CHASS_Challenge(Entity* player, Entity_Factory* Factory){
      cout << "Second Opponent: The Breakdancer" << endl;
      delete opponent;
      opponent = Factory->createEntity("Breakdancer",player->getLevel(),1);
-     Battle(player, opponent,3, 5);
+     Battle(player, opponent,3, 18);
      if(player->getHP() == 0){
 	delete opponent;
 	player->reset();
@@ -410,7 +417,7 @@ void CHASS_Challenge(Entity* player, Entity_Factory* Factory){
      cout << "Final Boss: Big Brain Boy" << endl;
      delete opponent;
      opponent = Factory->createEntity("Big Brain Boy", player->getLevel(),2);
-     Battle(player, opponent,4,5);
+     Battle(player, opponent,4,17);
      if(player->getHP() == 0){
    	delete opponent;
 	player->reset();
@@ -427,6 +434,7 @@ void CHASS_Challenge(Entity* player, Entity_Factory* Factory){
      	player->LevelUp();
      	player->addSchoolsBeaten("CHASS");
      }
+     delete opponent;
      SaveGame(player);
 }
 
@@ -435,37 +443,38 @@ void CNAS_Challenge(Entity* player, Entity_Factory* Factory){
      cin.ignore();
      cin.get();
      cout << "First Opponent: Poison Skull" << endl;
-     Entity* lightbulb = Factory->createEntity("Posion Skull",player->getLevel(),1);
-     Battle(player,lightbulb,2, 6);
+     Entity* opponent = Factory->createEntity("Posion Skull",player->getLevel(),1);
+     Battle(player,opponent,2, 6);
      if(player->getHP() == 0){
+     delete opponent;
      player->reset();
      return;
      }
      cout << "Earned 100 Bear-Bucks!" << endl;
-     cin.ignore();
-     cin.get();
      player->setGOLD(100,1);
      player->reset();
      cin.ignore(); 
      cin.get();
      cout << "Second Opponent: Bombie" << endl;
-     Entity* bomb = Factory->createEntity("Bombie",player->getLevel(),1);
-     Battle(player,bomb,2,8);
+     delete opponent;
+     opponent = Factory->createEntity("Bombie",player->getLevel(),1);
+     Battle(player,opponent,2,8);
       if(player->getHP() == 0){
+     delete opponent;
      player->reset();
      return;
      }
      cout << "Earned 150 Bear-Bucks!" << endl;
      player->setGOLD(150,1);
-     cin.ignore();
-     cin.get();
      player->reset();
      cin.ignore();
      cin.get();
      cout << "Final Boss: Newton's Apple" << endl;
-     Entity* apple = Factory->createEntity("Newton's Apple",player->getLevel(),2);
-     Battle(player,apple,2,7);
+     delete opponent;
+     opponent = Factory->createEntity("Newton's Apple",player->getLevel(),2);
+     Battle(player,opponent,2,7);
 	 if(player->getHP() == 0){ 
+     delete opponent;
      player->reset();
      return;
      }
@@ -480,6 +489,7 @@ void CNAS_Challenge(Entity* player, Entity_Factory* Factory){
      	player->LevelUp();
      	player->addSchoolsBeaten("CNAS");
      }
+     delete opponent;
      SaveGame(player);
 }
 
@@ -489,8 +499,8 @@ void GSE_Challenge(Entity* player, Entity_Factory* Factory){
      cin.ignore();
      cin.get();
      cout << "First Opponent: Ruler" << endl;
-     Entity* ruler = Factory->createEntity("Ruler",player->getLevel(),1);
-     Battle(player,ruler,2, 9);
+     Entity* opponent = Factory->createEntity("Ruler",player->getLevel(),1);
+     Battle(player,opponent,2, 9);
       if(player->getHP() == 0){
      player->reset();
      return;
@@ -501,9 +511,11 @@ void GSE_Challenge(Entity* player, Entity_Factory* Factory){
      player->setGOLD(120,1);
      player->reset();
      cout << "Second Opponent: Evil Toaster" << endl;
-     Entity* pop = Factory->createEntity("Evil Toaster",player->getLevel(),1);
-     Battle(player,pop,2,10);
+     delete opponent;
+     opponent = Factory->createEntity("Evil Toaster",player->getLevel(),1);
+     Battle(player,opponent,2,10);
      if(player->getHP() == 0){
+     delete opponent;
      player->reset();
      return;
      }
@@ -513,9 +525,11 @@ void GSE_Challenge(Entity* player, Entity_Factory* Factory){
      player->setGOLD(300,1);
      player->reset();
      cout << "Final Boss: Crocker" << endl;
-     Entity* crocker = Factory->createEntity("Denzel Crocker",player->getLevel(),2);
-     Battle(player,crocker,2,11);
+     delete opponent;
+     opponent = Factory->createEntity("Denzel Crocker",player->getLevel(),2);
+     Battle(player,opponent,2,11);
       if(player->getHP() == 0){
+     delete opponent;
      player->reset();
      return;
      }
@@ -530,6 +544,7 @@ void GSE_Challenge(Entity* player, Entity_Factory* Factory){
 	player->LevelUp();
 	player->addSchoolsBeaten("GSE");
      }
+     delete opponent;
      SaveGame(player);
 }
 
@@ -539,7 +554,7 @@ void SB_Challenge(Entity* player, Entity_Factory* Factory){
      cin.get();
      cout << "First Opponent: Brick-Case" << endl; 
      Entity* opponent = Factory->createEntity("Brick-Case",player->getLevel(),1);
-     Battle(player,opponent,2, 1);
+     Battle(player,opponent,2, 16);
      if(player->getHP() == 0){
 	delete opponent;
 	player->reset();
@@ -549,7 +564,7 @@ void SB_Challenge(Entity* player, Entity_Factory* Factory){
      cout << "Second Opponent: Vlad Jr" << endl;
      delete opponent;
      opponent = Factory->createEntity("Vlad Jr",player->getLevel(),1);
-     Battle(player, opponent,3, 2);
+     Battle(player, opponent,3, 15);
      if(player->getHP() == 0){
 	delete opponent;
 	player->reset();
@@ -559,7 +574,7 @@ void SB_Challenge(Entity* player, Entity_Factory* Factory){
      cout << "Final Boss: Dylan's Doge" << endl;
      delete opponent;
      opponent = Factory->createEntity("Dylan's Doge", player->getLevel(),2);
-     Battle(player, opponent,4,3);
+     Battle(player, opponent,4,14);
      if(player->getHP() == 0){
    	delete opponent;
 	player->reset();
@@ -576,6 +591,7 @@ void SB_Challenge(Entity* player, Entity_Factory* Factory){
      	player->LevelUp();
      	player->addSchoolsBeaten("SB");
      }
+     delete opponent;
      SaveGame(player);
 }
 
@@ -585,7 +601,7 @@ void SM_Challenge(Entity* player, Entity_Factory* Factory){
      cin.get();
      cout << "First Opponent: ChugJug" << endl; 
      Entity* opponent = Factory->createEntity("ChugJug",player->getLevel(),1);
-     Battle(player,opponent,2, 1);
+     Battle(player,opponent,2, 13);
      if(player->getHP() == 0){
 	delete opponent;
 	player->reset();
@@ -595,7 +611,7 @@ void SM_Challenge(Entity* player, Entity_Factory* Factory){
      cout << "Second Opponent: Nurse Joy" << endl;
      delete opponent;
      opponent = Factory->createEntity("Nurse Joy",player->getLevel(),1);
-     Battle(player, opponent,3, 2);
+     Battle(player, opponent,3, 13);
      if(player->getHP() == 0){
 	delete opponent;
 	player->reset();
@@ -605,7 +621,7 @@ void SM_Challenge(Entity* player, Entity_Factory* Factory){
      cout << "Final Boss: Doctor Cringe" << endl;
      delete opponent;
      opponent = Factory->createEntity("Doctor Cringe", player->getLevel(),2);
-     Battle(player, opponent,4,3);
+     Battle(player, opponent,4,12);
      if(player->getHP() == 0){
    	delete opponent;
 	player->reset();
@@ -622,13 +638,12 @@ void SM_Challenge(Entity* player, Entity_Factory* Factory){
      	player->LevelUp();
      	player->addSchoolsBeaten("SM");
      }
+     delete opponent;
      SaveGame(player);
 }
 
 void playerWin(Entity* player, int gold){
 	cout << "Won " << gold  <<  " Bear-Bucks!" << endl;
-	cin.ignore();
-	cin.get();
 	player->setGOLD(gold, 1);
 	player->reset();
 	cin.ignore();

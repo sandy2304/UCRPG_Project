@@ -28,7 +28,11 @@ class Entity{
 		School = school;
 		Level = lvl;
 	}
-	virtual ~Entity(){};	
+	virtual ~Entity()
+	{
+		delete weapon;
+		delete skill;
+	}	
 	
 	//GETTERS
  	string getName(){return Name;}

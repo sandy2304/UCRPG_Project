@@ -20,7 +20,8 @@ class Entity{
 	Skill* skill = nullptr;
 	vector<string> skillList;
 	int HP_potion = 0;
-	int MP_potion = 0; 
+	int MP_potion = 0;
+	vector<string> schoolsBeaten; 
     public:
 	Entity(string name, string school, int lvl, int type){
 		Name = name;
@@ -50,6 +51,29 @@ class Entity{
 	int getMP_potion(){return MP_potion;}
 	//SETTERS
 	//    *The mode is for aadding(1) to stats or subtracting(mode >1) to stats
+	
+        void addSchoolsBeaten(string school){
+	schoolsBeaten.push_back(school);
+	}
+
+	string printSchoolsBeaten(){
+	string output;
+	for(int i = 0; i < schoolsBeaten.size();++i){
+	output += schoolsBeaten.at(i);
+	output += "\n";
+	}
+	return output;
+	}
+
+	bool checkifBeaten(string input){
+	for(int i = 0; i < schoolsBeaten.size();++i){
+	if(input == schoolsBeaten.at(i)){
+	return true;
+	}
+	}
+	return false;
+	}
+
 	void reset(){
 		HP = maxHP;
 		MP = maxMP;

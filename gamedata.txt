@@ -1,11 +1,11 @@
 Name
-
+Dylan
 School
-0
+CHASS
 GOLD
-0
+100
 Level
-0
+1
 HP_Potion
 0
 MP_Potion

@@ -54,12 +54,7 @@ int main() {
 	cout << "2 - Load game" << endl;
 	cout << "3 - Quit game" << endl; 
 	cout << "=========================================================================================" << endl;
-	cin >> welcomeInput;
-
-	while ((welcomeInput <= 0) || (welcomeInput >= 4)) {
-		cout << "ERROR : INVALID INPUT! Please try again!";
-		cin >> welcomeInput;
-	}
+	welcomeInput = inputCheck(1,3);
 
 	if(welcomeInput == 1){
 	myfile.open("gamedata.txt");
@@ -259,8 +254,6 @@ int main() {
 //******************************************************************************************************************************************************
 //================================MENUS========================================
 void worldHubMenu(int& input){
-	bool cond = false;
-	while(cond == false){
 		cout << "======================================WORLDHUB-MENU======================================" << endl;
 		cout << "Choose an action and press enter" << endl;
 		cout << "1 - Go to Scotty's Convenience Store" << endl;
@@ -270,14 +263,7 @@ void worldHubMenu(int& input){
 		cout << "5 - Save Game" << endl;
 		cout << "6 - Quit game" << endl;
 		cout << "=========================================================================================" << endl;
-		cin >> input;
-		if((input <= 0) || (input >= 7)){
-			cout << "Invalid Input! Choose again" << endl;
-		}else{
-			cond = true;
-		}
-			
-	}
+		input = inputCheck(1,6);
 }
 
 //=======================================BATTLE STUFF=======================================
@@ -782,8 +768,16 @@ int inputCheck(int rangeA, int rangeB){
 	cout << "Enter a number between " << rangeA << " and " << rangeB << endl;
 	cin >> num;
 	while(!((num >= rangeA) && (num <= rangeB))){
-		cout << "Please enter a number from " << rangeA << " to " << rangeB << endl;
-		cin >> num;	
+		if(cin.fail()){
+			cout << "Please enter a number from " << rangeA << " to " << rangeB << endl; 
+			cin.clear();
+			cin.ignore(100,'\n');
+			cin >> num;
+		}else{
+			cout << "Please enter a number from " << rangeA << " to " << rangeB << endl;
+			cin >> num;
+		}
+			
 	}
 	return num;
 }

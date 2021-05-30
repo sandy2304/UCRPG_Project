@@ -20,7 +20,6 @@ class CHASS_Weapon: public Weapon{
 			srand(time(NULL) + rand());
 			int chance = rand() % 3 + 1;
 			if(chance < 3){
-				cout << "statBoost: " << statBoost << endl;
 				int chance2 = rand() % 3 + 1;
 				int chance3 = rand() % 100 + 1;
 				int chance4;

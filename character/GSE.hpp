@@ -9,7 +9,7 @@ class GSE_Entity : public Entity{
 			if(type == 1){
 				HP = 100 * lvl;
 				ATK = 15 * lvl;
-				DEF = 15 * lvl;
+				DEF = 25 * lvl;
 				INT = 20 * lvl;
 				MP = 20 * lvl;
 				Gold = 125 * lvl;

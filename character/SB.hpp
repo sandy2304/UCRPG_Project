@@ -9,7 +9,7 @@ class SB_Entity : public Entity{
 			if(type == 1){
 				HP = 100 * lvl;
 				ATK = 20 * lvl;
-				DEF = 15 * lvl;
+				DEF = 25 * lvl;
 				INT = 15 * lvl;
 				MP = 20 * lvl;
 				Gold = 150 * lvl;
@@ -28,6 +28,7 @@ class SB_Entity : public Entity{
 			maxATK = ATK;
 			maxDEF = DEF;
 			maxINT = INT;
+			skillList = {"Briefcase","Robinhood","Stock-Market-Crash"};
 
 		}
 		

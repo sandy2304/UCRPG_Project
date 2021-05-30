@@ -9,7 +9,7 @@ class SM_Entity : public Entity{
 			if(type == 1){
 				HP = 110 * lvl;
 				ATK = 15 * lvl;
-				DEF = 15 * lvl;
+				DEF = 25 * lvl;
 				INT = 10 * lvl;
 				MP = 20 * lvl;
 				Gold = 100 * lvl;
@@ -28,6 +28,7 @@ class SM_Entity : public Entity{
 			maxATK = ATK;
 			maxDEF = DEF;
 			maxINT = INT;
+			skillList = {"Medkit","Syringe","Incision"};
 
 		}
 		

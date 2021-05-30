@@ -9,7 +9,7 @@ class BCOE_Entity : public Entity{
 			if(type == 1){
 				HP = 80 * lvl ;
 				ATK = 25 * lvl;
-				DEF = 20 * lvl;
+				DEF = 30 * lvl;
 				INT = 25 * lvl;
 				MP = 20 * lvl;
 				Gold = 100 * lvl;
@@ -34,7 +34,7 @@ class BCOE_Entity : public Entity{
 		virtual void LevelUp(){
 			
 			if(this->getLevel() != 6){
-				this->manualSetHP(80 * (this->getLevel() + 1));
+				maxHP = HP = 170.0;
 				this->manualSetATK(25 * (this->getLevel() + 1));
 				this->manualSetDEF(20 * (this->getLevel() + 1));
 				this->manualSetINT(25 * (this->getLevel() + 1));

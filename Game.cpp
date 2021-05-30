@@ -664,6 +664,9 @@ void Battle(Entity* player, Entity* enemy, int skillRange, int pic){
   		}
 	}	
   	else{	
+		if(userInput == 2){
+			use_potion = player->usePotion(Potion);
+		}
 		enemy->attack(player);
 		if(player->getHP() <= 0){
 			cout << "You lost to " << enemy->getName() << endl;
@@ -675,8 +678,6 @@ void Battle(Entity* player, Entity* enemy, int skillRange, int pic){
 				cout << "You beat the " << enemy->getName() << endl;
 				break;
 			}
-		}else{
-			use_potion = player->usePotion(Potion);
 		}
 		
   	} 

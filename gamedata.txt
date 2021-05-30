@@ -1,9 +1,9 @@
 Name
-Deez
+deez
 School
 BCOE
 GOLD
-300
+100
 Level
 1
 HP_Potion
@@ -11,4 +11,4 @@ HP_Potion
 MP_Potion
 0
 Weapon
-2
+3

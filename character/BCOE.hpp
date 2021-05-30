@@ -30,6 +30,19 @@ class BCOE_Entity : public Entity{
 			maxDEF = DEF;
 			maxINT = INT;
 		}
+		
+		virtual void LevelUp(){
+			if(Level != 6){
+				maxHP = HP = 80 * (Level + 1);
+				maxATK = ATK = 25 * (Level + 1);
+				maxDEF = DEF = 20 * (Level + 1);
+				maxINT = INT = 25 * (Level + 1);
+				maxMP = MP = 20 * (Level + 1);
+				Level = Level + 1;
+			}else{
+				cout << "Character has reached max level of 6" << endl;
+			}	
+		}
 
 };
 

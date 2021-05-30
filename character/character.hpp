@@ -180,6 +180,7 @@ class Entity{
 
 	//-----------------------------------
 	//OTHER FUNCTIONS
+	virtual void LevelUp() = 0;
 	void showStats(){
 		cout << "===================================CHARACTER-DETAILS=====================================" << endl;
 		cout << "Name  : " << Name << endl << "Level : " << Level << endl << 

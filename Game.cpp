@@ -149,7 +149,7 @@ void worldHubMenu(int& input){
 
 //=======================================BATTLE STUFF=======================================
 void school_Challenge(Entity* player){
-	cout << "Level " <<  player->getLevel() << " " << endl;	
+	cout << "WORLD Level " <<  player->getLevel() << " " << endl;	
 	if(player->getLevel() == 1){
 		BCOE_Challenge(player);
 	} 			

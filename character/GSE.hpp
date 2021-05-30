@@ -33,18 +33,19 @@ class GSE_Entity : public Entity{
 		}
 		
 		virtual void LevelUp(){
-			if(Level != 6){
-				maxHP = HP = 100 * (Level + 1);
-				maxATK = ATK = 15 * (Level + 1);
-				maxDEF = DEF = 15 * (Level + 1);
-				maxINT = INT = 20 * (Level + 1);
-				maxMP = MP = 20 * (Level + 1);
-				Level = Level + 1;
+			if(this->getLevel() != 6){
+				this->manualSetHP(100 * (this->getLevel() + 1));
+				this->manualSetATK(15 * (this->getLevel() + 1));
+				this->manualSetDEF(15 * (this->getLevel() + 1));
+				this->manualSetINT(20 * (this->getLevel() + 1));
+				this->manualSetMP(20 * (this->getLevel() + 1));
+				this->manualSetLevel(this->getLevel() + 1);
 			}else{
 				cout << "Character has reached max level of 6" << endl;
-			}	
+			}
+				
 		}
-
+		
 };
 
 #endif 

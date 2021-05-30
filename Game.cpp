@@ -279,36 +279,36 @@ void school_Challenge(Entity* player,Entity_Factory* factory){
 	int userInput;
 	cout << "WORLD Level " <<  player->getLevel() << " " << endl;	
 	cout << "Choose a school to fight: " << endl;
-	cout << "(1)-Challenge Marlan and Rosemary Bourns College of Engineering(BCOE)";
+	cout << "(1) - Challenge Marlan and Rosemary Bourns College of Engineering(BCOE)";
 	if(player->checkifBeaten("BCOE")){
 	cout << " X ";
 	}
 	cout << endl;
-	cout << "(2)-Challenge College of Humanities, Arts, and Social Sciences(CHASS)";
+	cout << "(2) - Challenge College of Humanities, Arts, and Social Sciences(CHASS)";
   if(player->checkifBeaten("CHASS")){
         cout << " X ";
         }
         cout << endl;
 
-	cout << "(3)-Challenge College of Natuiral and Agricultural Sciences(CNAS)";
+	cout << "(3) - Challenge College of Natuiral and Agricultural Sciences(CNAS)";
   if(player->checkifBeaten("CNAS")){
         cout << " X ";
         }
         cout << endl;
 
-	cout << "(4)-Challenge Graduate School of Education(GSE)";
+	cout << "(4) - Challenge Graduate School of Education(GSE)";
   if(player->checkifBeaten("GSE")){
         cout << " X ";
         }
         cout << endl;
 
-	cout << "(5)-Challenge School of Business(SB)";
+	cout << "(5) - Challenge School of Business(SB)";
   if(player->checkifBeaten("SB")){
         cout << " X ";
         }
         cout << endl;
 
-	cout << "(6)-Challenge School of Medicine(SM)";
+	cout << "(6) - Challenge School of Medicine(SM)";
   if(player->checkifBeaten("SM")){
         cout << " X ";
         }
@@ -330,20 +330,11 @@ void school_Challenge(Entity* player,Entity_Factory* factory){
 	}else if(userInput == 4){
 		factorySet(factory,4);
 		GSE_Challenge(player, factory);
-	}
-	/*
-	if(player->getLevel() == 1){
-		BCOE_Challenge(player);	}
-	else if(player->getLevel() == 2){
-		CHASS_Challenge(player);
-	} 
-	else if(player->getLevel() == 3){
-		CNAS_Challenge(player);
-	}
-	else if(player->getLevel() == 4){
-		GSE_Challenge(player);
-	}
-	*/			
+	}else if(userInput == 5){
+		cout << "SB Challenge" << endl;
+	}else if(userInput == 6){
+		cout << "SM Challenge" << endl;
+	}			
 }
 
 void BCOE_Challenge(Entity* player, Entity_Factory* Factory){
@@ -369,9 +360,9 @@ void BCOE_Challenge(Entity* player, Entity_Factory* Factory){
 	return;	
      }
      playerWin(player,150);
-     cout << "Final Boss: Electric Freak" << endl;
+     cout << "Final Boss: Electro" << endl;
      delete opponent;
-     opponent = Factory->createEntity("Electric Freak", player->getLevel(),2);
+     opponent = Factory->createEntity("Electro", player->getLevel(),2);
      Battle(player, opponent,4,3);
      if(player->getHP() == 0){
    	delete opponent;
@@ -384,12 +375,11 @@ void BCOE_Challenge(Entity* player, Entity_Factory* Factory){
      cin.get();
     
      //LEVEL UP
-     cout << "Leveled up!" << endl;
-     player->LevelUP();
-     cin.ignore();
-     cin.get();
-     
- player->addSchoolsBeaten("BCOE");
+     if(player->checkifBeaten("BCOE") == true){
+     	cout << "Leveled up!" << endl;
+     	player->LevelUp();
+     	player->addSchoolsBeaten("BCOE");
+     }
      SaveGame(player);
 }	
 
@@ -431,11 +421,11 @@ void CHASS_Challenge(Entity* player, Entity_Factory* Factory){
      cin.get();
     
      //LEVEL UP
-     cout << "Leveled up!" << endl;
-     player->LevelUP();
-     cin.ignore();
-     cin.get();
- player->addSchoolsBeaten("CHASS");
+     if(player->checkifBeaten("CHASS") == true){
+     	cout << "Leveled up!" << endl;
+     	player->LevelUp();
+     	player->addSchoolsBeaten("CHASS");
+     }
      SaveGame(player);
 }
 
@@ -450,7 +440,7 @@ void CNAS_Challenge(Entity* player, Entity_Factory* Factory){
      player->reset();
      return;
      }
-     cout << "Won 100 BB's!" << endl;
+     cout << "Earned 100 Bear-Bucks!" << endl;
      cin.ignore();
      cin.get();
      player->setGOLD(100,1);
@@ -464,7 +454,7 @@ void CNAS_Challenge(Entity* player, Entity_Factory* Factory){
      player->reset();
      return;
      }
-     cout << "Won 150 BB's!" << endl;
+     cout << "Earned 150 Bear-Bucks!" << endl;
      player->setGOLD(150,1);
      cin.ignore();
      cin.get();
@@ -482,11 +472,13 @@ void CNAS_Challenge(Entity* player, Entity_Factory* Factory){
      cout << "You beat the CNAS Challenge!" << endl;
      cin.ignore();
      cin.get();
-     cout << "Won 500 BB's!" << endl;
+     cout << "You earend 500 BB's!" << endl;
      player->setGOLD(500,1);
-     cout << "Leveled up!" << endl;
-     player->LevelUP();
-     player->addSchoolsBeaten("CNAS");
+     if(player->checkifBeaten("CHAS") == true){
+     	cout << "Leveled up!" << endl;
+     	player->LevelUp();
+     	player->addSchoolsBeaten("CNAS");
+     }
      SaveGame(player);
 }
 
@@ -529,12 +521,14 @@ void GSE_Challenge(Entity* player, Entity_Factory* Factory){
      cout << "Congratulations you beat the GSE Challenge!" << endl;
      cin.ignore();
      cin.get();
-     cout << "Leveled Up!" << endl;
-     player->LevelUP();
-     cout << "Won Mr.Crocker's 700 BB's!" << endl;
+     cout << "You earned 700 BB's!" << endl;
      player->setGOLD(700,1);
      player->reset();
-     player->addSchoolsBeaten("GSE");
+     if(player->checkifBeaten("GSE") == true){
+     	cout << "Leveled up!" << endl;
+	player->LevelUp();
+	player->addSchoolsBeaten("GSE");
+     }
      SaveGame(player);
 }
 

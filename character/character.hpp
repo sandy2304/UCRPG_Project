@@ -64,7 +64,7 @@ class Entity{
 	}
 	return output;
 	}
-
+	
 	bool checkifBeaten(string input){
 	for(int i = 0; i < schoolsBeaten.size();++i){
 	if(input == schoolsBeaten.at(i)){
@@ -73,6 +73,7 @@ class Entity{
 	}
 	return false;
 	}
+	
 
 	void reset(){
 		HP = maxHP;
@@ -147,6 +148,30 @@ class Entity{
 			}
 		}	
 	}
+	
+	void manualSetHP(double amt){
+		maxHP = amt;
+		HP = maxHP; 
+	}
+        void manualSetMP(double amt){
+		maxHP = amt;
+		HP = maxHP; 
+	}
+	void manualSetATK(double amt){
+		maxHP = amt;
+		HP = maxHP; 
+	}
+	void manualSetDEF(double amt){
+		maxHP = amt;
+		HP = maxHP; 
+	}
+	void manualSetINT(double amt){
+		maxHP = amt;
+		HP = maxHP; 
+	}
+        void manualSetLevel(int amt){
+		Level = amt;
+	}
 	//WEAPON FUNCTIONS--------------------
 	void setWeapon(Weapon* wpn){
 		delete weapon;
@@ -207,6 +232,7 @@ class Entity{
 	//-----------------------------------
 	//OTHER FUNCTIONS
 	virtual void LevelUp() = 0;
+	
 	void showStats(){
 		cout << "===================================CHARACTER-DETAILS=====================================" << endl;
 		cout << "Name  : " << Name << endl << "Level : " << Level << endl << 
@@ -309,9 +335,6 @@ class Entity{
                         MP_potion = MP_potion - number;
                 }
         }
-void LevelUP(){
-++Level;      }
 
 };
-
 #endif //Entity

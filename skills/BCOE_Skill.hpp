@@ -69,7 +69,7 @@ class Faulty_Circuit: public Skill{
 			//What is the skill going to do
 			double mpLoss= (6.0 * atk->getLevel());
 			srand(time(NULL));
-			double sparks = rand()%8 + 1;
+			double sparks = rand()%7 + 3;
 			double damageDone = ((sparks * .7) * atk->getATK()) - (rec->getDEF());			
 
 			rec->setHP(damageDone, 2);

@@ -284,8 +284,9 @@ class Entity{
                         MP_potion = MP_potion - number;
                 }
         }
+void LevelUP(){
+++Level;      }
 
-	
 };
 
 #endif //Entity

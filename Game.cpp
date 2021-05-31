@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <stdio.h>
+#include <ctype.h>
 #include <cmath>
 #include <time.h>
 #include <stdlib.h>
@@ -766,8 +767,10 @@ int inputCheck(int rangeA, int rangeB){
 	int num;
 	cout << "Enter a number between " << rangeA << " and " << rangeB << endl;
 	cin >> num;
+	
 	while(!((num >= rangeA) && (num <= rangeB))){
 		cout << "Please enter a number from " << rangeA << " to " << rangeB << endl;
+		cin.ignore();
 		cin >> num;	
 	}
 	return num;

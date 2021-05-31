@@ -1,0 +1,15 @@
+Name
+
+School
+0
+GOLD
+0
+Level
+0
+HP_Potion
+0
+MP_Potion
+0
+Weapon
+1
+Schools_Beaten

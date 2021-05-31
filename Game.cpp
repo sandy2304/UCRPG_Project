@@ -269,6 +269,7 @@ void worldHubMenu(int& input){
 //=======================================BATTLE STUFF=======================================
 void school_Challenge(Entity* player,Entity_Factory* factory){
 	int userInput;
+	cout << "=========================================CHALLEGE========================================" << endl;
 	cout << "WORLD Level " <<  player->getLevel() << " " << endl;	
 	cout << "Choose a school to fight: " << endl;
 	cout << "(1) - Challenge Marlan and Rosemary Bourns College of Engineering(BCOE)";
@@ -305,8 +306,9 @@ void school_Challenge(Entity* player,Entity_Factory* factory){
         	cout << " X ";
         }
         cout << endl;
-	cout << "Enter 7 to go back to World Hub";
+	cout << "(7) - Back to World Hub";
         cout << endl;
+	cout << "=========================================================================================" << endl;
 
 	userInput = inputCheck(1,7);
 	if(userInput == 1){
@@ -1241,21 +1243,17 @@ cout << "           &/*(#..../     ....##**#*.     " << endl;
 
 void shop(Entity* player){
 int input;
+cout << "============================================SHOP=========================================" << endl;
 cout << "Welcome to Scotty's!" << endl; 
 cout << "1. Buy" << endl;
 cout << "2. Quit" << endl; 
-cin.ignore();
-cin >> input;
-while (input != 1 && input != 2){
-cout << "Invalid input!" << endl;
-cin >> input; 
-}
-
+cout << "=========================================================================================" << endl;
+input = inputCheck(1,2);
 
 if (input == 1){
 bool cont = true;
 while (cont == true){
-cont = buy(player);
+	cont = buy(player);
 }
 }
 else if(input == 2){
@@ -1275,50 +1273,48 @@ cout << endl;
 cout << "4. Quit" << endl;
 cout <<"==========================================" << endl;
 
-cin >> select;
-while (select != 1 && select != 2 && select != 3 && select != 4){
-cout << "Invalid input!" << endl;
-cin >> select;
-}
+select = inputCheck(1,4);
 
 if(select == 1){
-if(CheckPrice(50,player) == true){
-cout << "Thank you for your purchase!" << endl;
-player->setGOLD(50,2);
-player->setHP_Potion(1,1);
-return true;
-}
-else{
-cout << "Not enough funds!" << endl;
-return true; 
-}
+	if(CheckPrice(50,player) == true){
+		cout << "Thank you for your purchase!" << endl;
+		player->setGOLD(50,2);
+		player->setHP_Potion(1,1);
+		return true;
+	}
+
+	else{
+		cout << "Not enough funds!" << endl;
+		return true; 
+	}
 }
 else if (select == 2){
-if(CheckPrice(50,player) == true){
-cout << "Thank you for your purchase!" << endl;
-player->setGOLD(50,2);
-player->setMP_Potion(1,1);
-return true;
-}
-else{
-cout << "Not enough funds!" << endl;
-return true;
-}
+	if(CheckPrice(50,player) == true){
+		cout << "Thank you for your purchase!" << endl;
+		player->setGOLD(50,2);
+		player->setMP_Potion(1,1);
+		return true;
+	}
+
+	else{
+		cout << "Not enough funds!" << endl;
+		return true;
+	}
 }
 else if (select == 3) {
-if(CheckPrice((player->getWeapon()->getLevel()+1)*100,player) == true){
-cout << "Thank you for your purchase!" << endl;
-player->setGOLD((player->getWeapon()->getLevel()+1)*100,2);
-player->getWeapon()->levelUp();
-return true;
+	if(CheckPrice((player->getWeapon()->getLevel()+1)*100,player) == true){
+		cout << "Thank you for your purchase!" << endl;
+		player->setGOLD((player->getWeapon()->getLevel()+1)*100,2);
+		player->getWeapon()->levelUp();
+		return true;
+	}
+	else{
+		cout << "Not enough funds!" << endl;
+		return true;
+	}
 }
 else{
-cout << "Not enough funds!" << endl;
-return true;
-}
-}
-else{
-return false;
+	return false;
 }
 }
 

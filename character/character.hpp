@@ -28,7 +28,11 @@ class Entity{
 		School = school;
 		Level = lvl;
 	}
-	virtual ~Entity(){};	
+	virtual ~Entity()
+	{
+		delete weapon;
+		delete skill;
+	}	
 	
 	//GETTERS
  	string getName(){return Name;}
@@ -239,6 +243,7 @@ class Entity{
 		endl << "INT: " << maxINT << endl << "Bear Bucks: " << Gold << endl;
 		cout << "----------------------------------------WEAPON-------------------------------------------" << endl;
 		weapon->weaponDetails();
+		this->printBackpack();
 		cout << "=========================================================================================" << endl;
 	}
 	void showMPHP(){

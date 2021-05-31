@@ -1,7 +1,7 @@
 Name
 Dylan
 School
-CHASS
+BCOE
 GOLD
 100
 Level
@@ -11,5 +11,5 @@ HP_Potion
 MP_Potion
 0
 Weapon
-1
+2
 Schools_Beaten

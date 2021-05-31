@@ -142,13 +142,15 @@ class Entity{
 			}
 		}		
 	}
-	void setGOLD(double gold, int mode){
+	void setGOLD(int gold, int mode){
 		if(mode == 1){
 			Gold =  Gold + gold;
 		}else{
-			double tempGOLD = Gold - gold;
+			int tempGOLD = Gold - gold;
 			if(!(tempGOLD < 0)){
 				Gold = Gold - gold;
+			}else{
+				Gold = 0;
 			}
 		}	
 	}

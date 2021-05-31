@@ -52,7 +52,39 @@
  > * Plan one more sprint (that you will not necessarily complete before the end of the quarter). Your In-progress and In-testing columns should be empty (you are not doing more work currently) but your TODO column should have a full sprint plan in it as you have done before. This should include any known bugs (there should be some) or new features you would like to add. These should appear as issues/cards on your Kanban board. 
  
  ## Screenshots
- > Screenshots of the input/output after running your application
+ ### Game Start
+ * We started a new game, made a test dummy, and gave the dummy a class for the game. 
+ ![](images/projectscreenshot1.PNG)
+ ### Shop
+ * Player chooses option 1 to see the items from the store to use for battle.
+ ![](images/projectscreenshot2.PNG)
+ ### Backpack
+ * Player chooses option 2 to see what the contents inside the backpack are. 
+ ![](images/projectscreenshot3.PNG)
+ ### Player info
+ * Player chooses option 3 to see their stats before the battle. 
+ ![](images/projectscreenshot4.PNG)
+ ### Battle Begin!
+ * Player selects option 4 and begins battle by choosing which class of enemies to fight.
+ ![](images/projectscreenshot5.PNG)
+ ### Enemy!
+ * Player chooses CNAS and begins a fight with one of the enemies.
+ ![](images/projectscreenshot6.PNG)
+ ### Damage dealt
+ * Player is informed how much damage the attack did to the enemy, along with HP and MP stats.
+ ![](images/projectscreenshot7.PNG)
+ ### On to the next one!
+ * Player defeats the first enemy and encounters a second enemy!  
+ ![](images/projectscreenshot8.PNG)
+ ### Boss Battle!
+ * Player defeats second enemy and is faced against the boss of the CNAS class.  
+ ![](images/projectscreenshot9.PNG)
+ ### Done for the day!
+ * Player beats the final boss! Player selects option 5 to save the progress, and quits game. 
+ ![](images/projectscreenshot10.PNG)
+ ### Back for more!
+ * Player loads up game and inputs option 3 to ensure all stats from the previous gameplay are correct.
+ ![](images/projectscreenshot11.PNG)
  ## Installation/Usage
  > Instructions on installing and running your application
  ## Testing

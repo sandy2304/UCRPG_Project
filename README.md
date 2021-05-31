@@ -86,7 +86,8 @@
  * Player loads up game and inputs option 3 to ensure all stats from the previous gameplay are correct.
  ![](images/projectscreenshot11.PNG)
  ## Installation/Usage
- > Instructions on installing and running your application
+ * Testing and running UCRPG was programmed through [PuTTY](https://putty.org) and the repository can be cloned for usage. 
+ * To run the game after the repository is cloned, type in `cmake3 .`, then `make`, and finally `./game`. 
  ## Testing
  > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
  

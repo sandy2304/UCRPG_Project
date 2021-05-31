@@ -247,6 +247,8 @@ int main() {
 		}else if(userInput == 6){
 			break;
 		}
+	delete player;
+	delete CharFactory;
 	}
 	
 	return 0;	

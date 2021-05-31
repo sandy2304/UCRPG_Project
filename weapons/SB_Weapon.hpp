@@ -18,6 +18,7 @@ class SB_Weapon: public Weapon{
 		
 		virtual void weaponPassive(Entity* atk, Entity* rec){
 			double dmg = atk->getGold() * .005 * statBoost;
+			rec->setHP(dmg,2);
 			cout << atk->getName() << " did " << dmg << " extra damage using his " << this->getName() << endl;
 		}
 };

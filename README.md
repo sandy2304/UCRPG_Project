@@ -20,25 +20,30 @@
 * The strategy pattern will be useful with the creation of different attacks for the player and enemies. For example, we can create a context of attacks, and have different strategies of attacks like, slash, poison, fireball. Another context would be skills, and the different strategies with could be how player's or enemy's stats like attack power, defense, or skill points are affected. This strategy pattern will help reduce the burden of modifying a main class whenever we want to add another type of attack or skill. Instead of modifying a main class, we can just add more classes that have a common interface whenever we would want to add skills/attacks.
 
 ## Class Diagram
-![](images/CS100_Project_Diagram.png)
+![](images/CS100_Project_Final_OMT_UML_Diagram(1).png)
+![](images/CS100_Project_Final_OMT_UML_Diagram(2).png)
 ### Class Description
-* There are three main parts to our class diagram:Abstract Factory pattern for the character creation and item, and strategy pattern for the character skills.
-#### Character Creation:Abstract Factory
-* This part is responsible for creating the character for the player, and enemy characters.
-* The Character_Factory is making objects from the Character interface. The Character_Factory has different factories for the different classes.
-#### Items: Abstract Factory
-* The ItemFactory creates Item objects that the where the clinet can ask objects to give to any character classes
-#### Skills: Strategy Pattern
-* The SkillStrategy provides an interface to different skills that is given to characters when they are created by the Character_Factory. 
-* Its context is the Character interface.
- > ## Phase III
- > You will need to schedule a check-in with the TA (during lab hours or office hours). Your entire team must be present. 
- > * Before the meeting you should perform a sprint plan like you did in Phase II
- > * In the meeting with your TA you will discuss: 
- >   - How effective your last sprint was (each member should talk about what they did)
- >   - Any tasks that did not get completed last sprint, and how you took them into consideration for this sprint
- >   - Any bugs you've identified and created issues for during the sprint. Do you plan on fixing them in the next sprint or are they lower priority?
- >   - What tasks you are planning for this next sprint.
+* There are 6 main parts to our class diagram; Entity Class, Weapon Class, Skill Class, Entity_Factory Class, The Client, and the Save.
+#### Entity Class
+* Entity class is an interface to 6 derived classes that correspond to 6 out of 7 schools of University of California Riverside: BCOE, CHASS, CNAS, GSE, SB, and SM.
+* Entity objects are both used for player entity and enemy entities that the game is going to interact with.
+* Entity class aggregates to Weapon and Skill class interfaces, so that every entity will have a weapon and skill(s) to use.
+#### Weapon Class
+* The Weapon Class is an interface to 6 derived classes for the six derived classes of Entity.
+* Has two virtual methods; one that shows weapon details, and one that executes weapon passive in battle.
+* Each derived Entity classes will have a unique Weapon with a unique passive skill that will be used in battles.
+#### Skill Class: Strategy Pattern
+* The Skill Class is an interface to 18 derived classes where each derived entity class(school) will have 3 Skills each.
+* It has 2 virtual methods: do_Skill(), executes a skill implementaion; manaCheck(), checks if an Entity object has enough mana for a skill.
+* The different skill abilities are basically the strategies and these can be set in the game client.
+#### Entity_Factory: Abstract Factory
+* The Entity_Factory is an interface to 6 derived classes, which are the factories for the 6 different Entities/Schools of UCR.
+* The Entity_Factory uses the new operator to create Entity and Weapon object(storing the weapon inside the Entity) pointers to be then returned as an Entity pointer.
+* Depending on the parameters, it can create Entities based on level, or entity type(Player or Enemy)
+#### Game Client
+* The Game Client is where the game occurs and it is connected with all the class interfaces(Weapon is indirectly).
+#### Save File
+* The save file contains functions that will be used by the game client to save the progress of the player in game.
 
  > ## Final deliverable
  > All group members will give a demo to the TA during lab time. The TA will check the demo and the project GitHub repository and ask a few questions to all the team members. 
@@ -47,9 +52,42 @@
  > * Plan one more sprint (that you will not necessarily complete before the end of the quarter). Your In-progress and In-testing columns should be empty (you are not doing more work currently) but your TODO column should have a full sprint plan in it as you have done before. This should include any known bugs (there should be some) or new features you would like to add. These should appear as issues/cards on your Kanban board. 
  
  ## Screenshots
- > Screenshots of the input/output after running your application
+ ### Game Start
+ * We started a new game, made a test dummy, and gave the dummy a class for the game. 
+ ![](images/projectscreenshot1.PNG)
+ ### Shop
+ * Player chooses option 1 to see the items from the store to use for battle.
+ ![](images/projectscreenshot2.PNG)
+ ### Backpack
+ * Player chooses option 2 to see what the contents inside the backpack are. 
+ ![](images/projectscreenshot3.PNG)
+ ### Player info
+ * Player chooses option 3 to see their stats before the battle. 
+ ![](images/projectscreenshot4.PNG)
+ ### Battle Begin!
+ * Player selects option 4 and begins battle by choosing which class of enemies to fight.
+ ![](images/projectscreenshot5.PNG)
+ ### Enemy!
+ * Player chooses CNAS and begins a fight with one of the enemies.
+ ![](images/projectscreenshot6.PNG)
+ ### Damage dealt
+ * Player is informed how much damage the attack did to the enemy, along with HP and MP stats.
+ ![](images/projectscreenshot7.PNG)
+ ### On to the next one!
+ * Player defeats the first enemy and encounters a second enemy!  
+ ![](images/projectscreenshot8.PNG)
+ ### Boss Battle!
+ * Player defeats second enemy and is faced against the boss of the CNAS class.  
+ ![](images/projectscreenshot9.PNG)
+ ### Done for the day!
+ * Player beats the final boss! Player selects option 5 to save the progress, and quits game. 
+ ![](images/projectscreenshot10.PNG)
+ ### Back for more!
+ * Player loads up game and inputs option 3 to ensure all stats from the previous gameplay are correct.
+ ![](images/projectscreenshot11.PNG)
  ## Installation/Usage
- > Instructions on installing and running your application
+ * Testing and running UCRPG was programmed through [PuTTY](https://putty.org) and the repository can be cloned for usage. 
+ * To run the game after the repository is cloned, type in `cmake3 .`, then `make`, and finally `./game`. 
  ## Testing
  > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
  

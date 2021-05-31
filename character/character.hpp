@@ -142,13 +142,15 @@ class Entity{
 			}
 		}		
 	}
-	void setGOLD(double gold, int mode){
+	void setGOLD(int gold, int mode){
 		if(mode == 1){
 			Gold =  Gold + gold;
 		}else{
-			double tempGOLD = Gold - gold;
+			int tempGOLD = Gold - gold;
 			if(!(tempGOLD < 0)){
 				Gold = Gold - gold;
+			}else{
+				Gold = 0;
 			}
 		}	
 	}
@@ -243,7 +245,6 @@ class Entity{
 		endl << "INT: " << maxINT << endl << "Bear Bucks: " << Gold << endl;
 		cout << "----------------------------------------WEAPON-------------------------------------------" << endl;
 		weapon->weaponDetails();
-		this->printBackpack();
 		cout << "=========================================================================================" << endl;
 	}
 	void showMPHP(){

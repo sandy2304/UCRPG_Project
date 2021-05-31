@@ -243,7 +243,6 @@ class Entity{
 		endl << "INT: " << maxINT << endl << "Bear Bucks: " << Gold << endl;
 		cout << "----------------------------------------WEAPON-------------------------------------------" << endl;
 		weapon->weaponDetails();
-		this->printBackpack();
 		cout << "=========================================================================================" << endl;
 	}
 	void showMPHP(){

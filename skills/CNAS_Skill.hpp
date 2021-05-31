@@ -60,7 +60,7 @@ class Gravity : public Skill{
                 Gravity():Skill(){}
 
         virtual void do_Skill(Entity* atk, Entity* rec){
-        double damageDone = (atk->getATK() * 9.8) - rec->getDEF();
+        double damageDone = (atk->getATK() * 7) - rec->getDEF();
         double mpLoss = (10 * atk->getLevel());
 
         rec->setHP(damageDone,2);

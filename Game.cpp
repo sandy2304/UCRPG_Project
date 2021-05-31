@@ -186,12 +186,27 @@ int main() {
 		cout << "=========================================================================================" << endl;
 		cin.ignore();
 		getline(cin, userName);
-		//cout << userName.size() << " characters" << endl;
+		cout << "userName: " << userName << endl;
+		while(userName == "\n" || userName == " "){
+		cout << "Must input a name" << endl;
+		cin.ignore();
+		getline(cin,userName);
+		}		
+		cout << "userName: " << userName << endl;
+
 		while(userName.size() > 10){
 			cout << "Too many characters!" << endl;
 			cin.ignore();
 			getline(cin, userName);
+			  while(userName == "\n" || userName == " "){
+                cout << "Must input a name" << endl;
+                cin.ignore();
+                getline(cin,userName);
+                }
 		}
+
+		cout << "userName: " << userName << endl;
+
 		cout << "=========================================================================================" << endl;	
 		cout << "Greetings " << userName << "! What school would you like to pursue?" << endl;
 		cout << "1 - Marlan and Rosemary Bourns College of Engineering (BCOE)" << endl;

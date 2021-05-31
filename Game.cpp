@@ -787,7 +787,6 @@ int inputCheck(int rangeA, int rangeB){
 	return num;
 }
 void factorySet(Entity_Factory* fac, int num){
-	delete fac;
 	if(num == 1){
 		fac = new BCOE_Factory();	
 	}else if(num == 2){

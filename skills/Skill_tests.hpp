@@ -12,7 +12,7 @@
 #include "SM_Skill.hpp"
 #include "Skill.hpp"
 
-TEST(BCOE_Skills,Debug){
+TEST(BCOE_Skills,Debug_do_Skill){
 	Entity* player1 = new BCOE_Entity("Dylan",1,1);
 	Entity* player2 = new BCOE_Entity("Bob",1,1);
 	Skill* skill = new Debug();
@@ -30,6 +30,21 @@ TEST(BCOE_Skills,Debug){
 	delete player2;
 	delete skill;
 	EXPECT_EQ(check1 , true);
+}
+
+TEST(BCOE_Skills,Debug_manaCheck){
+	Entity* player1 = new BCOE_Entity("Dylan",1,1);
+	Entity* player2 = new BCOE_Entity("Bob",1,1);
+	Skill* skill = new Debug();
+	bool  check;
+	
+	player1->setMP(19,2);
+	check = skill->manaCheck(player1);
+	
+	delete player1;
+	delete player2;
+	delete skill;
+	EXPECT_EQ(check , false);
 }
 
 #endif

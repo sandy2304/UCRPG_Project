@@ -1,5 +1,5 @@
 #ifndef __CNAS_SKILLS__
-#define __CNAS_SKILLS_
+#define __CNAS_SKILLS__
 
 #include "Skill.hpp"
 

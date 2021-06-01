@@ -1,5 +1,5 @@
 #ifndef __GSE_SKILLS__
-#define __GSE_SKILLS_
+#define __GSE_SKILLS__
 
 #include "Skill.hpp"
 #include <vector>

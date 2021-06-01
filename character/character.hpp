@@ -120,6 +120,9 @@ class Entity{
 			if(!(tempATK <= 10)){
 				ATK = ATK - atk;
 			}
+			else{
+				ATK = 10.0;
+			}
 		}
 	}
 	void setDEF(double def, int mode){
@@ -130,6 +133,9 @@ class Entity{
 			if(!(tempDEF <= 10)){
 				DEF = DEF - def;
 			}
+			else{
+				DEF = 10.0;
+			}
 		}
 	}
 	void setINT(double inte, int mode){
@@ -139,6 +145,8 @@ class Entity{
 			double tempINT = INT - inte;
 			if(!(tempINT <= 10)){
 				INT = INT - inte;
+			}else{
+				INT = 10.0;
 			}
 		}		
 	}
@@ -282,12 +290,15 @@ class Entity{
 			enemy->setHP((ATK * .75)-(enemy->getDEF() * .25) , 2);
 			cout << Name << " attacked and dealt " << (ATK * .75) << " damage" << endl;
 			this->setMP(.05 * this->getINT(),1);
-			weapon->weaponPassive(this, enemy);
-			
+			if(weapon != nullptr){
+				weapon->weaponPassive(this, enemy);
+			}
 		}else{
 			skill->do_Skill(this, enemy);
 			this->setMP(.05 * this->getINT(),1);
-			weapon->weaponPassive(this, enemy);
+			if(weapon != nullptr){
+				weapon->weaponPassive(this, enemy);
+			}
 		}
 		cout << "------------------------------------------" << endl << endl;
 	}

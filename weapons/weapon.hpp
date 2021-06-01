@@ -43,8 +43,16 @@ class Weapon{
 			}
 			//Manual Weapon Constructor that takes in the index of the type of weapon wanted (0-8)
 			else{	
-				adj = adjectives.at(lvl);
-				statBoost = 1.5 * (lvl + 1);
+				int num;
+				if((lvl >= 1) && (lvl <= 9) ){
+					num = lvl - 1;
+				}else if (lvl > 9){
+					num = 8;
+				}else{
+					num = 0;
+				}
+				adj = adjectives.at(num);
+				statBoost = 1.5 * (num + 1);
 				level = static_cast<double>(lvl);
 			}
 		}

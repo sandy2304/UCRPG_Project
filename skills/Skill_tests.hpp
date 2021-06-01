@@ -363,23 +363,14 @@ TEST(SB_Skills, Briefcase_do_Skill) {
 	bool check3 = false;
 
 	skill->do_Skill(player1, player2);
-	if (player2->getHP() < player2->getmaxHP()) {
+	if (player2->getHP() <  player2->getmaxHP()) {
 		check1 = true;
-	}
-	player1->setGOLD(999, 2);
-	player2->reset();
-	skill->do_Skill(player1, player2);
-	if (player2->getHP() == player2->getmaxHP()) {
-		check2 = true;
-	}
-	if ((check1 == true) && (check2 == true)) {
-		check3 = true;
 	}
 
 	delete player1;
 	delete player2;
 	delete skill;
-	EXPECT_EQ(check3, true);
+	EXPECT_EQ(check1, true);
 }
 
 TEST(SB_Skills, Briefcase_manaCheck) {
@@ -468,11 +459,11 @@ TEST(SM_Skills, MedKit_do_Skill) {
 	Entity* player1 = new SM_Entity("Dylan", 1, 1);
 	Entity* player2 = new SM_Entity("Bob", 1, 1);
 	Skill* skill = new MedKit();
-	int numHP = player1->getHP();
 	bool check1 = false;
-
+	
+	player1->setHP(50,2);
 	skill->do_Skill(player1, player2);
-	if (player1->getHP() > numHP) {
+	if (player1->getmaxHP() == player1->getmaxHP()) {
 		check1 = true;
 	}
 

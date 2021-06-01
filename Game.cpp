@@ -19,13 +19,13 @@
 using namespace std;
 
 void worldHubMenu(int&);
-void school_Challenge(Entity*, Entity_Factory*);
-void BCOE_Challenge(Entity*, Entity_Factory*);
-void CHASS_Challenge(Entity*, Entity_Factory*);
-void CNAS_Challenge(Entity*, Entity_Factory*);
-void GSE_Challenge(Entity*, Entity_Factory*);
-void SB_Challenge(Entity*, Entity_Factory*);
-void SM_Challenge(Entity*, Entity_Factory*); 
+void school_Challenge(Entity*);
+void BCOE_Challenge(Entity*);
+void CHASS_Challenge(Entity*);
+void CNAS_Challenge(Entity*);
+void GSE_Challenge(Entity*);
+void SB_Challenge(Entity*);
+void SM_Challenge(Entity*); 
 void Battle(Entity*,Entity*, int, int);
 void BattleMenu(Entity*,Entity*, int&,int&, int); 
 int inputCheck(int,int);
@@ -240,7 +240,7 @@ int main() {
 		}else if(userInput == 3){
 			player->showStats();
 		}else if(userInput == 4){
-			school_Challenge(player, CharFactory); 
+			school_Challenge(player);
 		}else if(userInput == 5){
 			cout << "Saving game!" << endl;
 			SaveGame(player);
@@ -270,7 +270,7 @@ void worldHubMenu(int& input){
 }
 
 //=======================================BATTLE STUFF=======================================
-void school_Challenge(Entity* player,Entity_Factory* factory){
+void school_Challenge(Entity* player){
 	int userInput;
 	cout << "=========================================CHALLEGE========================================" << endl;
 	cout << "WORLD Level " <<  player->getLevel() << " " << endl;	
@@ -315,34 +315,30 @@ void school_Challenge(Entity* player,Entity_Factory* factory){
 
 	userInput = inputCheck(1,7);
 	if(userInput == 1){
-		factorySet(factory,1);
-		BCOE_Challenge(player, factory);		
+		BCOE_Challenge(player);		
 	}else if(userInput == 2){
-		factorySet(factory,2);
-		CHASS_Challenge(player, factory);
+		CHASS_Challenge(player);
 	}else if(userInput == 3){
-		factorySet(factory,3);
-		CNAS_Challenge(player, factory);
+		CNAS_Challenge(player);
 	}else if(userInput == 4){
-		factorySet(factory,4);
-		GSE_Challenge(player, factory);
+		GSE_Challenge(player);
 	}else if(userInput == 5){
-		factorySet(factory,5);
-		SB_Challenge(player,factory);
+		SB_Challenge(player);
 	}else if(userInput == 6){
-		factorySet(factory,6);
-		SM_Challenge(player,factory);
+		SM_Challenge(player);
 	}			
 }
 
-void BCOE_Challenge(Entity* player, Entity_Factory* Factory){
+void BCOE_Challenge(Entity* player){
      cout << "Welcome to the BCOE Challenge!" << endl;
      cin.ignore();  
      cin.get();
-     cout << "First Opponent: The Debugger" << endl; 
+     cout << "First Opponent: The Debugger" << endl;
+     Entity_Factory* Factory = new BCOE_Factory(); 
      Entity* opponent = Factory->createEntity("the debugger",player->getLevel(),1);
      Battle(player,opponent,2, 1);
      if(player->getHP() == 0){
+	delete Factory;
 	delete opponent;
 	player->reset();
 	return;	
@@ -353,6 +349,7 @@ void BCOE_Challenge(Entity* player, Entity_Factory* Factory){
      opponent = Factory->createEntity("The Sabotager",player->getLevel(),1);
      Battle(player, opponent,3, 2);
      if(player->getHP() == 0){
+	delete Factory;
 	delete opponent;
 	player->reset();
 	return;	
@@ -363,6 +360,7 @@ void BCOE_Challenge(Entity* player, Entity_Factory* Factory){
      opponent = Factory->createEntity("Electro", player->getLevel(),2);
      Battle(player, opponent,4,3);
      if(player->getHP() == 0){
+	delete Factory;
    	delete opponent;
 	player->reset();
 	return;
@@ -379,17 +377,20 @@ void BCOE_Challenge(Entity* player, Entity_Factory* Factory){
      	player->addSchoolsBeaten("BCOE");
      }
      SaveGame(player);
+     delete Factory;
      delete opponent;
 }	
 
-void CHASS_Challenge(Entity* player, Entity_Factory* Factory){
+void CHASS_Challenge(Entity* player){
      cout << "Welcome to the CHASS  Challenge!" << endl;
      cin.ignore();  
      cin.get();
      cout << "First Opponent: The Thinker" << endl; 
+     Entity_Factory* Factory = new CHASS_Factory();
      Entity* opponent = Factory->createEntity("Thinker",player->getLevel(),1);
      Battle(player,opponent,2, 5);
      if(player->getHP() == 0){
+	delete Factory;
 	delete opponent;
 	player->reset();
 	return;	
@@ -400,6 +401,7 @@ void CHASS_Challenge(Entity* player, Entity_Factory* Factory){
      opponent = Factory->createEntity("Breakdancer",player->getLevel(),1);
      Battle(player, opponent,3, 18);
      if(player->getHP() == 0){
+	delete Factory;
 	delete opponent;
 	player->reset();
 	return;	
@@ -410,6 +412,7 @@ void CHASS_Challenge(Entity* player, Entity_Factory* Factory){
      opponent = Factory->createEntity("Big Brain Boy", player->getLevel(),2);
      Battle(player, opponent,4,17);
      if(player->getHP() == 0){
+	delete Factory;
    	delete opponent;
 	player->reset();
 	return;
@@ -425,18 +428,21 @@ void CHASS_Challenge(Entity* player, Entity_Factory* Factory){
      	player->LevelUp();
      	player->addSchoolsBeaten("CHASS");
      }
+     delete Factory;
      delete opponent;
      SaveGame(player);
 }
 
-void CNAS_Challenge(Entity* player, Entity_Factory* Factory){
+void CNAS_Challenge(Entity* player){
      cout << "Welcome to the CNAS Challenge!" << endl;
      cin.ignore();
      cin.get();
      cout << "First Opponent: Poison Skull" << endl;
+     Entity_Factory* Factory = new CNAS_Factory();
      Entity* opponent = Factory->createEntity("Posion Skull",player->getLevel(),1);
      Battle(player,opponent,2, 6);
      if(player->getHP() == 0){
+     delete Factory;
      delete opponent;
      player->reset();
      return;
@@ -451,6 +457,7 @@ void CNAS_Challenge(Entity* player, Entity_Factory* Factory){
      opponent = Factory->createEntity("Bombie",player->getLevel(),1);
      Battle(player,opponent,2,8);
       if(player->getHP() == 0){
+     delete Factory;
      delete opponent;
      player->reset();
      return;
@@ -465,6 +472,7 @@ void CNAS_Challenge(Entity* player, Entity_Factory* Factory){
      opponent = Factory->createEntity("Newton's Apple",player->getLevel(),2);
      Battle(player,opponent,2,7);
 	 if(player->getHP() == 0){ 
+     delete Factory;
      delete opponent;
      player->reset();
      return;
@@ -480,19 +488,23 @@ void CNAS_Challenge(Entity* player, Entity_Factory* Factory){
      	player->LevelUp();
      	player->addSchoolsBeaten("CNAS");
      }
+     delete Factory;
      delete opponent;
      SaveGame(player);
 }
 
 
-void GSE_Challenge(Entity* player, Entity_Factory* Factory){
+void GSE_Challenge(Entity* player){
      cout << "Welcome to the GSE Challenge!" << endl;
      cin.ignore();
      cin.get();
      cout << "First Opponent: Ruler" << endl;
+     Entity_Factory* Factory = new GSE_Factory();
      Entity* opponent = Factory->createEntity("Ruler",player->getLevel(),1);
      Battle(player,opponent,2, 9);
       if(player->getHP() == 0){
+     delete Factory;
+     delete opponent;
      player->reset();
      return;
      }
@@ -506,6 +518,7 @@ void GSE_Challenge(Entity* player, Entity_Factory* Factory){
      opponent = Factory->createEntity("Evil Toaster",player->getLevel(),1);
      Battle(player,opponent,2,10);
      if(player->getHP() == 0){
+     delete Factory;
      delete opponent;
      player->reset();
      return;
@@ -520,6 +533,7 @@ void GSE_Challenge(Entity* player, Entity_Factory* Factory){
      opponent = Factory->createEntity("Denzel Crocker",player->getLevel(),2);
      Battle(player,opponent,2,11);
       if(player->getHP() == 0){
+     delete Factory;
      delete opponent;
      player->reset();
      return;
@@ -535,18 +549,21 @@ void GSE_Challenge(Entity* player, Entity_Factory* Factory){
 	player->LevelUp();
 	player->addSchoolsBeaten("GSE");
      }
+     delete Factory;
      delete opponent;
      SaveGame(player);
 }
 
-void SB_Challenge(Entity* player, Entity_Factory* Factory){
+void SB_Challenge(Entity* player){
      cout << "Welcome to the SB Challenge!" << endl;
      cin.ignore();  
      cin.get();
      cout << "First Opponent: Brick-Case" << endl; 
+     Entity_Factory* Factory = new SB_Factory();
      Entity* opponent = Factory->createEntity("Brick-Case",player->getLevel(),1);
      Battle(player,opponent,2, 16);
      if(player->getHP() == 0){
+	delete Factory;
 	delete opponent;
 	player->reset();
 	return;	
@@ -557,6 +574,7 @@ void SB_Challenge(Entity* player, Entity_Factory* Factory){
      opponent = Factory->createEntity("Vlad Jr",player->getLevel(),1);
      Battle(player, opponent,3, 15);
      if(player->getHP() == 0){
+	delete Factory;
 	delete opponent;
 	player->reset();
 	return;	
@@ -567,6 +585,7 @@ void SB_Challenge(Entity* player, Entity_Factory* Factory){
      opponent = Factory->createEntity("Dylan's Doge", player->getLevel(),2);
      Battle(player, opponent,4,14);
      if(player->getHP() == 0){
+	delete Factory;
    	delete opponent;
 	player->reset();
 	return;
@@ -582,18 +601,21 @@ void SB_Challenge(Entity* player, Entity_Factory* Factory){
      	player->LevelUp();
      	player->addSchoolsBeaten("SB");
      }
+     delete Factory;
      delete opponent;
      SaveGame(player);
 }
 
-void SM_Challenge(Entity* player, Entity_Factory* Factory){
+void SM_Challenge(Entity* player){
      cout << "Welcome to the SM Challenge!" << endl;
      cin.ignore();  
      cin.get();
      cout << "First Opponent: ChugJug" << endl; 
+     Entity_Factory* Factory = new SM_Factory();
      Entity* opponent = Factory->createEntity("ChugJug",player->getLevel(),1);
      Battle(player,opponent,2, 13);
      if(player->getHP() == 0){
+	delete Factory;
 	delete opponent;
 	player->reset();
 	return;	
@@ -604,6 +626,7 @@ void SM_Challenge(Entity* player, Entity_Factory* Factory){
      opponent = Factory->createEntity("Nurse Joy",player->getLevel(),1);
      Battle(player, opponent,3, 13);
      if(player->getHP() == 0){
+	delete Factory;
 	delete opponent;
 	player->reset();
 	return;	
@@ -614,6 +637,7 @@ void SM_Challenge(Entity* player, Entity_Factory* Factory){
      opponent = Factory->createEntity("Doctor Cringe", player->getLevel(),2);
      Battle(player, opponent,4,12);
      if(player->getHP() == 0){
+	delete Factory;
    	delete opponent;
 	player->reset();
 	return;
@@ -629,6 +653,7 @@ void SM_Challenge(Entity* player, Entity_Factory* Factory){
      	player->LevelUp();
      	player->addSchoolsBeaten("SM");
      }
+     delete Factory;
      delete opponent;
      SaveGame(player);
 }
@@ -787,6 +812,7 @@ int inputCheck(int rangeA, int rangeB){
 	return num;
 }
 void factorySet(Entity_Factory* fac, int num){
+	delete fac;
 	if(num == 1){
 		fac = new BCOE_Factory();	
 	}else if(num == 2){
@@ -848,7 +874,7 @@ void skillSet(Entity* ent, string skillName){
 		Skill* newSkill = new Robinhood();
 		ent->setSkill(newSkill);
 	}else if(skillName == "Stock-Market-Crash"){
-		Skill* newSkill = new Robinhood();
+		Skill* newSkill = new StockMarketCrash();
 		ent->setSkill(newSkill);
 	}else if(skillName == "Medkit"){
 		Skill* newSkill = new MedKit();

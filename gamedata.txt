@@ -13,6 +13,6 @@ MP_Potion
 Weapon
 5
 Schools_Beaten
-
 BCOE
 CHASS
+

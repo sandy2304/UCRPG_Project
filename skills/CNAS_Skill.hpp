@@ -15,7 +15,7 @@ class Chemical_Splash: public Skill{
 			rec->setHP(damageDone,2);
 			atk->setMP(mpLoss,2);
 
-		cout << atk->getName() << " used Chemcial Splash!" << endl; 	 
+		cout << atk->getName() << " used Chemcial Splash and dealt " << damageDone << " damage!" << endl; 	 
 		}
 
 virtual bool manaCheck(Entity* atk){

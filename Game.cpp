@@ -240,7 +240,7 @@ int main() {
 			player = CharFactory->createEntity(userName, 1, 1);
 		}
 		SaveGame(player);
-		delete CharFactory;	
+		//delete CharFactory;	
 	}
 	
 	//THIS IS WHERE THE GAME HAPPENS

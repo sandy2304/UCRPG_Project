@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <stdio.h>
+#include <ctype.h>
 #include <cmath>
 #include <time.h>
 #include <stdlib.h>
@@ -185,12 +186,24 @@ int main() {
 		cout << "=========================================================================================" << endl;
 		cin.ignore();
 		getline(cin, userName);
-		//cout << userName.size() << " characters" << endl;
+		while(userName == "\n" || userName == " "){
+		cout << "Must input a name" << endl;
+		cin.ignore();
+		getline(cin,userName);
+		}		
+
 		while(userName.size() > 10){
 			cout << "Too many characters!" << endl;
 			cin.ignore();
 			getline(cin, userName);
+			  while(userName == "\n" || userName == " "){
+                cout << "Must input a name" << endl;
+                cin.ignore();
+                getline(cin,userName);
+                }
 		}
+
+
 		cout << "=========================================================================================" << endl;	
 		cout << "Greetings " << userName << "! What school would you like to pursue?" << endl;
 		cout << "1 - Marlan and Rosemary Bourns College of Engineering (BCOE)" << endl;
@@ -226,7 +239,8 @@ int main() {
 			CharFactory = new SM_Factory();
 			player = CharFactory->createEntity(userName, 1, 1);
 		}
-		SaveGame(player);	
+		SaveGame(player);
+		delete CharFactory;	
 	}
 	
 	//THIS IS WHERE THE GAME HAPPENS
@@ -316,7 +330,7 @@ void school_Challenge(Entity* player,Entity_Factory* factory){
 	userInput = inputCheck(1,7);
 	if(userInput == 1){
 		factorySet(factory,1);
-		BCOE_Challenge(player, factory);		
+		BCOE_Challenge(player, factory);
 	}else if(userInput == 2){
 		factorySet(factory,2);
 		CHASS_Challenge(player, factory);
@@ -332,7 +346,7 @@ void school_Challenge(Entity* player,Entity_Factory* factory){
 	}else if(userInput == 6){
 		factorySet(factory,6);
 		SM_Challenge(player,factory);
-	}			
+	}
 }
 
 void BCOE_Challenge(Entity* player, Entity_Factory* Factory){
@@ -772,7 +786,11 @@ int inputCheck(int rangeA, int rangeB){
 	int num;
 	cout << "Enter a number between " << rangeA << " and " << rangeB << endl;
 	cin >> num;
+	
 	while(!((num >= rangeA) && (num <= rangeB))){
+		cout << "Please enter a number from " << rangeA << " to " << rangeB << endl;
+		cin.ignore();
+		cin >> num;
 		if(cin.fail()){
 			cout << "Please enter a number from " << rangeA << " to " << rangeB << endl; 
 			cin.clear();
@@ -799,7 +817,7 @@ void factorySet(Entity_Factory* fac, int num){
 		fac = new SB_Factory();
 	}else if(num == 6){
 		fac = new SM_Factory();
-	}		
+	}
 }
 
 void skillSet(Entity* ent, string skillName){

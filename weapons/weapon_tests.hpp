@@ -11,6 +11,7 @@
 #include "SM_Weapon.hpp"
 #include "../Character_Factory/Character_Factory.hpp"
 
+
 TEST(Weapons, randomWeapon_1){
 	Weapon* weapon = new BCOE_Weapon(1,1);
 	string name = "";
@@ -199,7 +200,7 @@ TEST(Weapons, CHASS_Weapon){
 	bool check1 = false, check2 = false, check3 = false, check4 = false;
 	double hp;
 	
-	for(int i = 0; i < 10; i++){
+	for(int i = 0; i < 50; i++){
 		weapon->weaponPassive(player1, player2);
 	}
 	
@@ -316,6 +317,16 @@ TEST(Weapons, SM_Weapon){
 	delete player2;
 	delete weapon;
 	EXPECT_EQ(check, true);
+}
+
+TEST(Weapons, WeaponLevelUp){
+	Weapon* weapon = new BCOE_Weapon(1,2);
+	cout << weapon->getAdj() << endl;
+	weapon->levelUp();	
+	cout << weapon->getAdj() << endl;
+	
+	EXPECT_EQ(weapon->getAdj(), "Trash ");
+	delete weapon;
 }
 
 #endif

@@ -81,7 +81,8 @@
  ![](images/projectscreenshot11.PNG)
  ## Installation/Usage
  * Testing and running UCRPG was programmed through [PuTTY](https://putty.org) and the repository can be cloned for usage. 
- * To run the game after the repository is cloned, type in `cmake3 .`, then `make`, and finally `./game`. 
+ * To run the game after the repository is cloned, type in `cmake3 .`, then `make`, and finally `./game`.
+ * To interact with the game, input numbers or strings followed by the "enter" key as instructed by the game's outputs.
  ## Testing
  * We used google test for testing classes such as "Skill" or "Weapon". 
  * We used valgrind to see any memory leaks our program would have.

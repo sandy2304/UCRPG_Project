@@ -354,4 +354,211 @@ TEST(GSE_Skills,F_Hammer2){
 
 }
 
+TEST(SB_Skills, Briefcase_do_Skill) {
+	Entity* player1 = new SB_Entity("Dylan", 1, 1);
+	Entity* player2 = new SB_Entity("Bob", 1, 1);
+	Skill* skill = new Briefcase();
+	bool check1 = false;
+	bool check2 = false;
+	bool check3 = false;
+
+	skill->do_Skill(player1, player2);
+	if (player2->getHP() < player2->getmaxHP()) {
+		check1 = true;
+	}
+	player1->setGOLD(999, 2);
+	player2->reset();
+	skill->do_Skill(player1, player2);
+	if (player2->getHP() == player2->getmaxHP()) {
+		check2 = true;
+	}
+	if ((check1 == true) && (check2 == true)) {
+		check3 = true;
+	}
+
+	delete player1;
+	delete player2;
+	delete skill;
+	EXPECT_EQ(check3, true);
+}
+
+TEST(SB_Skills, Briefcase_manaCheck) {
+	Entity* player1 = new SB_Entity("Dylan", 1, 1);
+	Entity* player2 = new SB_Entity("Bob", 1, 1);
+	Skill* skill = new Briefcase();
+	bool check;
+
+	player1->setMP(19, 2);
+	check = skill->manaCheck(player1);
+
+	delete player1;
+	delete player2;
+	delete skill;
+	EXPECT_EQ(check, false);
+}
+
+TEST(SB_Skills, Robinhood_do_Skill) {
+	Entity* player1 = new SB_Entity("Dylan", 1, 1);
+	Entity* player2 = new SB_Entity("Bob", 1, 1);
+	Skill* skill = new Robinhood();
+	int numGold = player1->getGold();
+	bool check1 = false;
+
+	player1->setHP(20, 2);
+	skill->do_Skill(player1, player2);
+	if ((player1->getGold() > numGold) && (player1->getHP() == player1->getmaxHP())) {
+		check1 = true;
+	}
+
+	delete player1;
+	delete player2;
+	delete skill;
+	EXPECT_EQ(check1, true);
+}
+
+TEST(SB_Skills, Robinhood_manaCheck) {
+	Entity* player1 = new SB_Entity("Dylan", 1, 1);
+	Entity* player2 = new SB_Entity("Bob", 1, 1);
+	Skill* skill = new Robinhood();
+	bool check;
+
+	player1->setMP(19, 2);
+	check = skill->manaCheck(player1);
+
+	delete player1;
+	delete player2;
+	delete skill;
+	EXPECT_EQ(check, false);
+}
+
+TEST(SB_Skills, StockMarketCrash_do_Skill) {
+	Entity* player1 = new SB_Entity("Dylan", 1, 1);
+	Entity* player2 = new SB_Entity("Bob", 1, 1);
+	Skill* skill = new StockMarketCrash();
+	int numInt = player2->getINT();
+	bool check1 = false;
+
+	skill->do_Skill(player1, player2);
+	if ((player2->getHP() < player2->getmaxHP()) && (player2->getINT() > numInt)) {
+		check1 = true;
+	}
+
+	delete player1;
+	delete player2;
+	delete skill;
+	EXPECT_EQ(check1, true);
+}
+
+TEST(SB_Skills, StockMarketCrash_manaCheck) {
+	Entity* player1 = new SB_Entity("Dylan", 1, 1);
+	Entity* player2 = new SB_Entity("Bob", 1, 1);
+	Skill* skill = new StockMarketCrash();
+	bool check;
+
+	player1->setMP(19, 2);
+	check = skill->manaCheck(player1);
+
+	delete player1;
+	delete player2;
+	delete skill;
+	EXPECT_EQ(check, false);
+}
+
+TEST(SM_Skills, MedKit_do_Skill) {
+	Entity* player1 = new SM_Entity("Dylan", 1, 1);
+	Entity* player2 = new SM_Entity("Bob", 1, 1);
+	Skill* skill = new MedKit();
+	int numHP = player1->getHP();
+	bool check1 = false;
+
+	skill->do_Skill(player1, player2);
+	if (player1->getHP() > numHP) {
+		check1 = true;
+	}
+
+	delete player1;
+	delete player2;
+	delete skill;
+	EXPECT_EQ(check1, true);
+}
+
+TEST(SM_Skills, MedKit_manaCheck) {
+	Entity* player1 = new SM_Entity("Dylan", 1, 1);
+	Entity* player2 = new SM_Entity("Bob", 1, 1);
+	Skill* skill = new MedKit();
+	bool check;
+
+	player1->setMP(19, 2);
+	check = skill->manaCheck(player1);
+
+	delete player1;
+	delete player2;
+	delete skill;
+	EXPECT_EQ(check, false);
+}
+
+TEST(SM_Skills, Syringe_do_Skill) {
+	Entity* player1 = new SM_Entity("Dylan", 1, 1);
+	Entity* player2 = new SM_Entity("Bob", 1, 1);
+	Skill* skill = new Syringe();
+	bool check1 = false;
+
+	skill->do_Skill(player1, player2);
+	if ((player2->getHP() < player2->getmaxHP()) && (player2->getATK() < player2->getmaxATK()) && (player2->getDEF() < player2->getmaxDEF())) {
+		check1 = true;
+	}
+
+	delete player1;
+	delete player2;
+	delete skill;
+	EXPECT_EQ(check1, true);
+}
+
+TEST(SM_Skills, Syringe_manaCheck) {
+	Entity* player1 = new SM_Entity("Dylan", 1, 1);
+	Entity* player2 = new SM_Entity("Bob", 1, 1);
+	Skill* skill = new Syringe();
+	bool check;
+
+	player1->setMP(19, 2);
+	check = skill->manaCheck(player1);
+
+	delete player1;
+	delete player2;
+	delete skill;
+	EXPECT_EQ(check, false);
+}
+
+TEST(SM_Skills, Incision_do_Skill) {
+	Entity* player1 = new SM_Entity("Dylan", 1, 1);
+	Entity* player2 = new SM_Entity("Bob", 1, 1);
+	Skill* skill = new Incision();
+	bool check1 = false;
+
+	skill->do_Skill(player1, player2);
+	if (player2->getHP() < player2->getmaxHP()) {
+		check1 = true;
+	}
+
+	delete player1;
+	delete player2;
+	delete skill;
+	EXPECT_EQ(check1, true);
+}
+
+TEST(SM_Skills, Incision_manaCheck) {
+	Entity* player1 = new SM_Entity("Dylan", 1, 1);
+	Entity* player2 = new SM_Entity("Bob", 1, 1);
+	Skill* skill = new Incision();
+	bool check;
+
+	player1->setMP(19, 2);
+	check = skill->manaCheck(player1);
+
+	delete player1;
+	delete player2;
+	delete skill;
+	EXPECT_EQ(check, false);
+}
+
 #endif

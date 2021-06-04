@@ -40,7 +40,7 @@ void EnemySkill(Entity *, int);
 void loadGame();
 void playerWin(Entity *, int);
 void factorySet(Entity_Factory *, int);
-
+ // test branch
 int main()
 {
 	string line;

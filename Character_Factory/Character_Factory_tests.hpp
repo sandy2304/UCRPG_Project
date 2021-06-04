@@ -1,7 +1,7 @@
 #ifndef __CHARACTER_FACTORY_TESTS__
 #define __CHARACTER_FACTORY_TESTS__
 
-#include "gtest/gtest.h"
+//#include "gtest/gtest.h"
 #include "Character_Factory.hpp"
 
 

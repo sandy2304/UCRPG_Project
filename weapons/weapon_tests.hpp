@@ -1,7 +1,7 @@
 #ifndef __WEAPON_TESTS__
 #define __WEAPON_TESTS__
 
-#include "gtest/gtest.h"
+//#include "gtest/gtest.h"
 #include "weapon.hpp"
 #include "BCOE_Weapon.hpp"
 #include "CHASS_Weapon.hpp"

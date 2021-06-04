@@ -1,7 +1,7 @@
 #ifndef __SKILLS_TEST__
 #define __SKILLS_TEST__
 
-#include "gtest/gtest.h"
+//#include "gtest/gtest.h"
 #include <iostream>
 #include "../Character_Factory/Character_Factory.hpp"
 #include "BCOE_Skill.hpp"
